@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engine Fan Club Wiki</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jsons/news.js" defer></script>
+    <script src="scripts/randomlogo.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+</head>
+<body>
+
+    <div class="NewsOverlay" id="NEWSOVERLAY">
+
+        <div class="modal">
+
+            <h3>CREATION OF THE ENGINE FAN CLUB WIKI WEBSITE</h3>
+            <span class="timestamp">15 minutes ago</span><br>
+
+            <span class="content">
+                Hey so like the website was created and stuff. I think that's pretty cool. What do you think? Is it pretty cool? I think its pretty cool.
+            </span>
+
+        </div>
+        
+        <button>CLOSE</button>
+
+    </div>
+    
+    <main>
+
+        <div class="ContentContainer">
+            
+            <div class="TopBar">
+
+                <marquee behavior="" direction=""><img src="assets/construction.gif" alt=""></marquee>
+
+                <div class="LogoBar">
+
+                    <img id="EFCLOGO" src="assets/logos/logo1.png" alt="">
+
+                </div>
+
+                <nav>
+
+                    <a onclick='openPage("home")'><img src="assets/home.gif" alt=""></a>
+                    <a onclick='openPage("games")'><img src="assets/games.gif" alt=""></a>
+
+                </nav>
+
+            </div>
+
+            <div class="Content" id="home">
+
+                <img src="assets/home.png" alt="" style="height: 75px;">
+
+                <div class="center">
+                    <div class="Board">
+                        <div class="Cork" id="NEWSHOLD">
+                            
+                            <a class="Note">
+                                <h2><b>MUSTARD RECEIVES A FRESH CONTENT DROP MUSTARD RECEIVES A FRESH CONTENT DROP MUSTARD RECEIVES A FRESH CONTENT DROP</b></h2>
+                                <div class="timestamp">25/25/25 00:00</div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="Content" id="games">
+
+                <img src="assets/games.png" alt="" style="width: 350px;">
+
+                <div class="Inner">
+
+                    <a>
+                        <img src="https://tr.rbxcdn.com/180DAY-06f111c415dd74627980b43793c8f9a4/150/150/Image/Webp/noFilter" alt="">
+                        <span class="gamename">mustard</span>
+                    </a>
+
+                    <a>
+                        <img src="https://tr.rbxcdn.com/180DAY-59535938e29d59e287d37cd8c049e461/256/256/Image/Webp/noFilter" alt="">
+                        <span class="gamename">RESCRYBED</span>
+                    </a>
+
+                    <a>
+                        <img src="https://tr.rbxcdn.com/180DAY-96346bba054764fde53c1449d3a36c22/150/150/Image/Webp/noFilter" alt="">
+                        <span class="gamename">Ratts Family Diner</span>
+                    </a>
+
+                    <a>
+                        <img src="https://tr.rbxcdn.com/180DAY-64b8a6922b07a53ec86741c74506712f/150/150/Image/Webp/noFilter" alt="">
+                        <span class="gamename">son battleground</span>
+                    </a>
+
+                </div>
+
+                <div class="Paper">
+
+                    Grand and original Engine Fan Club games to feast your eyes upon!
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
