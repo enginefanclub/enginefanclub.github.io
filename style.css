@@ -1,3 +1,7 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 body {
     margin: 0;
     background: url('assets/tile2.jpg');
@@ -65,6 +69,9 @@ marquee {
     background: url('assets/marb18a.jpg');
     padding: 20px 5px;
     margin: 5px 0px;
+}
+.Inner.List {
+    flex-direction: column;
 }
 .Inner a {
     width: 25%;
@@ -144,7 +151,7 @@ marquee {
     height: 200px;
 }
 .Note:hover {
-    transform: scale(105%);
+    transform: scale(105%) rotate(0deg) !important;
     transition: 0.2s;
 }
 
@@ -178,17 +185,43 @@ marquee {
 }
 
 .modal {
-    width: 25vw;
+    width: 35vw;
     height: 70vh;
     background: url('assets/old_note.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     color: white;
+    overflow: hidden;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.222);
+    padding: 0px 10px;
 }
 .modal h3 {
     margin: 0;
 }
 .modal .timestamp {
     filter: opacity(50%);
+}
+
+.CLOSEBTN {
+    border: none;
+    background: none;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+}
+.CLOSEBTN:hover {
+    transform: scale(105%);
+}
+.CLOSEBTN:hover::before {
+    content: ">  ";
+}
+.CLOSEBTN:hover::after {
+    content: "  <";
+}
+
+.modal img {
+    width: 100%;
+    image-rendering: optimizeQuality;
 }

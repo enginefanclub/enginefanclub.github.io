@@ -12,6 +12,7 @@ function openPage(page) {
 
     document.getElementById("games").style.display = "none"
     document.getElementById("home").style.display = "none"
+    document.getElementById("aboutus").style.display = "none"
 
     document.getElementById(page).style.display = ""
 
@@ -27,7 +28,7 @@ function openNote(index) {
     
     <div class="modal">
 
-            <h3>${data.title}</h3>
+            <h2>${data.title}</h2>
             <span class="timestamp">posted ${moment(data.timestamp).fromNow()}</span><br>
 
             <span class="content">
@@ -36,7 +37,7 @@ function openNote(index) {
 
         </div>
         
-        <button onclick="closeNote()">CLOSE</button>
+        <button class="CLOSEBTN" onclick="closeNote()">CLOSE</button>
     
     `
 
@@ -48,17 +49,20 @@ function closeNote() {
 
 }
 
-    jsonData = NEWS_ARR // should be json by default
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+jsonData = NEWS_ARR // should be json by default
 
-    let index = 0
+let index = 0
 
-    jsonData.forEach(news => {
-        
-        NEWS.innerHTML += `<a class="Note" onclick="openNote(${index})">
+jsonData.forEach(news => {
+
+    NEWS.innerHTML += `<a class="Note" onclick="openNote(${index})" style="transform: rotate(${getRndInteger(-2, 1) + Math.random()}deg);">
                                 <h2><b>${news.title}</b></h2>
                                 <div class="timestamp">${moment(news.timestamp).fromNow()}</div>
                             </a>`
 
-        index ++
+    index++
 
-    });
+});
