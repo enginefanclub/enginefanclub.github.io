@@ -1,0 +1,483 @@
+[
+    {
+        "name": "The Silent Orchestra",
+        "icon": "https://static.wikitide.net/projectmoonwiki/c/cf/LC-100019-AbnoIcon.webp",
+        "id": "T-01-31",
+        "risk": "ALEPH",
+        "quip": "From break and ruin, the most beautiful performance begins.",
+
+        "counter": 2,
+        "breaches": "Yes",
+        "workdmg": {
+            "type": "WHITE",
+            "range": [7, 9]
+        },
+        "max": 30,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [19, 30],
+            "NORM": [13, 18],
+            "BAD": [0, 12] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [0, 0, 0, 0, 0],
+            "INSIGHT": [0, 0, 30, 30, 40],
+            "ATTACHMENT": [0, 0, 40, 40, 50],
+            "REPRESSION": [0, 0, 10, 20, 30]
+        },
+
+        "ego": "dacapo",
+
+        "managerial": [
+            "When the work result was Good, the Qliphoth Counter lowered.",
+            "When the work result was Bad, the Qliphoth Counter lowered.",
+            "The music that is played by The Silent Orchestra when it escapes consists of 4 Movements. As the piece progresses, the employees listening will suffer WHITE damage, meanwhile the size of the audible area of the music expands.",
+            "For each Movement, the weakness of The Silent Orchestra changed. The 1st Movement was Pale, while the 2nd Movement was Black. For the 3rd Movement it was White, and lastly, during the 4th Movement, only Red type attacks were effective. When the music reached the climax, The Silent Orchestra became immune to all forms of attack."
+        ],
+
+        "desc": "The Silent Orchestra has a beautiful performance that it just can't wait to show you!"
+    },
+
+    {
+        "name": "Der Freischütz",
+        "icon": "https://static.wikitide.net/projectmoonwiki/thumb/2/2a/LC-100103-AbnoIcon.webp/512px-LC-100103-AbnoIcon.webp.png",
+        "id": "F-01-69",
+        "risk": "HE",
+        "quip": "\"This magical bullet can truly hit anyone, just like you say.\"",
+
+        "counter": 3,
+        "breaches": "No",
+        "workdmg": {
+            "type": "BLACK",
+            "range": [3, 4]
+        },
+        "max": 18,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [12, 18],
+            "NORM": [7, 11],
+            "BAD": [0, 6] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [40, 40, 40, 40, 40],
+            "INSIGHT": [50, 50, 50, 50, 50],
+            "ATTACHMENT": [30, 30, 30, 30, 30],
+            "REPRESSION": [0, 0, 60, 60, 60]
+        },
+
+        "ego": "magicbullet",
+
+        "managerial": [
+            "Requesting aid from Der Freischütz is permitted. Der Freischütz agreed to perform the request at the expense of 10% of our current energy.",
+            "However, the bullets that Der Freischütz fires can penetrate and damage anything. Furthermore, Der Freischütz’s 7th bullet will not fire where you desire, so you must plan ahead wisely.",
+            "The Qliphoth Counter lowered when [Agent], whose Justice was lower than Level 3, completed work with Der Freischütz.",
+            "When the work result was Normal, the Qliphoth Counter lowered with a normal probability.",
+            "When the work result was Bad, the Qliphoth Counter lowered with a high probability.",
+            "When the Qliphoth Counter hit 0, Der Freischütz willfully fired a bullet towards a random location."
+        ],
+
+        "desc": "It's him. That's the guy."
+    },
+
+    {
+        "name": "We Can Change Anything",
+        "icon": "https://static.wikitide.net/projectmoonwiki/thumb/a/a9/LC-300101-AbnoIcon.webp/512px-LC-300101-AbnoIcon.webp.png",
+        "id": "T-09-85",
+        "risk": "ZAYIN",
+        "quip": "\"Now everything will be just fine.\"",
+
+        "counter": 3,
+        "breaches": "No",
+        "workdmg": {
+            "type": "BLACK",
+            "range": [3, 4]
+        },
+        "max": 18,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [12, 18],
+            "NORM": [7, 11],
+            "BAD": [0, 6] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [40, 40, 40, 40, 40],
+            "INSIGHT": [50, 50, 50, 50, 50],
+            "ATTACHMENT": [30, 30, 30, 30, 30],
+            "REPRESSION": [0, 0, 60, 60, 60]
+        },
+
+        "ego": "",
+
+        "managerial": [
+            "Requesting aid from Der Freischütz is permitted. Der Freischütz agreed to perform the request at the expense of 10% of our current energy.",
+            "However, the bullets that Der Freischütz fires can penetrate and damage anything. Furthermore, Der Freischütz’s 7th bullet will not fire where you desire, so you must plan ahead wisely.",
+            "The Qliphoth Counter lowered when [Agent], whose Justice was lower than Level 3, completed work with Der Freischütz.",
+            "When the work result was Normal, the Qliphoth Counter lowered with a normal probability.",
+            "When the work result was Bad, the Qliphoth Counter lowered with a high probability.",
+            "When the Qliphoth Counter hit 0, Der Freischütz willfully fired a bullet towards a random location."
+        ],
+
+        "desc": "It's him. That's the guy."
+    },
+
+    {
+        "name": "You Must Be Happy",
+        "icon": "https://static.wikitide.net/projectmoonwiki/thumb/3/3d/LC-300105-AbnoIcon.webp/150px-LC-300105-AbnoIcon.webp.png",
+        "id": "T-09-94",
+        "risk": "ZAYIN",
+        "quip": "\"Many of those who underwent an operation inside the machine have found themselves rested and healthy again.\"",
+
+        "counter": 3,
+        "breaches": "No",
+        "workdmg": {
+            "type": "BLACK",
+            "range": [3, 4]
+        },
+        "max": 18,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [12, 18],
+            "NORM": [7, 11],
+            "BAD": [0, 6] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [40, 40, 40, 40, 40],
+            "INSIGHT": [50, 50, 50, 50, 50],
+            "ATTACHMENT": [30, 30, 30, 30, 30],
+            "REPRESSION": [0, 0, 60, 60, 60]
+        },
+
+        "ego": "",
+
+        "managerial": [
+            "Requesting aid from Der Freischütz is permitted. Der Freischütz agreed to perform the request at the expense of 10% of our current energy.",
+            "However, the bullets that Der Freischütz fires can penetrate and damage anything. Furthermore, Der Freischütz’s 7th bullet will not fire where you desire, so you must plan ahead wisely.",
+            "The Qliphoth Counter lowered when [Agent], whose Justice was lower than Level 3, completed work with Der Freischütz.",
+            "When the work result was Normal, the Qliphoth Counter lowered with a normal probability.",
+            "When the work result was Bad, the Qliphoth Counter lowered with a high probability.",
+            "When the Qliphoth Counter hit 0, Der Freischütz willfully fired a bullet towards a random location."
+        ],
+
+        "desc": "It's him. That's the guy."
+    },
+
+    {
+        "name": "The Heart of Aspiration",
+        "icon": "https://static.wikitide.net/projectmoonwiki/thumb/c/c6/LC-300001-AbnoIcon.webp/512px-LC-300001-AbnoIcon.webp.png",
+        "id": "T-09-77",
+        "risk": "TETH",
+        "quip": "\"Excessive aspiration would bring about unwarranted frenzy.\"",
+
+        "counter": 3,
+        "breaches": "No",
+        "workdmg": {
+            "type": "BLACK",
+            "range": [3, 4]
+        },
+        "max": 18,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [12, 18],
+            "NORM": [7, 11],
+            "BAD": [0, 6] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [40, 40, 40, 40, 40],
+            "INSIGHT": [50, 50, 50, 50, 50],
+            "ATTACHMENT": [30, 30, 30, 30, 30],
+            "REPRESSION": [0, 0, 60, 60, 60]
+        },
+
+        "ego": "",
+
+        "managerial": [
+            "Requesting aid from Der Freischütz is permitted. Der Freischütz agreed to perform the request at the expense of 10% of our current energy.",
+            "However, the bullets that Der Freischütz fires can penetrate and damage anything. Furthermore, Der Freischütz’s 7th bullet will not fire where you desire, so you must plan ahead wisely.",
+            "The Qliphoth Counter lowered when [Agent], whose Justice was lower than Level 3, completed work with Der Freischütz.",
+            "When the work result was Normal, the Qliphoth Counter lowered with a normal probability.",
+            "When the work result was Bad, the Qliphoth Counter lowered with a high probability.",
+            "When the Qliphoth Counter hit 0, Der Freischütz willfully fired a bullet towards a random location."
+        ],
+
+        "desc": "It's him. That's the guy."
+    },
+
+    {
+        "name": "Lucky Coin",
+        "icon": "https://mods.store.gx.me/mods/7c3004e1-2cd2-459a-8f43-3cbab5ea7cf7/80758832-0134-4382-87d7-a98d66c0b9b8/1f94feb4-b8d0-48fe-abb9-5c5e88e0ecb2/contents/icon_512.png?a39d41257dd5047d80e0056173d3eeb0",
+        "id": "T-04-42",
+        "risk": "ALEPH",
+        "quip": "\"Hey. Hey. Have you ever heard of the coin fallacy?\"",
+
+        "counter": 3,
+        "breaches": "No",
+        "workdmg": {
+            "type": "BLACK",
+            "range": [3, 4]
+        },
+        "max": 18,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [12, 18],
+            "NORM": [7, 11],
+            "BAD": [0, 6] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [40, 40, 40, 40, 40],
+            "INSIGHT": [50, 50, 50, 50, 50],
+            "ATTACHMENT": [30, 30, 30, 30, 30],
+            "REPRESSION": [0, 0, 60, 60, 60]
+        },
+
+        "ego": "",
+
+        "managerial": [
+        ],
+
+        "desc": "<h1>Behaviour</h1>When used, it has a 50% chance of doing one of two things. It can only be used one. It can either greatly increase the user's stats, or it can randomise the abnormality placement around the entire facility. The stat increase gives +50 into all the player's stats."
+    },
+
+    {
+        "name": "Opened Can of WellCheers",
+        "icon": "https://static.wikitide.net/projectmoonwiki/thumb/3/3a/LC-100028-AbnoIcon.webp/150px-LC-100028-AbnoIcon.webp.png",
+        "id": "F-05-52",
+        "risk": "ZAYIN",
+        "quip": "Somewhere in the distance, you can hear seagulls.",
+
+        "counter": 0,
+        "breaches": "No",
+        "workdmg": {
+            "type": "RED",
+            "range": [1, 2]
+        },
+        "max": 18,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [8, 10],
+            "NORM": [5, 7],
+            "BAD": [0, 4] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [70, 70, 60, 60, 60],
+            "INSIGHT": [70, 70, 60, 60, 60],
+            "ATTACHMENT": [50, 50, 40, 40, 40],
+            "REPRESSION": [50, 50, 40, 40, 40]
+        },
+
+        "ego": "soda",
+
+        "managerial": [
+            "Upon completion of the work process, a canned beverage is discharged from the vending machine. The type of beverage that is emitted seems to vary in correlation with the work type.",
+            "<Test Result W-1> A red drink can is emitted. The employee who ingested the beverage said it had a distinctive aroma and sweetness, and expressed a feeling of heightened energy after. Following the test, the physical health of the subject was confirmed.",
+            "<Test Result W-2> A blue drink can is emitted. It contains an odorless liquid that is highly carbonated. It has been found to be effective in restoring mental strength.",
+            "<Text Result W-3; W-4> A purple drink can is emitted. Its appearance, composition, and taste are exactly the same as other grape flavored carbonated beverages. It has been found that the physical fortitude and mental strength of the ingester both recovered.",
+            "<CAUTION> When the work result with Opened Can of WellCheers is Bad, do not take any drink provided by the vending machine."
+        ],
+
+        "desc": "It's him. That's the guy."
+    },
+
+    {
+        "name": "You're Bald...",
+        "icon": "https://static.wikitide.net/projectmoonwiki/thumb/a/a1/LC-100034-AbnoIcon.webp/150px-LC-100034-AbnoIcon.webp.png",
+        "id": "Bald-is-awesome!",
+        "risk": "ZAYIN",
+        "quip": "You turn on your electric hair clipper…",
+
+        "counter": 0,
+        "breaches": "No",
+        "workdmg": {
+            "type": "BLACK",
+            "range": [1, 2]
+        },
+        "max": 6,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [4, 6],
+            "NORM": [2, 3],
+            "BAD": [0, 1] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [0, 0, 0, 0, 0],
+            "INSIGHT": [0, 0, 0, 0, 0],
+            "ATTACHMENT": [0, 0, 0, 0, 0],
+            "REPRESSION": [0, 0, 0, 0, 0]
+        },
+
+        "ego": "tough",
+
+        "managerial": [
+            "You still seem to be keeping your silky hair… You’ve been struck by the Bald-is-awesome! beam.",
+            "If you don’t work now, every employee, including you, will lose all their hair and become bald within a month.",
+            "It’s not too late. 30... 29... 28..."
+        ],
+
+        "desc": "It's him. That's the guy."
+    },
+
+    {
+        "name": "Fragment of the Universe",
+        "icon": "https://static.wikitide.net/projectmoonwiki/thumb/7/7a/LC-100036-AbnoIcon.webp/256px-LC-100036-AbnoIcon.webp.png",
+        "id": "O-03-60",
+        "risk": "TETH",
+        "quip": "You see a song in front of you. It's approaching, becoming more colorful by the second.",
+
+        "counter": 2,
+        "breaches": "Yes",
+        "workdmg": {
+            "type": "BLACK",
+            "range": [1, 3]
+        },
+        "max": 12,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [8, 12],
+            "NORM": [4, 7],
+            "BAD": [0, 3] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [30, 30, 20, 20, 20],
+            "INSIGHT": [40, 40, 30, 30, 30],
+            "ATTACHMENT": [60, 60, 50, 50, 50],
+            "REPRESSION": [50, 50, 40, 40, 40]
+        },
+
+        "ego": "fragments",
+
+        "managerial": [
+            "When the work result was Normal, the Qliphoth Counter lowered with a normal probability.",
+            "When the work result was Bad, the Qliphoth Counter lowered with a high probability.",
+            "When employee [Agent] panicked during work, the Qliphoth Counter lowered."
+        ],
+
+        "desc": "who even"
+    },
+
+    {
+        "name": "Standard Training-Dummy Rabbit",
+        "icon": "https://static.wikitide.net/projectmoonwiki/thumb/9/9a/Standard_Training-Dummy_Rabbit_Codex_Icon.webp/150px-Standard_Training-Dummy_Rabbit_Codex_Icon.webp.png",
+        "id": "0-00-00",
+        "risk": "ZAYIN",
+        "quip": "\"The manager needs training. This is what I'm here for.\"",
+
+        "counter": 1,
+        "breaches": "Yes",
+        "workdmg": {
+            "type": "RED",
+            "range": [1, 2]
+        },
+        "max": 10,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [7, 10],
+            "NORM": [4, 6],
+            "BAD": [0, 3] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [65, 65, 65, 65, 65],
+            "INSIGHT": [65, 65, 65, 65, 65],
+            "ATTACHMENT": [100, 100, 100, 100, 100],
+            "REPRESSION": [40, 40, 40, 40, 40]
+        },
+
+        "ego": "training",
+
+        "managerial": [
+            "When Repression work was performed with Standard Training-Dummy Rabbit, the Qliphoth Counter lowered."
+        ],
+
+        "desc": "<h1>Behaviour</h1>Upon breaching, the Standard Training-Dummy Rabbit will chase after the nearest employee to them. Once within close proximity, it will heal the target's SP over time. This continues for a long while, and unless provoked, the abnormality goes back to its containment. If provoked 3 times whilst near an employee, it will pop, flinging everyone in the same room as it around. This reveals an even smaller Standard Training-Dummy Rabbit, which will continue to follow the nearest employee and heal their SP gradually."
+    },
+
+    {
+        "name": "Big Bird",
+        "icon": "https://static.wikitide.net/projectmoonwiki/thumb/f/f7/LC-100008-AbnoIcon.webp/150px-LC-100008-AbnoIcon.webp.png",
+        "id": "O-02-40",
+        "risk": "WAW",
+        "quip": "A month later, we came to this conclusion: There was no such “beast” in the forest.",
+
+        "counter": 5,
+        "breaches": "Yes",
+        "workdmg": {
+            "type": "BLACK",
+            "range": [2, 6]
+        },
+        "max": 20,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [14, 20],
+            "NORM": [8, 13],
+            "BAD": [0, 7] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [45, 45, 45, 50, 50],
+            "INSIGHT": [35, 35, 35, 35, 35],
+            "ATTACHMENT": [40, 45, 50, 55, 55],
+            "REPRESSION": [25, 20, 15, 10, 0]
+        },
+
+        "ego": "lamp",
+
+        "managerial": [
+            "After 5 employees died within the facility, the Qliphoth Counter decreased. However, deaths caused by Execution Bullets were not recognized.",
+            "When the work result was Bad, the Qliphoth Counter decreased.",
+            "When the work result was Good, the Qliphoth Counter increased.",
+            "Big Bird breached its Containment Unit regardless of its Qliphoth Counter when the emergency situation in the facility reached the 2nd Trumpet.",
+            "There was a blackout in the Department where Big Bird was roaming. Employees who are in the Department with a blackout may become enchanted by Big Bird.",
+            "It seems enchanted targets receive less damage. However, after a certain amount of time had passed, those targets made their way to where Big Bird was and died from its attack.",
+            "Enchanted employees were freed from their trance as soon as they were out of the Department that suffered from the blackout."
+        ],
+
+        "desc": "who even"
+    },
+
+    {
+        "name": "Proxy to Somewhere Else",
+        "icon": "https://tse1.mm.bing.net/th/id/OIP.hEDLgSFrRh67a7_PfZMRJQHaHb?rs=1&pid=ImgDetMain",
+        "id": "OC",
+        "risk": "ZAYIN",
+        "quip": "\"It connects to a world that seems beyond us, through a wire sourcedf from nowhere.\"",
+
+        "counter": 0,
+        "breaches": "No",
+        "workdmg": {
+            "type": "WHITE",
+            "range": [1, 3]
+        },
+        "max": 10,
+        "tbw": 1,
+        "workranges": {
+            "GOOD": [6, 10],
+            "NORM": [4, 5],
+            "BAD": [0, 3] 
+        },
+
+        "workfavours": {
+            "INSTINCT": [40, 40, 30, 30, 35],
+            "INSIGHT": [60, 50, 45, 45, 50],
+            "ATTACHMENT": [50, 45, 40, 40, 35],
+            "REPRESSION": [35, 30, 30, 35, 35]
+        },
+
+        "ego": "unknownsignal",
+
+        "managerial": [
+            "Proxy to Somewhere Else lit up and showed the agent a soothing vision when the work result was Good, giving them a small increase in work performance for the rest of the day.",
+            "When Maya tried to see this vision again, Proxy to Somewhere Else displayed a different vision, increasing a different virtue. This did not repeat once all virtues have been increased.",
+            "Proxy to Somewhere Else showed the agent an insightful vision when the work result was Normal, giving them a temporary bonus to their Prudence, aswell as slowly improving their mental state."
+        ],
+
+        "desc": "<i>Written by 1nninng</i><br>"
+    }
+]

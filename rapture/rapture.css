@@ -3,6 +3,10 @@
     src: url("../assets/norwester.otf");
 }
 
+* {
+    font-weight: 900;
+}
+
 body {
     background: none;
     background: black;
@@ -25,5 +29,82 @@ nav a {
     text-decoration: none;
     color: orange;
     padding: 5px 10px !important;
+    background: black;
     border: 2px solid orange;
+    border-bottom: none;
+    z-index: 99;
+}
+nav a.selected {
+    transform: translateY(2px);
+}
+
+.Content {
+    border: 2px solid orange;
+    color: orange;
+    font-weight: 100;
+}
+
+a {
+    color: cyan;
+}
+
+.abnotableContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#abnotable th, #abnotable tr {
+    padding: 0px 20px;
+    text-align: center;
+    transition: .2s;
+}
+#abnotable th {
+    font-weight: 100;
+}
+#abnotable tr:hover {
+    background: orange;
+    transition: .2s;
+}
+#abnotable tr:hover *:not(span) {
+    color: black !important;
+    transition: .2s;
+}
+
+.abno-row {
+    cursor: pointer;
+    user-select: none;
+}
+.abno-row img {
+    width: 60px;
+    height: 60px;
+}
+.abno-row .risklevel span {
+    display: inline-block;
+    background-color: black;
+    padding: 5px 10px;
+    font-weight: 900;
+    width: 60px;
+}
+span.ZAYIN {
+    color: rgb(0, 255, 0);
+}
+span.TETH {
+    color: rgb(0, 81, 255);
+}
+span.HE {
+    color: rgb(255, 217, 0);
+}
+span.WAW {
+    color: rgb(153, 0, 255);
+}
+span.ALEPH {
+    color: rgb(255, 0, 0);
+}
+
+@media screen and (max-width:950px) {
+
+    .abnotablecount {
+        display: none;
+    }
+
 }
