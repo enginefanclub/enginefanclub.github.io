@@ -26,11 +26,12 @@ const NEWS_ARR = [
     },
 
     {
-        "title": "GETTING RID OF THE HORRIBLE DEFAULT FONT",
+        "title": "GETTING RID OF THE HORRIBLE DEFAULT FONT AND MAKING THE NEWS EASIER TO ACCESS",
         "timestamp": 1749875685298,
         "content": `
         
-        it was hurting my eyes
+        it was hurting my eyes <br>
+        additionally, now all notes are id'd (going to ?i=0 takes you to the most recent news)
         
         `
     },

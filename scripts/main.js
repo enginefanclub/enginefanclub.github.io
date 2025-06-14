@@ -41,11 +41,14 @@ function openNote(index) {
     
     `
 
+    window.history.replaceState(null, null, `?i=${index}`);
+
 }
 
 function closeNote() {
 
     OVERLAY.style.display = `none`
+    window.history.replaceState(null, '', window.location.pathname);
 
 }
 
@@ -66,3 +69,18 @@ jsonData.forEach(news => {
     index++
 
 });
+
+function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) } // https://stackoverflow.com/questions/1303646/check-whether-variable-is-number-or-string-in-javascript
+
+let params = new URLSearchParams(location.search);
+let noteIndex = params.get('i')
+
+if (isNumber(noteIndex)) {
+
+    if (noteIndex >= 0 && noteIndex <= NEWS_ARR.length-1) {
+
+        openNote(noteIndex)
+
+    }
+
+}
