@@ -99,7 +99,7 @@ marquee {
     padding: 10px;
     background-image: url("assets/wood.jpeg");
     background-size: cover;
-    height: 400px;
+    height: max-content;
     width: 100%;
 
     box-shadow: 0px 0px 10px black;
@@ -194,7 +194,7 @@ marquee {
     color: white;
     overflow: hidden;
     overflow-y: auto;
-    background: rgba(0, 0, 0, 0.222);
+    background-color: rgba(0, 0, 0, 0.222);
     padding: 0px 10px;
 }
 .modal h3 {
