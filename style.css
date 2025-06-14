@@ -173,7 +173,7 @@ marquee {
 }
 
 .NewsOverlay {
-    z-index: 99999999999;
+    z-index: 99999999999; /*genius*/
     position: fixed;
     background-color: rgba(0, 0, 0, 0.658);
     width: 100%;

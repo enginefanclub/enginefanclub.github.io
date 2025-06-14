@@ -42,6 +42,7 @@ function openNote(index) {
     `
 
     window.history.replaceState(null, null, `?i=${index}`);
+    document.querySelector('meta[property="og:title"]').setAttribute("content", data.title);
 
 }
 
@@ -49,6 +50,7 @@ function closeNote() {
 
     OVERLAY.style.display = `none`
     window.history.replaceState(null, '', window.location.pathname);
+    document.querySelector('meta[property="og:title"]').setAttribute("content", "");
 
 }
 
