@@ -99,7 +99,7 @@ marquee {
     padding: 10px;
     background-image: url("assets/wood.jpeg");
     background-size: cover;
-    height: 30vw;
+    height: 400px;
     width: 100%;
 
     box-shadow: 0px 0px 10px black;
@@ -224,4 +224,23 @@ marquee {
 .modal img {
     width: 100%;
     image-rendering: optimizeQuality;
+}
+
+@media screen and (max-width:950px) {
+
+    .ContentContainer {
+        width: 100vw !important;
+    }
+
+    .modal {
+        width: 90vw !important;
+    }
+    .Inner a {
+        width: max-content !important;
+    }
+    .Inner {
+        justify-content: center;
+        align-items: center;
+    }
+
 }
