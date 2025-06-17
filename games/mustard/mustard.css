@@ -1,0 +1,78 @@
+.castgrid {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.castmember {
+    height: 180px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin: 0px 5px;
+    transition: .2s;
+}
+.castmember:hover {
+    transform: scale(105%);
+    transition: .2s;
+}
+.castmember img {
+    width: 100px;
+    height: 130px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    object-position: center;
+    image-rendering:optimizeSpeed;
+}
+
+.modal {
+    background-image: none;
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile h1 {
+    text-align: center;
+}
+.profile img {
+    width: calc(150px * 2);
+    height: calc(180px * 2);
+}
+.desc {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+li div {
+    width: 35px !important;
+}
+
+.modal iframe {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width:950px) {
+
+    .modal {
+        flex-direction: column !important;
+        overflow-y: scroll !important;
+    }
+    .desc {
+        overflow: unset !important;
+    }
+
+}

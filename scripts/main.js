@@ -64,7 +64,7 @@ let index = 0
 jsonData.forEach(news => {
 
     NEWS.innerHTML += `<a class="Note" onclick="openNote(${index})" style="transform: rotate(${getRndInteger(-2, 1) + Math.random()}deg);">
-                                <h2><b>${news.title}</b></h2>
+                                <h2>${news.title}</h2>
                                 <div class="timestamp">${moment(news.timestamp).fromNow()}</div>
                             </a>`
 

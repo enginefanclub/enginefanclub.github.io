@@ -1,6 +1,43 @@
 /*Is there a better way of going about this? Probably! Do I care? No!*/
 const NEWS_ARR = [
 
+            {
+            "title": `STORY OF RAPTURE CORPORATION'S MELTDOWNS, PAY TO WIN ELEMENTS AND MERCHANDISE // A NEW "COOL STUFF" SECTION IS UNLOCKED?`,
+            "timestamp": 1750143379233,
+            "content": `
+            
+            <h1>MELTDOWNS</h1>
+            whilst also experimenting with the idea of making it display with increasing threat levels depending on the abnormality's
+            threat level (obviously only properly visible if basic information is unlocked) (and it also waits for work to be finished if
+            the meltdown is on the last abnormality to be worked on)<br>
+            <img src="https://files.catbox.moe/8sgi1p.gif"><br>
+            <img src="https://files.catbox.moe/ygudny.gif"><br>
+            (the abnormality threat level was changed to be aleph for this example)<br>
+            and what happens when it actually reaches 0? well <br>
+            <img src="https://files.catbox.moe/dcbcu2.gif"><br>
+            it breaches, of course! (the counter not getting removed was fixed shortly after this) <br>
+            it can also be cancelled as per usual, but i figured that's enough gifs about this for now <br>
+            also abnormalities without "basic information" unlocked will have a grey colour and a question mark
+            so it doesn't accidentally reveal their threat level lol (this becomes relevant next section)
+
+            <h1>PAY TO WIN</h1>
+            <img src="https://files.catbox.moe/nvug8d.gif"><br>
+            now you have to pay to see information! what's next, having to pay for armour and weaponry?
+
+            <h1>PAYING FOR ARMOUR AND WEAPONRY: "MERCHANDISE"</h1>
+            <img src="https://files.catbox.moe/6ry2qp.gif"><br>
+            <img src="https://files.catbox.moe/0qkylx.png"><br>
+            should be pretty self-explanatory
+
+            <h1>A NEW SECTION?</h1>
+            The "mustard" game section is now available, though it's very barebones at the minute. Lots of progress happening on all ends, but once
+            the website is up-to-date with the games progress on the games will increase.
+
+            <br><br>
+            
+            `
+        },
+
     {
         "title": `THE RAPTURE CORPORATION PADDING UPDATE: ADDING VISUALS TO PROCRASTINATE THE ACTUAL FUNCTIONALITY, AKA "SMALL STEPS"`,
         "timestamp": 1749876114565,

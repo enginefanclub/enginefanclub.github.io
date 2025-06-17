@@ -143,7 +143,7 @@ marquee {
 
     transition: 0.2s;
 
-    cursor: pointer;
+    cursor: pointer
 
 }
 .Note:first-child {
@@ -160,7 +160,14 @@ marquee {
     height: 60%;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-size: 9.5px;
+}
+.Note:first-child h2 {
+    width: 200px;
+    height: 200px;
     font-size: 12px;
+    width: 80%;
+    height: 60%;
 }
 .Note .timestamp {
 
