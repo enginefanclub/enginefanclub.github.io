@@ -1,0 +1,107 @@
+[
+    {
+
+        "name": "Jane Mustard",
+
+        "region": "BASE",
+
+        "note": "That's me!",
+        "behaviour": "Controlled by the player.",
+
+        "health": 100,
+
+        "defense": 0.8,
+        "dodge": 0.1,
+
+        "attackpower": 1,
+        "accmod": 1,
+        "critchance": 0.04,
+
+        "corpres": 1.75,
+        "swgeres": 1,
+        "sodares": 0.4,
+        "absrres": 0.6,
+        "minmres": 1.5,
+
+        "skills": [
+
+            {
+                "name": "Attack",
+
+                "class": "ATTACK",
+                "spec": "",
+
+                "basedamage": 25,
+                "accuracy": 1,
+                "revs": 0,
+                "cooldown": 0,
+
+                "corp": 0,
+                "swge": 0,
+                "soda": 0,
+                "absr": 0,
+                "minm": 0,
+
+                "extra": "3 different attacks based on the amount of 'Rev Up' used (max 3)\n1: +10 Base Damage\n2: Additional Type Damage (based on weapon)\n3: Hits an additional time. (If original target is dead, randomly selects one.)"
+            },
+
+            {
+                "name": "Rat Poison",
+
+                "class": "ATTACK",
+                "spec": "soda",
+
+                "basedamage": 5,
+                "accuracy": 0.75,
+                "revs": 0,
+                "cooldown": 0,
+
+                "corp": 0,
+                "swge": 0.1,
+                "soda": 1,
+                "absr": 0.5,
+                "minm": 0,
+
+                "extra": ""
+            }
+
+        ]
+
+    },
+
+    {
+
+        "name": "Lucia",
+
+        "region": "BASE",
+
+        "note": "nothing to say",
+        "behaviour":"",
+
+        "health": 100,
+
+        "defense": 0.9,
+        "dodge": 0.1,
+
+        "attackpower": 1,
+        "accmod": 1.1,
+        "critchance": 0.05,
+
+        "corpres": 1,
+        "swgeres": 1,
+        "sodares": 1,
+        "absrres": 1,
+        "minmres": 1,
+
+        "bleedres": 1,
+        "poisonres": 1,
+        "burnres": 1,
+
+        "skills": [
+
+           
+
+        ]
+
+    }
+]

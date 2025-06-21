@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mustard Skill Creator v2</title>
+    <link rel="stylesheet" href="creator.css">
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+    <link rel="shortcut icon"
+        href="https://tr.rbxcdn.com/180DAY-06f111c415dd74627980b43793c8f9a4/150/150/Image/Webp/noFilter"
+        type="image/png">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/skills.js" defer></script>
+</head>
+
+<body>
+    <div class="middle">
+
+        <div class="window">
+            <div class="title-bar">
+                <div class="title-bar-text"><img
+                        src="https://tr.rbxcdn.com/180DAY-06f111c415dd74627980b43793c8f9a4/150/150/Image/Webp/noFilter"
+                        alt=""> Skill Creator</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <a href="index.html"><button aria-label="Close"></button></a>
+                </div>
+            </div>
+            <div class="window-body" style="display: flex;">
+
+                <div class="left">
+                    <fieldset>
+                        <legend>Database</legend>
+                        <div class="sunken-panel database">
+
+                            <table class="interactive" style="width: 85px;">
+                                <thead>
+                                    <tr>
+                                        <th>Character</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="characters">
+                                    <tr>
+                                        <td>Jane Mustard</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Burning Wizard</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lucia</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="interactive">
+                                <thead>
+                                    <tr>
+                                        <th>Skills</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="skills">
+                                    <tr>
+                                        <td>Jane Mustard</td>
+                                    </tr>
+                                    <tr>
+                                        <td>The M</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lucia</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="right">
+                    <div class="fields">
+
+                        <fieldset>
+                            <legend>Extra</legend>
+                            <fieldset>
+                                <legend>Attacker Modifiers</legend>
+
+                                <div class="field-row">
+                                    <label for="atkpower">Attack Power:</label>
+                                    <input id="atkpower" type="number" name="">
+                                </div>
+                                <div class="field-row">
+                                    <label for="accmod">Accuracy Mod:</label>
+                                    <input id="accmod" type="number" name="">
+                                </div>
+
+                            </fieldset><br>
+                            <label for="skilldesc">Skill Description</label><br>
+                            <textarea name="" id="skilldesc" style="width: 100%;resize: none;height: 100px;"></textarea>
+
+                            <p class="details">
+                                "Attack Power" is a multiplier to a skill's "Base Damage". <br>
+                                "Accuracy Mod" is a multiplier that's applied to the skill's "Accuracy". "Accuracy" is a % chance
+                                of the skill landing (e.g. 40 is a 40% chance). Same goes for a victim's "Dodge" and their chance of
+                                dodging the skill. <br>
+                                "Defense" is a multiplier applied to the total damage. (e.g. having "Defense" 0.5 would mean that a skill
+                                with a total damage of 10 would instead do 5 damage.)
+                            </p>
+
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Attacking Skill</legend>
+
+                            <div class="field-row">
+                                <label for="skillname">Skill Name:</label>
+                                <input id="skillname" type="text" name="">
+                            </div>
+                            <div class="field-row">
+                                <label for="basedmg">Base Damage:</label>
+                                <input id="basedmg" type="number" name="">
+                            </div>
+                            <div class="field-row">
+                                <label for="accuracy">Accuracy:</label>
+                                <input id="accuracy" type="number" name="">
+                            </div>
+                            <div class="field-row">
+                                <label for="revcost">Rev Cost:</label>
+                                <input id="revcost" type="number" name="">
+                            </div>
+                            <div class="field-row">
+                                <label for="cooldown">Cooldown:</label>
+                                <input id="cooldown" type="number" name="">
+                            </div>
+
+                            <div class="field-row">
+                                <label for="skilltyping">Skill Typing:</label>
+                                <select name="skilltyping" id="skilltyping">
+                                    <option value="corp">CORP</option>
+                                    <option value="swge">SWGE</option>
+                                    <option value="soda">SODA</option>
+                                    <option value="absr">ABSR</option>
+                                    <option value="minm">MINM</option>
+                                </select>
+                            </div>
+
+                            <fieldset>
+                                <legend>Types</legend>
+
+                                <div class="field-row">
+                                    <label for="corptype">CORP:</label>
+                                    <input id="corptype" type="number" name="">
+                                </div>
+                                <div class="field-row">
+                                    <label for="swgetype">SWGE:</label>
+                                    <input id="swgetype" type="number" name="">
+                                </div>
+                                <div class="field-row">
+                                    <label for="sodatype">SODA:</label>
+                                    <input id="sodatype" type="number" name="">
+                                </div>
+                                <div class="field-row">
+                                    <label for="absrtype">ABSR:</label>
+                                    <input id="absrtype" type="number" name="">
+                                </div>
+                                <div class="field-row">
+                                    <label for="minmtype">MINM:</label>
+                                    <input id="minmtype" type="number" name="">
+                                </div>
+
+                            </fieldset>
+
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Victim</legend>
+
+                            <div class="field-row">
+                                <label for="unitname">Name:</label>
+                                <input id="unitname" type="text" name="">
+                            </div>
+                            <div class="field-row">
+                                <label for="unithp">Health:</label>
+                                <input id="unithp" type="number" name="">
+                            </div>
+                            <div class="field-row">
+                                <label for="unitdef">Defense:</label>
+                                <input id="unitdef" type="number" name="">
+                            </div>
+                            <div class="field-row">
+                                <label for="unitddg">Dodge:</label>
+                                <input id="unitddg" type="number" name="">
+                            </div>
+                            <fieldset>
+                                <legend>Resistances</legend>
+
+                                <div class="field-row">
+                                    <label for="corpres">CORP:</label>
+                                    <input id="corpres" type="number" name="">
+                                </div>
+                                <div class="field-row">
+                                    <label for="swgeres">SWGE:</label>
+                                    <input id="swgeres" type="number" name="">
+                                </div>
+                                <div class="field-row">
+                                    <label for="sodares">SODA:</label>
+                                    <input id="sodares" type="number" name="">
+                                </div>
+                                <div class="field-row">
+                                    <label for="absrres">ABSR:</label>
+                                    <input id="absrres" type="number" name="">
+                                </div>
+                                <div class="field-row">
+                                    <label for="minmres">MINM:</label>
+                                    <input id="minmres" type="number" name="">
+                                </div>
+
+                            </fieldset>
+
+                        </fieldset>
+
+                    </div>
+                    <fieldset>
+                        <legend>Results</legend>
+                        <div class="field-row" style='font-family: "Pixelated MS Sans Serif",Arial;'>
+                            <h2>Expected Damage:</h2>
+                            <h2>
+                                <span class="details">
+                                    ( ( (Base Damage) + (Sum of (Type Damage) x (Type Resisance)) ) x (Attack Power) ) x (Defense) =
+                                </span>
+                                <span id="final"></span>
+                            </h2>
+                        </div><br>
+                        <button onclick="updateDMGResult()">Calculate</button>
+                    </fieldset>
+                </div>
+
+            </div>
+
+            <div class="status-bar">
+                <p class="status-bar-field">Windows XP styling from <a href="https://github.com/botoxparty/XP.css">https://github.com/botoxparty/XP.css</a></p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

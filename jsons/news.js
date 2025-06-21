@@ -1,10 +1,26 @@
 /*Is there a better way of going about this? Probably! Do I care? No!*/
 const NEWS_ARR = [
 
-            {
-            "title": `STORY OF RAPTURE CORPORATION'S MELTDOWNS, PAY TO WIN ELEMENTS AND MERCHANDISE // A NEW "COOL STUFF" SECTION IS UNLOCKED?`,
-            "timestamp": 1750143379233,
-            "content": `
+    {
+        "title": "SMALLER WEBSITE UPDATE - UPDATING THE MUSTARD SKILL CREATOR",
+        "timestamp": 1750521571465,
+        "content": `
+        
+        The mustard skill creator was long overdue for a makeover and some improvements.
+        Not only is it now included in engine fan club, it's also got a new face. This is a small update
+        because I have the basic functionality and test units working for it, with the saving/loading of
+        custom set characters coming soon. It will also come with support for <b>importing characters</b>
+        from the older version into this new version so that you don't have to use both websites. <br>
+        The creator will be finalised in the upcoming days, it's only out now so I can test if it works for everyone. <br>
+        Mobile accessibility for the skill creator will not be implemented for a good while if ever.
+        
+        `
+    },
+
+    {
+        "title": `STORY OF RAPTURE CORPORATION'S MELTDOWNS, PAY TO WIN ELEMENTS AND MERCHANDISE // A NEW "COOL STUFF" SECTION IS UNLOCKED?`,
+        "timestamp": 1750143379233,
+        "content": `
             
             <h1>MELTDOWNS</h1>
             whilst also experimenting with the idea of making it display with increasing threat levels depending on the abnormality's
@@ -36,7 +52,7 @@ const NEWS_ARR = [
             <br><br>
             
             `
-        },
+    },
 
     {
         "title": `THE RAPTURE CORPORATION PADDING UPDATE: ADDING VISUALS TO PROCRASTINATE THE ACTUAL FUNCTIONALITY, AKA "SMALL STEPS"`,
@@ -82,5 +98,5 @@ const NEWS_ARR = [
         
         `
     }
-    
+
 ]

@@ -8,7 +8,9 @@ const CAST = [
         "desc": `
         <h2>Basic Information</h2>
         <ul>
-        <li></li>
+        <li>list item</li>
+        <li>list item</li>
+        <li>list item</li>
         </ul>
 
         <h2>About</h2>
