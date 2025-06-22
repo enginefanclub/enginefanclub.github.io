@@ -92,6 +92,11 @@ h2 {
 table {
     width: 100%;
     font-family: "Pixelated MS Sans Serif", Arial;
+    max-height: 350px !important;
+    display:block;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box; 
 }
 
 .database {
@@ -136,17 +141,44 @@ tr {
 
 tr td {
     display: inline-block;
-    width: 100%;
+    width: 100%;    
+}
+#skills td {
+    padding: 0px 10px;
+    box-sizing: border-box;
 }
 
 td button {
     width: 100%;
 }
 
+#characters tr {
+    max-width: 50%;
+    text-overflow: ellipsis;
+}
+#characters tr td button {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 #skills tr td button {
     filter: brightness(100%);
 }
 
+button.removal {
+    min-width: unset;
+    width: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button.removal img {
+    width: 15px;
+}
+
+#skills td {
+    display: flex;
+}
 
 tr td button {
     filter: brightness(90%);
@@ -196,3 +228,17 @@ h2 .details {
     max-width: none;
 }
 
+select {
+    max-width: 100px !important;
+    text-overflow: ellipsis;
+}
+
+td.split {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.split hr {
+    width: 100%;
+}

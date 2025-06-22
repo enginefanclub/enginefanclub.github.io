@@ -42,7 +42,7 @@
                 "absr": 0,
                 "minm": 0,
 
-                "extra": "3 different attacks based on the amount of 'Rev Up' used (max 3)\n1: +10 Base Damage\n2: Additional Type Damage (based on weapon)\n3: Hits an additional time. (If original target is dead, randomly selects one.)"
+                "extra": ""
             },
 
             {
@@ -80,18 +80,18 @@
 
         "health": 100,
 
-        "defense": 0.9,
-        "dodge": 0.1,
+        "defense": 1.1,
+        "dodge": 0.3,
 
         "attackpower": 1,
         "accmod": 1.1,
         "critchance": 0.05,
 
         "corpres": 1,
-        "swgeres": 1,
-        "sodares": 1,
-        "absrres": 1,
-        "minmres": 1,
+        "swgeres": 1.5,
+        "sodares": 1.25,
+        "absrres": 0.3,
+        "minmres": 0.5,
 
         "bleedres": 1,
         "poisonres": 1,

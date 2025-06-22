@@ -35,7 +35,7 @@
                         <legend>Database</legend>
                         <div class="sunken-panel database">
 
-                            <table class="interactive" style="width: 85px;">
+                            <table class="interactive" style="width: 115px;">
                                 <thead>
                                     <tr>
                                         <th>Character</th>
@@ -75,6 +75,17 @@
 
                         </div>
                     </fieldset>
+
+                    <fieldset>
+                        <legend>Data</legend>
+
+                        <textarea name="" id="import" style="resize: none;width: 100%;height: 50px;"></textarea><br>
+                        <select name="" id="importoptions" class="savedoptions">
+                            <option value="">Jane Mustard</option>
+                        </select>
+                        <button onclick="importSkill()">Import Skill</button>
+                    </fieldset>
+
                 </div>
                 <div class="right">
                     <div class="fields">
@@ -86,11 +97,11 @@
 
                                 <div class="field-row">
                                     <label for="atkpower">Attack Power:</label>
-                                    <input id="atkpower" type="number" name="">
+                                    <input id="atkpower" type="number" name="" value="1">
                                 </div>
                                 <div class="field-row">
                                     <label for="accmod">Accuracy Mod:</label>
-                                    <input id="accmod" type="number" name="">
+                                    <input id="accmod" type="number" name="" value="1">
                                 </div>
 
                             </fieldset><br>
@@ -99,10 +110,13 @@
 
                             <p class="details">
                                 "Attack Power" is a multiplier to a skill's "Base Damage". <br>
-                                "Accuracy Mod" is a multiplier that's applied to the skill's "Accuracy". "Accuracy" is a % chance
-                                of the skill landing (e.g. 40 is a 40% chance). Same goes for a victim's "Dodge" and their chance of
+                                "Accuracy Mod" is a multiplier that's applied to the skill's "Accuracy". "Accuracy" is a
+                                % chance
+                                of the skill landing (e.g. 40 is a 40% chance). Same goes for a victim's "Dodge" and
+                                their chance of
                                 dodging the skill. <br>
-                                "Defense" is a multiplier applied to the total damage. (e.g. having "Defense" 0.5 would mean that a skill
+                                "Defense" is a multiplier applied to the total damage. (e.g. having "Defense" 0.5 would
+                                mean that a skill
                                 with a total damage of 10 would instead do 5 damage.)
                             </p>
 
@@ -110,6 +124,11 @@
 
                         <fieldset>
                             <legend>Attacking Skill</legend>
+
+                            <div class="field-row" style="filter: opacity(50%);">
+                                <span>Skill ID:</span>
+                                <span id="skillid">99</span>
+                            </div>
 
                             <div class="field-row">
                                 <label for="skillname">Skill Name:</label>
@@ -169,11 +188,28 @@
 
                             </fieldset>
 
+                            <div class="center"
+                                style="flex-direction: row;align-items: center;justify-content: center;">
+                                <div class="center">
+                                    <div style="margin-bottom: 5px;">
+                                        <select name="" id="savingskill" class="savedoptions">
+                                            <option value="">Jane Mustard</option>
+                                        </select>
+                                        <button onclick="saveSkillToUnit()">Save Skill to Unit</button>
+                                        <button onclick="addSkillToUnit()">Add Skill to Unit</button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </fieldset>
 
                         <fieldset>
                             <legend>Victim</legend>
 
+                            <div class="field-row" style="filter: opacity(50%);">
+                                <span>Unit ID:</span>
+                                <span id="unitid"></span>
+                            </div>
                             <div class="field-row">
                                 <label for="unitname">Name:</label>
                                 <input id="unitname" type="text" name="">
@@ -216,6 +252,10 @@
 
                             </fieldset>
 
+                            <div class="center" style="flex-direction: row;justify-content: center;">
+                                <button onclick="saveunit()">Save Unit</button>
+                            </div>
+
                         </fieldset>
 
                     </div>
@@ -225,7 +265,8 @@
                             <h2>Expected Damage:</h2>
                             <h2>
                                 <span class="details">
-                                    ( ( (Base Damage) + (Sum of (Type Damage) x (Type Resisance)) ) x (Attack Power) ) x (Defense) =
+                                    ( ( (Base Damage) + (Sum of (Type Damage) x (Type Resisance)) ) x (Attack Power) ) x
+                                    (Defense) =
                                 </span>
                                 <span id="final"></span>
                             </h2>
@@ -237,7 +278,8 @@
             </div>
 
             <div class="status-bar">
-                <p class="status-bar-field">Windows XP styling from <a href="https://github.com/botoxparty/XP.css">https://github.com/botoxparty/XP.css</a></p>
+                <p class="status-bar-field">Windows XP styling from <a
+                        href="https://github.com/botoxparty/XP.css">https://github.com/botoxparty/XP.css</a></p>
             </div>
         </div>
 
