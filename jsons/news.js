@@ -2,6 +2,29 @@
 const NEWS_ARR = [
 
     {
+        "title": "test",
+        "timestamp": 1751052329949,
+        "image": "",
+        "content": "test"
+    },
+
+    {
+        "title": "SINCE THEN - THE CREATOR IS FINALISED",
+        "timestamp": 1750592682590,
+        "content": `
+        
+        The mustard skill creator was long overdue for a makeover and some improvements.
+        Not only is it now included in engine fan club, it's also got a new face. This is a small update
+        because I have the basic functionality and test units working for it, with the saving/loading of
+        custom set characters coming soon. It will also come with support for <b>importing characters</b>
+        from the older version into this new version so that you don't have to use both websites. <br>
+        The creator will be finalised in the upcoming days, it's only out now so I can test if it works for everyone. <br>
+        Mobile accessibility for the skill creator will not be implemented for a good while if ever.
+        
+        `
+    },
+
+    {
         "title": "SMALLER WEBSITE UPDATE - UPDATING THE MUSTARD SKILL CREATOR",
         "timestamp": 1750521571465,
         "content": `
