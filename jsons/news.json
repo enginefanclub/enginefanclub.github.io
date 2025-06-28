@@ -3,7 +3,7 @@
         "title": "SMALLER WEBSITE UPDATE - UPDATING THE MUSTARD SKILL CREATOR",
         "timestamp": 1750521571465,
         "colour": "#eeeb5a",
-        "image": "assets/banners/mustardisshin.png",
+        "image": "https://enginefanclub.github.io/assets/banners/mustardisshin.png",
         "metadesc": "finally updating the now-outdated mustard skill creator and including it on the efc website",
         "content": "The mustard skill creator was long overdue for a makeover and some improvements.\n        Not only is it now included in engine fan club, it's also got a new face. This is a small update\n        because I have the basic functionality and test units working for it, with the saving/loading of\n        custom set characters coming soon. It will also come with support for <b>importing characters</b>\n        from the older version into this new version so that you don't have to use both websites. <br>\n        The creator will be finalised in the upcoming days, it's only out now so I can test if it works for everyone. <br>\n        Mobile accessibility for the skill creator will not be implemented for a good while if ever."
     },
@@ -11,7 +11,7 @@
         "title": "STORY OF RAPTURE CORPORATION'S MELTDOWNS, PAY TO WIN ELEMENTS AND MERCHANDISE // A NEW \"COOL STUFF\" SECTION IS UNLOCKED?",
         "timestamp": 1750143379233,
         "colour": "#ff3d3a",
-        "image": "assets/banners/rapturecorpthumb_isolated.png",
+        "image": "https://enginefanclub.github.io/assets/banners/rapturecorpthumb_isolated.png",
         "metadesc": "functional meltdowns, purchasing information (and the locking of it behind prices), and buying E.G.O. gear (works on the mustard section too)",
         "content": " <h1>MELTDOWNS</h1>\n            whilst also experimenting with the idea of making it display with increasing threat levels depending on the abnormality's\n            threat level (obviously only properly visible if basic information is unlocked) (and it also waits for work to be finished if\n            the meltdown is on the last abnormality to be worked on)<br>\n            <img src=\"https://files.catbox.moe/8sgi1p.gif\"><br>\n            <img src=\"https://files.catbox.moe/ygudny.gif\"><br>\n            (the abnormality threat level was changed to be aleph for this example)<br>\n            and what happens when it actually reaches 0? well <br>\n            <img src=\"https://files.catbox.moe/dcbcu2.gif\"><br>\n            it breaches, of course! (the counter not getting removed was fixed shortly after this) <br>\n            it can also be cancelled as per usual, but i figured that's enough gifs about this for now <br>\n            also abnormalities without \"basic information\" unlocked will have a grey colour and a question mark\n            so it doesn't accidentally reveal their threat level lol (this becomes relevant next section)\n\n            <h1>PAY TO WIN</h1>\n            <img src=\"https://files.catbox.moe/nvug8d.gif\"><br>\n            now you have to pay to see information! what's next, having to pay for armour and weaponry?\n\n            <h1>PAYING FOR ARMOUR AND WEAPONRY: \"MERCHANDISE\"</h1>\n            <img src=\"https://files.catbox.moe/6ry2qp.gif\"><br>\n            <img src=\"https://files.catbox.moe/0qkylx.png\"><br>\n            should be pretty self-explanatory\n\n            <h1>A NEW SECTION?</h1>\n            The \"mustard\" game section is now available, though it's very barebones at the minute. Lots of progress happening on all ends, but once\n            the website is up-to-date with the games progress on the games will increase.\n\n            <br><br>"
     },
@@ -19,7 +19,7 @@
         "title": "THE RAPTURE CORPORATION PADDING UPDATE: ADDING VISUALS TO PROCRASTINATE THE ACTUAL FUNCTIONALITY, AKA \"SMALL STEPS",
         "timestamp": 1749876114565,
         "colour": "#ff3d3a",
-        "image": "assets/banners/rapturecorpthumb_isolated.png",
+        "image": "https://enginefanclub.github.io/assets/banners/rapturecorpthumb_isolated.png",
         "metadesc": "adding proper ego visuals for ego gear, giving test rooms their qliphoth counter and a meltdown counter visual",
         "content": "<h1>proper ego visuals</h1>\n        <img src=\"https://files.catbox.moe/b8bj8s.png\" alt=\"image loading\"><br>\n        also experimentation of showcasing ego gifts properly on an example character, this would\n        take a lot longer to implement but i'm wondering if this would be favourable to just images (and in turn, worth the effort)<br>\n        this would be standard for ego weapons as i dont want to use images lolololo\n\n        <h1>test room changes</h1>\n        sorry, nothing that crazy. i made the breach counter whatever thingimajig physical because i thought that'd be fun<br>\n        <img src=\"https://files.catbox.moe/x17jxn.png\" alt=\"image loading\"><br> \n\n        <h1>meltdown meltdown like jorjor</h1>\n        <img src=\"https://files.catbox.moe/o5csir.gif\" alt=\"gif loading\"><br>\n        this is literaly only the visual lol sorry\n\n        <br><br><br>"
     },
