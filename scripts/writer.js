@@ -28,6 +28,7 @@ function updateModal() {
     news.timestamp = Date.now()
 
     modal.innerHTML = `
+    <img src="${news.image}">
     <h2>${news.title}</h2>
             <span class="timestamp">just a few seconds ago</span><br>
 
