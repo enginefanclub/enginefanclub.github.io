@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+* {
+    font-family: "Nunito Sans", serif;
+}
+
+body {
+    margin: 0;
+    background: url("assets/metal.png");
+    background-position: center;
+    user-select: none;
+}
+
+main {
+    display: flex;
+    /* width: 100vw; */
+    height: 100vh;
+
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.shadow {
+    box-shadow: 0px 2px 5px black;
+    border-radius: 5px;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: 0px;
+}
+
+.topbar {
+
+    width: 100vw;
+    height: 30px;
+    background-color: black;
+    padding: 5px;
+    box-sizing: border-box;
+    color: white;
+
+}
+
+.content {
+
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
+    margin-top: 20px;
+
+}
+
+.topImage {
+    width: 100%;
+    height: 120px;
+}
+
+.topImage img {
+    width: 100%;
+    height: 100%;
+}
+
+nav {
+
+    display: flex;
+    margin-top: -20px;
+
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    width: 80px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    box-sizing: border-box;
+
+    background-color: rgba(139, 139, 139, 0.432);
+
+    background: rgb(200, 200, 200);
+    background: linear-gradient(160deg, rgb(200, 200, 200) 0%, rgba(140, 140, 140, 1) 50%, rgba(117, 117, 117, 1) 100%);
+
+    font-size: 13px;
+
+
+}
+
+nav a:hover {
+    cursor: pointer;
+
+    background: rgb(212, 212, 212);
+    background: linear-gradient(160deg, rgb(212, 212, 212) 0%, rgb(159, 159, 159) 50%, rgb(136, 136, 136) 100%);
+
+}
+
+nav a:active {
+    background-color: rgba(85, 85, 85, 0.596);
+
+    background: rgb(171, 171, 171);
+    background: linear-gradient(160deg, rgb(171, 171, 171) 0%, rgb(115, 115, 115) 50%, rgb(104, 104, 104) 100%);
+}
+
+section {
+
+    border-radius: 0% 0% 2px 2px;
+    box-sizing: border-box;
+    color: white;
+    background: url("assets/concrete.png");
+    background-size: 50%;
+    background-position: center;
+
+}
+
+.padded {
+    padding: 5px;
+    z-index: 99;
+}
+
+.padded.card {
+    height: 0px !important;
+    padding: 0;
+}
+
+section .titleCard {
+    margin: 0;
+    background: url("assets/metal2.png");
+    background-size: 35%;
+    color: rgb(233, 208, 95);
+    height: 40px;
+    border-radius: 10px;
+    transform: translateY(105px) translateX(-5px);
+    /*yes this whole update sucks i dont care*/
+    margin-top: -100px;
+    float: right;
+    text-align: right;
+    font-weight: 900;
+}
+
+section .banner {
+    width: 100%;
+    background-color: black;
+    height: 190px;
+    z-index: 1;
+}
+
+section .banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.titleCard span {
+    font-weight: 700;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 7px;
+}
+
+section hr {
+    margin: 5px 0px;
+    filter: opacity(50%);
+}
+
+section .imageList {
+    display: flex;
+    justify-content: center;
+}
+
+.imageList img {
+    width: 100px;
+    height: 145px;
+    margin: 0px 10px;
+    border-radius: 5px;
+}
+
+section .textContent {
+    margin: 0px 0px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.087);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.191) inset;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.textContent p {
+    margin: 0;
+}
+
+.textContent h1 {
+    margin: 0px 0px;
+    margin-top: 5px;
+    margin-bottom: -10px;
+    font-weight: 900;
+    line-height: 30px;
+}
+
+.textContent .timestamp {
+    font-style: italic;
+    filter: opacity(50%);
+    font-size: 12px;
+    margin-bottom: -0.5px;
+}
+
+section .textContent span {
+    margin: 10px 0px;
+}
+
+.credits {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.credits img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0px 5px;
+    -webkit-user-drag: none;
+}
+
+.copyright {
+    color: rgb(216, 216, 216);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.copyright span {
+    width: 100%;
+    text-align: center;
+    font-size: 50%;
+}
+
+.buttons {
+    display: flex;
+    padding: 4px;
+    padding-top: 10px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.buttons button {
+    margin: 0px 1px;
+}
+
+.buttons.right {
+    justify-content: flex-end;
+}
+
+.news button {
+
+    padding: 5px 10px;
+    cursor: pointer;
+
+    background: #79e72a;
+    background: linear-gradient(180deg, #79e72a, #28ac03 86%, #017a09);
+
+    font-weight: 900;
+    color: white;
+
+    border-radius: 5px;
+
+    font-weight: 700;
+
+    border: 0px;
+
+    box-shadow: 0px 2px 2px black;
+
+}
+
+.news button:hover {
+
+    background: #8af83c;
+    background: linear-gradient(180deg, #8af83c, #2fcb04 86%, #02a10d);
+
+}
+.news button:active {
+
+    background: #6cc22f;
+    background: linear-gradient(180deg, #6cc22f, #25a203 86%, #037e0b);
+
+}
