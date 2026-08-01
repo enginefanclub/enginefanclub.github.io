@@ -1,0 +1,101 @@
+{
+
+    "rpgthing": {
+        "title": "rpgthing",
+        "desc": "you wake up in a right steamy mood or something bro who fucking knows",
+        "access": "",
+        "version": "none",
+        "release": "???",
+        "lastupd": "never",
+        "created": "never",
+        "tags": ["RPG", "Turn-based", "Retro-styled", "Vintage"],
+        "credits": [
+            "<b>nefarkitti</b> - lead developer"
+        ]
+    },
+    "sodaclicker": {
+        "title": "Soda Clicker",
+        "desc": "April fools prank. It's just a mustard-ised flappy bird with roguelike elements.",
+        "access": "",
+        "version": "v1.0.0",
+        "release": "April 1st 2026",
+        "lastupd": "April 1st 2026",
+        "created": "March 31st 2026",
+        "tags": ["Joke", "Roguelike", "Side-scroller"],
+        "credits": [
+            "<b>nefarkitti</b> - lead developer",
+            "<b>faketitan</b> - artist, roguelike ideas",
+            "<b>lake & cad</b> - music"
+        ]
+    },
+    "sonbg": {
+        "title": "Son Battlegrounds",
+        "banner": "../assets/banners/mustardisshin.png",
+        "desc": "Joke ROBLOX game where you swing different types of balls on ropes to PvP.",
+        "access": "https://www.roblox.com/games/101759588375961/S-N-B-TTL-GR-NDS",
+        "version": "v2.5.3",
+        "release": "i dont remember",
+        "lastupd": "July 31st 2025",
+        "created": "September 16th 2024",
+        "tags": ["ROBLOX", "Multiplayer PvP", "Action"],
+        "credits": [
+            "<b>nefarkitti</b> - lead developer",
+            "<b>cad</b> - initial idea, testing",
+            "<b>1nning</b> - proper balance testing"
+        ]
+    },
+    "rattsfamilydiner": {
+        "title": "Ratt's Family Diner",
+        "desc": "Co-op restaurant 'tycoon' where you and your friends all manage a restaurant together and serve customers with different food items. Filled with different references to other media as 'special customers' and multiple different foods to make.",
+        "access": "https://www.roblox.com/games/15981416080/Ratts-Family-Diner",
+        "version": "v3.0.1",
+        "release": "i dont remember",
+        "lastupd": "March 10th 2024",
+        "created": "January 14th 2024",
+        "tags": ["ROBLOX", "Multiplayer Co-op", "Cooking", "Management"],
+        "credits": [
+            "<b>nefarkitti</b> - lead developer",
+            "<b>1029bv</b> - restaurant map, poster art",
+            "<b>Kiddneypie</b> - thumbnail art, voiced Texan",
+            "<b>sunnysunsun300</b> - art for Velvet, Rainy, Velvet & Rainy",
+            "<b>lake</b> - poster art, voiced Gaile",
+            "<b>mmmmmonster</b> - testing & balancer",
+            "<b>ratt</b> - voiced Ratt",
+            "<b>faketitan</b> - tester, modeller",
+            "<b>jimrhx</b> - tester",
+            "<b>MaxGamer244</b> - tester",
+            "<b>Moonblackwolf567</b> - tester, voiced Alien"
+        ]
+    },
+    "rescrybed": {
+        "title": "RESCRYBED",
+        "desc": "An Inscryption Act 2 + Act 3 inspired card game, but with custom cards. Expect many bugs as the game is actively being fixed.<br><br>Draft a deck of 15 cards from the random choices offered to you, then battle it out in a Best of 5 format! Use robotic creatures and empower them with modules to take down your opponent! Talk to Evelyn to queue up, the rest is self-explanatory.<br><br>Bunch of assets such as certain theme backgrounds were taken directly from the original, credits go to their respective owners. ",
+        "access": "https://www.roblox.com/games/11521605674/RESCRYBED-Beta",
+        "version": "v1.2.5",
+        "release": "i dont remember",
+        "lastupd": "i dont remember",
+        "created": "November 11th 2022",
+        "tags": ["ROBLOX", "2 Player PvP", "Card-based", "Turn-based", "Downright recreation"],
+        "credits": [
+            "<b>nefarkitti</b> - lead developer, coding, art",
+            "<b>mmmmmonster</b> - game designer, concepts, balancing, some visuals",
+            "<b>firee</b> - quality assurance specialist",
+            "<b>SIender</b> - underpaid construction worker"
+        ]
+    },
+    "rapturecorporation": {
+        "title": "Rapture Corporation",
+        "banner": "../assets/banners/rapturecorpthumb_isolated.png",
+        "desc": "Scrapped multiplayer recreation of Lobotomy Corporation on ROBLOX.",
+        "access": "",
+        "version": "",
+        "release": "i dont remember",
+        "lastupd": "i dont remember",
+        "created": "April 20th 2025",
+        "tags": [],
+        "credits": [
+            "<b>nefarkitti</b> - lead developer, coding, art"
+        ]
+    }
+
+}
