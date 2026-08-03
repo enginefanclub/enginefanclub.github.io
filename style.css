@@ -454,3 +454,28 @@ h4 {
 a {
     color: var(--accent)
 }
+
+.spine {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.page {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+.page img {
+    max-width: 100%;
+}
+.pagination {
+    margin-top: 10px;
+}
+
+.pagination button.active {
+    background-color: red;
+    color: white;
+}
