@@ -479,3 +479,6 @@ a {
     background-color: red;
     color: white;
 }
+a.unavailable {
+    filter: opacity(50%);
+}
