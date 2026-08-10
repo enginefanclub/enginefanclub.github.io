@@ -4,90 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Engine Fan Club</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Engine Fan Club</title>
     <link rel="shortcut icon" href="assets/efcfanfinalnotext.svg" type="image/x-icon">
-    <script src="scripts/main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://kit.fontawesome.com/299edb3a7d.js" crossorigin="anonymous"></script>
+    <script src="https://louisabraham.github.io/nekojs/neko.js" data-autostart></script>
+    <script src="scripts/btns.js" defer></script>
+    <script src="scripts/userprefs.js" defer></script>
+    <script src="../scripts/navbar.js" defer></script>
 </head>
 
 <body>
 
-    <div class="news-overlay" id="news-overlay">
+    <main>
 
-        <div class="news-article">
+        <div class="logobar">
+            <img class="logo" src="assets/efclogov2.svg" alt="">
+            <h1>Engine Fan Club</h1>
+        </div>
 
-            <img class="news-banner" src="assets/banners/mustardisshin.png" alt="">
+        <nav id="navbar">
+            <a>home</a>
+        </nav>
 
-            <div class="news-inner">
+        <div class="spacer"></div>
 
-                <span class="news-timestamp">Posted 20s ago</span>
-                <h2>SMALLER WEBSITE UPDATE - UPDATING THE MUSTARD SKILL CREATOR</h2>
-                <hr>
+        <h2>in the back alley</h2>
 
-                <div class="news-content">
+        <article class="game">
+            <a href="games/?g=rpgthing">
+                <img src="assets/banners/missing.png" alt="">
+                <div class="game-desc">
+                    <h3>rpgthing</h3>
+                    <p>
+                        theres still no name for it, it doesn't even have its own banner yet. that's how early
+                        in development it is.
+                    </p>
                 </div>
+            </a>
+        </article>
 
-            </div>
+        <div class="spacer"></div>
+
+        <div class="space-between">
+            <h2>recent articles</h2> <button class="toggle" id="gallery-toggle" onclick="toggleGalleryView()">gallery
+                view</button>
+        </div>
+        <div class="list articles" id="article-list">
+        </div>
+
+        <div class="spacer"></div>
+
+        <!--<h2>extra content</h2>
+        <div class="list" id="extra-list">
+
+            <a class="unav">
+                <div class="article-content">
+                    <span class="article-title">[Webnovel] Ratcatcher Jane & the Big Fat Rat (nefarkitti)</span>
+                    <span class="article-timestamp">2026</span>
+                </div>
+            </a>
+            <a class="unav">
+                <div class="article-content">
+                    <span class="article-title">[Webnovel] Detective Grand Dingbat & the Retail Ripper (1nning)</span>
+                    <span class="article-timestamp">2026</span>
+                </div>
+            </a>
 
         </div>
 
-    </div>
+        <div class="spacer"></div>-->
 
-    <div class="centre">
-
-        <div class="main">
-
-            <div class="topbar">
-                <div class="logobar">
-                    <img class="efclogo" src="assets/efclogov2.svg" alt="">
-                    <h1>Engine Fan Club</h1>
-                </div>
-                <nav>
-                    <a href="index.html" class="selected">home</a>
-                    <a href="about.html">about</a>
-                    <a href="games.html">games</a>
-                    <a href="extra.html">extra</a>
-                </nav>
+        <footer>
+            <div class="btns" id="btns">
             </div>
+        </footer>
 
-            <div class="content">
-                <h2 style="margin-bottom: 15px;">recent news</h2>
+    </main>
 
-                <div class="news-gallery" id="news-gallery">
-                    <div class="news-post">
-                        <span class="news-timestamp">1 week ago</span>
-                        <img src="assets/banners/mustardisshin.png" alt="">
-                        <span class="news-title"
-                            title="SMALLER WEBSITE UPDATE - UPDATING THE MUSTARD SKILL CREATOR">SMALLER WEBSITE UPDATE -
-                            UPDATING THE MUSTARD SKILL CREATOR</span>
-                        <div class="news-game"><span>Mustard</span></div>
-                    </div>
-                    <div class="news-post">
-                        <span class="news-timestamp">1 week ago</span>
-                        <img src="assets/banners/mustardisshin.png" alt="">
-                        <span class="news-title"
-                            title="SMALLER WEBSITE UPDATE - UPDATING THE MUSTARD SKILL CREATOR">SMALLER WEBSITE UPDATE -
-                            UPDATING THE MUSTARD SKILL CREATOR</span>
-                        <div class="news-game"><span>Mustard</span></div>
-                    </div>
-                    <div class="news-post">
-                        <span class="news-timestamp">1 week ago</span>
-                        <img src="assets/banners/mustardisshin.png" alt="">
-                        <span class="news-title"
-                            title="SMALLER WEBSITE UPDATE - UPDATING THE MUSTARD SKILL CREATOR">SMALLER WEBSITE UPDATE -
-                            UPDATING THE MUSTARD SKILL CREATOR</span>
-                        <div class="news-game"><span>Mustard</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-
-        </div>
-
-    </div>
+    <script src="scripts/news.js"></script>
+    <script>loadarticles(20, "articles/")</script>
 
 </body>
 

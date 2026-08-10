@@ -13,7 +13,6 @@
     <script src="../scripts/btns.js" defer></script>
     <script src="../scripts/userprefs.js" defer></script>
     <script src="../scripts/navbar.js" defer></script>
-    <script src="reader.js" defer></script>
 </head>
 
 <body>
@@ -31,29 +30,19 @@
 
         <div class="spacer"></div>
 
-        <div class="reader-container" id="reader-container">
-
-            <h2 id="webnovel-title"></h2>
-
-            <div class="spine">
-
-                <div class="page" id="reader-page">
-
-
-
+        <img src="" alt="" id="article-banner" class="article-banner" style="display: none;">
+        <div class="article-bg-wrap" id="article-bg-wrap">
+            <div class="article-bg">
+                <div class="space-between">
+                    <h2 id="article-title">all articles</h2> <button class="toggle" id="gallery-toggle" onclick="toggleGalleryView()">gallery view</button>
                 </div>
-
-                <div class="pagination" id="pagination">
-                    <button>last page</button>
-                    <button class="active">1</button>
-                    <button>next page</button>
+                <h4 class="timestamp" id="article-timestamp"></h4>
+                <div class="article-container" id="article-container">
                 </div>
-
             </div>
-
         </div>
-
-
+        <div class="list articles" id="article-list">
+        </div>
         <div class="spacer"></div>
 
         <footer>
@@ -62,6 +51,9 @@
         </footer>
 
     </main>
+
+    <script src="../scripts/news.js"></script>
+    <script>loadarticles(999, "")</script>
 
 </body>
 
