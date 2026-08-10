@@ -354,7 +354,6 @@ button.toggle {
 
 .game-banner {
     width: 100%;
-    height: 300px;
     object-fit: contain;
 }
 
@@ -433,12 +432,18 @@ button.toggle {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: start;
 }
 
-.screenshot-gallery img {
-    width: 30%;
+.screenshot-gallery a {
+    width: 31%;
+    max-width: 31%;
     margin: 5px;
+    flex: 1 0 30%;
+}
+
+.screenshot-gallery a img {
+    width: 100%;
 }
 
 .game-content p {
@@ -470,5 +475,13 @@ button.toggle {
 
     article.game a {
         flex-direction: column;
+    }
+
+}
+@media screen and (max-width:460px) {
+    .screenshot-gallery a {
+        width: 50% !important;
+        max-width: 50% !important;
+        flex: 1 0 40% !important;
     }
 }

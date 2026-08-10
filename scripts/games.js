@@ -79,7 +79,7 @@ axios.get("../jsons/games.json").then(res => {
             GAME_CREDITS.innerHTML += `<li>${credit}</li>`
         })
         game.screenshots.forEach(screenshot => {
-            SCREENSHOT_GALLERY.innerHTML += `<img src="${screenshot}">`
+            SCREENSHOT_GALLERY.innerHTML += `<a href="${screenshot}" target="_blank"><img src="${screenshot}"></a>`
         })
 
         axios.get("../jsons/news.json").then(res => {
