@@ -109,6 +109,7 @@ button {
     background: rgb(15, 15, 15);
     max-width: 100%;
 }
+
 .list:not(.gallery) {
     font-size: 14px;
 }
@@ -122,6 +123,7 @@ button {
 .list.gallery a {
     font-weight: 700;
 }
+
 .list.gallery span.game-title {
     display: none;
 }
@@ -340,6 +342,7 @@ button.toggle {
     flex-direction: column;
     font-weight: 500;
 }
+
 #webnovel-title {
     margin-bottom: 0;
 }
@@ -385,7 +388,7 @@ button.toggle {
     font-weight: 600;
     font-size: 14px;
     background: #171717;
-    background: linear-gradient(0deg, rgba(10,10,10, 1) 0%, rgba(15,15,15, 1) 43%, rgb(20,20,20) 76%, rgba(10,10,10, 1) 100%);
+    background: linear-gradient(0deg, rgba(10, 10, 10, 1) 0%, rgba(15, 15, 15, 1) 43%, rgb(20, 20, 20) 76%, rgba(10, 10, 10, 1) 100%);
     border: solid 1px var(--border-colour);
     padding: 5px;
     box-sizing: border-box;
@@ -421,6 +424,7 @@ button.toggle {
     text-decoration: none !important;
     filter: opacity(50%);
 }
+
 .unav span {
     text-decoration: none !important;
 }
@@ -431,6 +435,7 @@ button.toggle {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .screenshot-gallery img {
     width: 30%;
     margin: 5px;
@@ -439,6 +444,7 @@ button.toggle {
 .game-content p {
     font-weight: 500;
 }
+
 .btns {
     user-select: none;
 }
@@ -457,7 +463,12 @@ button.toggle {
     .game img {
         width: 100% !important;
     }
+
     .gallery a {
         max-width: 50% !important;
+    }
+
+    article.game a {
+        flex-direction: column;
     }
 }
