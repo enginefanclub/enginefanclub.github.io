@@ -31,7 +31,7 @@ axios.get("../jsons/games.json").then(res => {
                             ${game.desc}
                         </p>
                         <div class="spacer"></div>
-                        <h2>screenshots</h2>
+                        <h2 style="display: none;" id="screenshots-h2">screenshots</h2>
                         <div class="screenshot-gallery" id="screenshot-gallery">
                         </div>
                         <div class="spacer"></div>
@@ -78,9 +78,12 @@ axios.get("../jsons/games.json").then(res => {
         game.credits.forEach(credit => {
             GAME_CREDITS.innerHTML += `<li>${credit}</li>`
         })
-        game.screenshots.forEach(screenshot => {
-            SCREENSHOT_GALLERY.innerHTML += `<a href="${screenshot}" target="_blank"><img src="${screenshot}"></a>`
-        })
+        if (game.screenshots && game.screenshots.length >= 1) {
+            document.getElementById("screenshots-h2").style.display = ""
+            game.screenshots.forEach(screenshot => {
+                SCREENSHOT_GALLERY.innerHTML += `<a href="${screenshot}" target="_blank"><img src="${screenshot}"></a>`
+            })
+        }
 
         axios.get("../jsons/news.json").then(res => {
             let news_data = res.data
