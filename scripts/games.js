@@ -10,7 +10,7 @@ let gameid = urlParams.get("g")
 
 
 
-axios.get("../jsons/games.json").then(res => {
+axios.get("/jsons/games.json").then(res => {
 
     games = res.data
 
@@ -85,7 +85,7 @@ axios.get("../jsons/games.json").then(res => {
             })
         }
 
-        axios.get("../jsons/news.json").then(res => {
+        axios.get("/jsons/news.json").then(res => {
             let news_data = res.data
             let count = 0
 

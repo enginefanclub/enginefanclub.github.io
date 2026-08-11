@@ -8,7 +8,7 @@ let articleid = urlParams.get("a")
 
 if (articleid != null) {
 
-    axios.get("../jsons/news.json").then(res => {
+    axios.get("/jsons/news.json").then(res => {
 
         const ARTICLE_TITLE = document.getElementById("article-title")
         const ARTICLE_CONTAINER = document.getElementById("article-container")
@@ -31,7 +31,7 @@ if (articleid != null) {
             ARTICLE_TIMESTAMP.innerHTML = `posted ${moment(article.timestamp).format("MMMM Do YYYY")}`
             ARTICLE_BANNER.style.display = ""
             ARTICLE_BANNER.src = article.image
-            if (article.image == "../assets/banners/missing.png") {
+            if (article.image == "/assets/missing.png") {
                 ARTICLE_BANNER.style.display = "none"
             }
             //ARTICLE_BG.style.backgroundImage = `url(${article.image  })`
@@ -49,7 +49,7 @@ function loadarticles(num, src) {
 
     let articles
 
-    axios.get("../jsons/news.json").then(res => {
+    axios.get("/jsons/news.json").then(res => {
 
         articles = res.data
 
