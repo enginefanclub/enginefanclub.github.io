@@ -10,7 +10,7 @@ let gameid = urlParams.get("g")
 
 
 
-axios.get("/jsons/games.json").then(res => {
+axios.get("/assets/jsons/games.json").then(res => {
 
     games = res.data
 
@@ -19,6 +19,8 @@ axios.get("/jsons/games.json").then(res => {
         const GAME_WRAPPER = document.getElementById("game-wrapper")
 
         let game = games[gameid]
+
+         document.title = `${game.title} - Engine Fan Club`
 
         GAME_WRAPPER.innerHTML = `
         <div class="game-container" id="game-container">
@@ -85,7 +87,7 @@ axios.get("/jsons/games.json").then(res => {
             })
         }
 
-        axios.get("/jsons/news.json").then(res => {
+        axios.get("/assets/jsons/news.json").then(res => {
             let news_data = res.data
             let count = 0
 

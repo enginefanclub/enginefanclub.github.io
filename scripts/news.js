@@ -8,7 +8,7 @@ let articleid = urlParams.get("a")
 
 if (articleid != null) {
 
-    axios.get("/jsons/news.json").then(res => {
+    axios.get("/assets/jsons/news.json").then(res => {
 
         const ARTICLE_TITLE = document.getElementById("article-title")
         const ARTICLE_CONTAINER = document.getElementById("article-container")
@@ -49,7 +49,7 @@ function loadarticles(num, src) {
 
     let articles
 
-    axios.get("/jsons/news.json").then(res => {
+    axios.get("/assets/jsons/news.json").then(res => {
 
         articles = res.data
 

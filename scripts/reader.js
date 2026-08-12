@@ -13,13 +13,13 @@ let bookmark = {}
 
 PAGINATION.innerHTML = ``
 
-axios.get(`webnovels/${id}/${id}.json`).then(res => {
+axios.get(`/reader/webnovels/${id}/${id}.json`).then(res => {
 
     let data = res.data
 
     TITLE.innerText = data.title
 
-    axios.get(`webnovels/${id}/page/${page}.html`).then(res => {
+    axios.get(`/reader/webnovels/${id}/page/${page}.html`).then(res => {
 
         loadBookmark()
 
