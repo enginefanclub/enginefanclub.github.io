@@ -17,10 +17,13 @@ axios.get("/assets/jsons/games.json").then(res => {
     if (gameid != null) {
 
         const GAME_WRAPPER = document.getElementById("game-wrapper")
+        const BG_WRAPPER = document.getElementById("bg-wrapper")
 
         let game = games[gameid]
 
-         document.title = `${game.title} - Engine Fan Club`
+        document.title = `${game.title} - Engine Fan Club`
+
+        BG_WRAPPER.style.backgroundImage = `url('${game.bg}')`
 
         GAME_WRAPPER.innerHTML = `
         <div class="game-container" id="game-container">
@@ -44,6 +47,8 @@ axios.get("/assets/jsons/games.json").then(res => {
                     </div>
                     <div class="right">
                         <div class="info">
+                            <button class="game-access" id="game-access">Access</button>
+                            <hr id="access-hr">
                             <span class="subtitle">version</span>
                             <span>${game.version}</span>
                             <hr>
@@ -73,6 +78,16 @@ axios.get("/assets/jsons/games.json").then(res => {
         const GAME_TAGS = document.getElementById("game-tags")
         const GAME_CREDITS = document.getElementById("game-credits")
         const SCREENSHOT_GALLERY = document.getElementById("screenshot-gallery")
+        const GAME_ACCESS = document.getElementById("game-access")
+
+        if (game.access.length <= 5) {
+            GAME_ACCESS.style.display = "none"
+            document.getElementById("access-hr").style.display = "none"
+        } else {
+            GAME_ACCESS.onclick = function() {
+                window.open(game.access, "_blank")
+            }
+        }
 
         game.tags.forEach(tag => {
             GAME_TAGS.innerHTML += `<span>${tag}</span>`

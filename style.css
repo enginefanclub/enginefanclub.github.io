@@ -176,10 +176,17 @@ button {
     flex-direction: row;
     align-items: center;
 }
+.flex-right {
+    display: flex;
+    justify-content: end;
+}
 
 .split {
     display: flex;
     flex-direction: row;
+}
+h2.space-between {
+    align-items: center;
 }
 
 article.game a {
@@ -305,7 +312,6 @@ button.toggle {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
 }
 
 .pagination button {
@@ -526,6 +532,18 @@ button.toggle {
 }
 .profile-content h3, .profile-content p {
     margin: 0;
+}
+
+.game-access {
+    font-weight: 900;
+}
+
+.reader-buttons {
+    gap: 4px;
+}
+.reader-buttons button {
+    margin: 0;
+    font-weight: 900;
 }
 
 @media screen and (max-width:775px) {

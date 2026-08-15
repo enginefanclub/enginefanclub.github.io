@@ -11,7 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://kit.fontawesome.com/299edb3a7d.js" crossorigin="anonymous"></script>
     <script src="/scripts/btns.js" defer></script>
-    <script src="/scripts/userprefs.js" defer></script>
     <script src="/scripts/navbar.js" defer></script>
     <script src="/scripts/reader.js" defer></script>
 </head>
@@ -31,18 +30,26 @@
 
         <div class="spacer"></div>
 
-        <div class="reader-container" id="reader-container">
+        <div id="webnovels-wrap">
+            <h2>webnovels</h2>
 
-            <h2 id="webnovel-title"></h2>
+            <div class="list" id="webnovels-list">
+            </div>
+        </div>
+
+        <div class="reader-container" id="reader-container" style="display: none;">
+
+            <h2 id="webnovel-title" class="space-between"></h2>
+
+            <div class="spacer"></div>
 
             <div class="spine">
 
                 <div class="page" id="reader-page">
 
-
-
                 </div>
 
+                <div style="width: 100%;" class="spacer"></div>
                 <div class="pagination" id="pagination">
                     <button>last page</button>
                     <button class="active">1</button>

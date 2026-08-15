@@ -2,29 +2,48 @@ const READER_CONTAINER = document.getElementById("reader-container")
 const READER_PAGE = document.getElementById("reader-page")
 const TITLE = document.getElementById("webnovel-title")
 const PAGINATION = document.getElementById("pagination")
+const WEBNOVELS_WRAP = document.getElementById("webnovels-wrap")
+const WEBNOVELS_LIST = document.getElementById("webnovels-list")
 
 let windowIndex = window.location.search
 const urlParams = new URLSearchParams(windowIndex);
-let id = urlParams.get("id")
+let id = urlParams.get("wn")
 let page = urlParams.get("p") - 1
+
 console.log(`trying to load ${id} on page ${page}`)
 
 let bookmark = {}
 
 PAGINATION.innerHTML = ``
 
-axios.get(`/reader/webnovels/${id}/${id}.json`).then(res => {
+axios.get(`/assets/jsons/webnovels.json`).then(res => {
 
-    let data = res.data
+    let json = res.data
+    let data = json[id]
 
-    TITLE.innerText = data.title
+    Object.keys(json).forEach(webnovel => {
+        let wn = json[webnovel]
 
-    axios.get(`/reader/webnovels/${id}/page/${page}.html`).then(res => {
+        WEBNOVELS_LIST.innerHTML += `
+                <a href="?wn=${webnovel}&p=1">
+                    <div class="article-content">
+                        <span class="article-title">${wn.title}</span>
+                        <span class="article-timestamp">${moment(wn.lastupd).format("MMMM Do YYYY")}</span>
+                    </div>
+                </a>`
+    })
 
-        loadBookmark()
+    axios.get(`/assets/webnovel/${id}/pages/${page}.html`).then(res => {
 
         TITLE.innerText = data.title
+
+        TITLE.innerText = data.title
+        TITLE.innerHTML += `            <div class="flex-right reader-buttons">
+                <button onclick="saveBookmark()">save</button>
+                <button onclick="loadBookmark()">load</button>
+            </div>`
         READER_PAGE.innerHTML = res.data
+        READER_CONTAINER.style.display = ""
 
         if (page >= 1) {
             PAGINATION.innerHTML += `<button onclick="getPage(${page})">previous page</button>`
@@ -44,29 +63,29 @@ axios.get(`/reader/webnovels/${id}/${id}.json`).then(res => {
             getPage(PAGE_SELECT.value)
         }
 
+        WEBNOVELS_WRAP.style.display = "none"
+
     }).catch(err => {
 
         console.error(err)
-        READER_PAGE.innerHTML = `<h2>404 Page Not Found</h2>`
 
     })
 
 }).catch(err => {
 
     console.error(err)
-    READER_CONTAINER.innerHTML = `<h2>404 Webnovel Not Found</h2>`
 
 })
 
 function getPage(newpage) {
 
     bookmark[id] = `${newpage}`
-    saveBookmark()
-    window.location.href = `?id=${id}&p=${newpage}`
+    window.location.href = `?wn=${id}&p=${newpage}`
 
 }
 
 function saveBookmark() {
+    bookmark[id] = page + 1
     localStorage.setItem("efc-bookmark", JSON.stringify(bookmark))
 }
 function loadBookmark() {
