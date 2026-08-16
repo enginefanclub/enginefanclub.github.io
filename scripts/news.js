@@ -66,7 +66,7 @@ function loadarticles(num, src) {
 
             if (count <= num - 1) {
                 ARTICLE_LIST.innerHTML += `
-                <a href="${src}?a=${getArticleNum}">
+                <a href="${src}${getArticleNum}">
                     <img src="${article.image}">
                     <div class="article-content">
                         <span class="article-metadesc">${article.metadesc}</span>

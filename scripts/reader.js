@@ -95,7 +95,7 @@ function loadBookmark(id, page) {
     if (getBookmark != null) {
         bookmark = JSON.parse(getBookmark)
         if (page + 1 != bookmark[id]) {
-            getPage(bookmark[id])
+            getPage(id, bookmark[id])
         }
     }
 }
