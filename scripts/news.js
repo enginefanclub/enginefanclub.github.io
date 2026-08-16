@@ -6,6 +6,11 @@ let windowIndex = window.location.search
 const urlParams = new URLSearchParams(windowIndex);
 let articleid = urlParams.get("a")
 
+const ARTICLE_TIMESTAMP = document.getElementById("article-timestamp")
+if (ARTICLE_TIMESTAMP) {
+    ARTICLE_TIMESTAMP.innerHTML = `posted ${moment(parseInt(ARTICLE_TIMESTAMP.dataset.timestamp)).format("MMMM Do YYYY")}`
+}
+
 /*if (articleid != null) {
 
     axios.get("/assets/jsons/news.json").then(res => {
