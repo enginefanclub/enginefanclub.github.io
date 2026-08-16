@@ -8,7 +8,7 @@ const dist = path.join(root, 'dist');
 
 fs.rmSync(dist, {recursive: true, force: true});
 fs.mkdirSync(dist, { recursive: true });
-fs.readdirSync('.').filter(x=>!['.git', '.gitignore', 'dist', '.github', 'build.js'].includes(x)).forEach(file => {
+fs.readdirSync('.').filter(x=>!['.git', '.gitignore', 'dist', '.github'].includes(x)).forEach(file => {
     fs.cpSync(path.join(root, file), path.join(dist, file), {
         recursive: true
     })
