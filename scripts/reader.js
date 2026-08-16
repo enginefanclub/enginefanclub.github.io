@@ -1,20 +1,20 @@
-const READER_CONTAINER = document.getElementById("reader-container")
-const READER_PAGE = document.getElementById("reader-page")
-const TITLE = document.getElementById("webnovel-title")
+//const READER_CONTAINER = document.getElementById("reader-container")
+//const READER_PAGE = document.getElementById("reader-page")
+//const TITLE = document.getElementById("webnovel-title")
 const PAGINATION = document.getElementById("pagination")
 const WEBNOVELS_WRAP = document.getElementById("webnovels-wrap")
 const WEBNOVELS_LIST = document.getElementById("webnovels-list")
 
 let windowIndex = window.location.search
 const urlParams = new URLSearchParams(windowIndex);
-let id = urlParams.get("wn")
+/*let id = urlParams.get("wn")
 let page = urlParams.get("p") - 1
 
-console.log(`trying to load ${id} on page ${page}`)
+console.log(`trying to load ${id} on page ${page}`)*/
 
 let bookmark = {}
 
-PAGINATION.innerHTML = ``
+/*PAGINATION.innerHTML = ``
 
 axios.get(`/assets/jsons/webnovels.json`).then(res => {
 
@@ -75,25 +75,27 @@ axios.get(`/assets/jsons/webnovels.json`).then(res => {
 
     console.error(err)
 
-})
+})*/
 
-function getPage(newpage) {
-
+function getPage(id, newpage) {
+    const url = new URL(window.location.href);
+    const parts = url.pathname.split('/');
+    parts[parts.length - 1] = newpage;
+    url.pathname = parts.join("/");
     bookmark[id] = `${newpage}`
-    window.location.href = `?wn=${id}&p=${newpage}`
-
+    window.location.href = url.toString();
 }
 
-function saveBookmark() {
+function saveBookmark(id, page) {
     bookmark[id] = page + 1
     localStorage.setItem("efc-bookmark", JSON.stringify(bookmark))
 }
-function loadBookmark() {
+function loadBookmark(id, page) {
     let getBookmark = localStorage.getItem("efc-bookmark")
     if (getBookmark != null) {
         bookmark = JSON.parse(getBookmark)
         if (page + 1 != bookmark[id]) {
-            getPage(bookmark[id])
+            getPage(id, bookmark[id])
         }
     }
 }

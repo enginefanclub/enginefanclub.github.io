@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - Engine Fan Club</title>
+    <link rel="shortcut icon" href="/assets/efcfanfinalnotext.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://kit.fontawesome.com/299edb3a7d.js" crossorigin="anonymous"></script>
+    <script src="/scripts/btns.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <script src="/scripts/timestamp.js" defer></script>
+</head>
+
+<body>
+
+    <div style="background-image: url('{{{bg}}}')" class="bg-wrapper"></div>
+
+    <main>
+
+        <div class="logobar">
+            <img class="logo" src="/assets/efclogov2.svg" alt="">
+            <h1>Engine Fan Club</h1>
+        </div>
+
+        <nav id="navbar">
+            <a>home</a>
+        </nav>
+
+        <div class="spacer"></div>
+
+        <div id="game-wrapper">
+            <div class="game-container" id="game-container">
+                <img class="game-banner" src="{{{banner}}}" alt="">
+
+                <div class="game-content">
+                    <div class="left">
+                        <h1>{{title}}</h1>
+                        <p>{{{desc}}}</p>
+                        <div class="spacer"></div>
+                        {{{screenshotsList}}}
+                        <h2>recent activity</h2>
+                        <div class="list games" id="article-list">
+                            {{{articleList}}}
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            {{{access}}}
+                            <span class="subtitle">release date</span>
+                            <span data-timestamp="{{release}}" id="timestamp"></span>
+                            <hr>
+                            <span class="subtitle">last updated</span>
+                            <span>{{lastupd}}</span>
+                            <hr>
+                            <span class="subtitle">created</span>
+                            <span>{{created}}</span>
+                            <hr>
+                            <span class="subtitle">tags</span>
+                            <span class="game-tags" id="game-tags">{{{gameTags}}}</span>
+                            <hr>
+                            <span class="subtitle">credits</span>
+                            <ul id="game-credits">{{{gameCredits}}}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <footer>
+            <div class="btns" id="btns">
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

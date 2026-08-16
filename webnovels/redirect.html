@@ -12,11 +12,13 @@
     <script src="https://kit.fontawesome.com/299edb3a7d.js" crossorigin="anonymous"></script>
     <script src="/scripts/btns.js" defer></script>
     <script src="/scripts/navbar.js" defer></script>
-    <script src="/scripts/timestamp.js" defer></script>
 </head>
 
 <body>
-
+    <script>
+        const path = window.location.pathname.replace(/\/+$/,'');
+        window.location.href = `${path}/1`;
+    </script>
     <main>
 
         <div class="logobar">
@@ -34,7 +36,6 @@
             <h2>webnovels</h2>
 
             <div class="list" id="webnovels-list">
-                {{{list}}}
             </div>
         </div>
 
@@ -70,7 +71,5 @@
         </footer>
 
     </main>
-
 </body>
-
 </html>

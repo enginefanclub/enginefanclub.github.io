@@ -6,7 +6,12 @@ let windowIndex = window.location.search
 const urlParams = new URLSearchParams(windowIndex);
 let articleid = urlParams.get("a")
 
-if (articleid != null) {
+const ARTICLE_TIMESTAMP = document.getElementById("article-timestamp")
+if (ARTICLE_TIMESTAMP) {
+    ARTICLE_TIMESTAMP.innerHTML = `posted ${moment(parseInt(ARTICLE_TIMESTAMP.dataset.timestamp)).format("MMMM Do YYYY")}`
+}
+
+/*if (articleid != null) {
 
     axios.get("/assets/jsons/news.json").then(res => {
 
@@ -41,7 +46,7 @@ if (articleid != null) {
 
     })
 
-}
+}*/
 
 function loadarticles(num, src) {
 
@@ -61,7 +66,7 @@ function loadarticles(num, src) {
 
             if (count <= num - 1) {
                 ARTICLE_LIST.innerHTML += `
-                <a href="${src}?a=${getArticleNum}">
+                <a href="${src}${getArticleNum}">
                     <img src="${article.image}">
                     <div class="article-content">
                         <span class="article-metadesc">${article.metadesc}</span>

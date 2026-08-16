@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - Engine Fan Club</title>
+    <link rel="shortcut icon" href="/assets/efcfanfinalnotext.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://kit.fontawesome.com/299edb3a7d.js" crossorigin="anonymous"></script>
+    <script src="/scripts/btns.js" defer></script>
+    <script src="/scripts/userprefs.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <script src="/scripts/news.js" defer></script>
+
+    <meta name="title" content="{{title}}" />
+    <meta name="description" content="{{title}}" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://efc.nefarkitti.dev/articles/{{id}}" />
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:description" content="{{{metadesc}}}" />
+    <meta property="og:image" content="{{{image}}}" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="http://efc.nefarkitti.dev/articles/{{id}}" />
+    <meta property="twitter:title" content="{{title}}" />
+    <meta property="twitter:description" content="{{title}}" />
+    <meta property="twitter:image" content="{{{image}}}" />
+</head>
+
+<body>
+
+    <main>
+
+        <div class="logobar">
+            <img class="logo" src="/assets/efclogov2.svg" alt="">
+            <h1>Engine Fan Club</h1>
+        </div>
+
+        <nav id="navbar">
+            <a>home</a>
+        </nav>
+
+        <div class="spacer"></div>
+
+        <img src="{{image}}" alt="" id="article-banner" class="article-banner" style="{{imageStyle}}">
+        <div class="article-bg-wrap" id="article-bg-wrap">
+            <div class="article-bg">
+                <div class="space-between">
+                    <h2 id="article-title" style="margin-bottom: 0px;">{{title}}</h2>
+                </div>
+                <h4 data-timestamp="{{timestamp}}" class="timestamp" id="article-timestamp"></h4>
+                <div class="article-container" id="article-container">{{{content}}}</div>
+            </div>
+        </div>
+        <div class="list articles" id="article-list">
+        </div>
+        <div class="spacer"></div>
+
+        <footer>
+            <div class="btns" id="btns">
+            </div>
+        </footer>
+
+    </main>
+</body>
+
+</html>
