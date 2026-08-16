@@ -10,7 +10,7 @@ const dist = path.join(root, 'dist');
 
 fs.rmSync(dist, {recursive: true, force: true});
 fs.mkdirSync(dist, { recursive: true });
-fs.readdirSync('.').filter(x=>!['.git', '.gitignore', 'package.json', 'package-lock.json', 'dist', '.github'].includes(x)).forEach(file => {
+fs.readdirSync('.').filter(x=>!['.git', '.gitignore', 'package.json', 'node_modules', 'package-lock.json', 'dist', '.github'].includes(x)).forEach(file => {
     fs.cpSync(path.join(root, file), path.join(dist, file), {
         recursive: true
     })
@@ -77,7 +77,7 @@ for (let i = 0; i < Object.keys(games).length; i++) {
         gamesList: Object.keys(games).map(gameid => {
             const game = games[gameid];
             return `
-            <a href="?g=${gameid}">
+            <a href="${gameid}">
                 <div class="article-content">
                     <span class="article-title">${game.title}</span>
                     <span data-timestamp="${game.release}" id="timestamp" class="article-timestamp"></span>
