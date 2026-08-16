@@ -6,7 +6,7 @@ let windowIndex = window.location.search
 const urlParams = new URLSearchParams(windowIndex);
 let articleid = urlParams.get("a")
 
-if (articleid != null) {
+/*if (articleid != null) {
 
     axios.get("/assets/jsons/news.json").then(res => {
 
@@ -41,7 +41,7 @@ if (articleid != null) {
 
     })
 
-}
+}*/
 
 function loadarticles(num, src) {
 
