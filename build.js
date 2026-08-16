@@ -5,19 +5,20 @@ const path = require('path');
 const dist = path.join(__dirname, 'dist');
 
 fs.rmSync(dist, {recursive: true, force: true});
-fs.cpSync(__dirname, dist, {
-    recursive: true,
-})
-['articles/template.html', 'build.js'].forEach(file => {
-    fs.rmSync(`${dist}/${file}`);
-})
+fs.mkdirSync(dist, { recursive: true });
+fs.readdirSync('.').filter(x=>!['.git', '.gitignore', 'dist', '.github', 'build.js'].includes(x)).forEach(file => {
+    fs.cpSync(path.join(__dirname, file), path.join(dist, file), {
+        recursive: true
+    })
+});
+fs.rmSync(`${dist}/articles/template.html`);
 
 // articles
 const articles = require('./assets/jsons/news.json')
 
 for (let i = 0; i < articles.length; i++) {
     const id = articles.length - i;
-    const template = fs.readFileSync('./templates/article.html', 'utf8');
+    const template = fs.readFileSync(path.join(__dirname, 'articles/template.html'), 'utf8');
     const article = articles[i];
     const content = template
         .replaceAll("{{title}}", article.title)
