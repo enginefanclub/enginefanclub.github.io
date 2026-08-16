@@ -21,14 +21,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://efc.nefarkitti.dev/articles/{{id}}" />
     <meta property="og:title" content="{{title}}" />
-    <meta property="og:description" content="{{metadesc}}" />
-    <meta property="og:image" content="{{image}}" />
+    <meta property="og:description" content="{{{metadesc}}}" />
+    <meta property="og:image" content="{{{image}}}" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="http://efc.nefarkitti.dev/articles/{{id}}" />
     <meta property="twitter:title" content="{{title}}" />
     <meta property="twitter:description" content="{{title}}" />
-    <meta property="twitter:image" content="{{image}}" />
+    <meta property="twitter:image" content="{{{image}}}" />
 </head>
 
 <body>
@@ -53,7 +53,7 @@
                     <h2 id="article-title" style="margin-bottom: 0px;">{{title}}</h2>
                 </div>
                 <h4 data-timestamp="{{timestamp}}" class="timestamp" id="article-timestamp"></h4>
-                <div class="article-container" id="article-container">{{content}}</div>
+                <div class="article-container" id="article-container">{{{content}}}</div>
             </div>
         </div>
         <div class="list articles" id="article-list">
@@ -66,9 +66,6 @@
         </footer>
 
     </main>
-
-    <script>loadarticles(999, "")</script>
-
 </body>
 
 </html>
