@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-node@v7
 
       - name: Build
-        run: node build.js
+        run: node scripts/build.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
