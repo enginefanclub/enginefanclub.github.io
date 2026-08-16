@@ -50,8 +50,8 @@ for (let i = 0; i < Object.keys(games).length; i++) {
     game.gameTags = game.tags.map(tag => `<span>${tag}</span>`).join("");
     game.gameCredits = game.credits.map(credit => `<li>${credit}</li>`).join("");
     game.screenshotsList = (game.screenshots && game.screenshots.length >= 1) ? `<h2 id="screenshots-h2">screenshots</h2>
-        <div class="screenshot-gallery" id="screenshot-gallery">${game.screenshots.map(screenshot => `<a href="${screenshot}" target="_blank"><img src="${screenshot}"></a>`).join("")}<div class="spacer"></div>` : "";
-
+        <div class="screenshot-gallery" id="screenshot-gallery">${game.screenshots.map(screenshot => `<a href="${screenshot}" target="_blank"><img src="${screenshot}"></a>`).join("")}</div><div class="spacer"></div>` : "";
+    game.id = name;
     let count = 0
 
     game.articleList = articles.map(article => {
