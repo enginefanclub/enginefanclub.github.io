@@ -28,7 +28,7 @@ jobs:
         with:
           cache: 'npm'
 
-      - nam: Install dependencies
+      - name: Install dependencies
         run: npm i mustache moment
 
       - name: Build
