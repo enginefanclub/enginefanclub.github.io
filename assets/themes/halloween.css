@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+body {
+    background: url('/assets/site/bg/batsbg.gif');
+    background-color: black;
+}
+
+.site-border {
+    background: url('/assets/site/borders/bloodbar.gif');
+    background-repeat: repeat-x;
+}
+
+.logobar {
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+}
+
+.spacer {
+    height: 10px;
+    background: url('/assets/site/borders/bar_candycornsline.gif');
+    background-size: contain;
+    border: none;
+    filter: opacity(50%);
+}
+
+main {
+    background: #1a1a1aea;
+    background: linear-gradient(0deg, rgba(21, 21, 21, 0.9) 0%, rgba(8, 8, 8, 0.9) 100%);
+}

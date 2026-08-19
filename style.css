@@ -547,6 +547,13 @@ button.toggle {
     font-weight: 900;
 }
 
+.site-border {
+    width: 100vw;
+    height: 100dvh;
+    position: absolute;
+    pointer-events:none;
+}
+
 @media screen and (max-width:775px) {
     main {
         width: 100%;
