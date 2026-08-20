@@ -9,10 +9,11 @@
         "release": 7999999999999999,
         "lastupd": "TBA",
         "created": "TBA",
-        "tags": ["RPG", "Turn-based", "Retro-styled", "Vintage"],
+        "tags": ["RPG", "Turn-based", "Retro-styled", "Vintage", "Dungeon Crawling"],
         "credits": [
             "<b>nefarkitti</b> - lead developer"
-        ]
+        ],
+        "hidden": 0
     },
     "soda_clicker": {
         "title": "Soda Clicker",
@@ -28,7 +29,8 @@
             "<b>nefarkitti</b> - lead developer",
             "<b>faketitan</b> - artist, roguelike ideas",
             "<b>lake & cad</b> - music"
-        ]
+        ],
+        "hidden": 0
     },
     "son_battlegrounds": {
         "title": "Son Battlegrounds",
@@ -45,7 +47,8 @@
             "<b>nefarkitti</b> - lead developer",
             "<b>cad</b> - initial idea, testing",
             "<b>1nning</b> - proper balance testing"
-        ]
+        ],
+        "hidden": 0
     },
     "ratts_family_diner": {
         "title": "Ratt's Family Diner",
@@ -70,7 +73,8 @@
             "<b>jimrhx</b> - tester",
             "<b>dinodiviantz</b> - tester, king of RFD",
             "<b>Moonblackwolf567</b> - tester, voiced Alien"
-        ]
+        ],
+        "hidden": 0
     },
     "rescrybed": {
         "title": "RESCRYBED",
@@ -87,7 +91,8 @@
             "<b>mmmmmonster</b> - game designer, concepts, balancing, some visuals",
             "<b>firee</b> - quality assurance specialist",
             "<b>SIender</b> - underpaid construction worker"
-        ]
+        ],
+        "hidden": 0
     }
 
 }

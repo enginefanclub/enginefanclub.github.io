@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=VT323&display=swap');
-
+/*also acting as the css baseline for other themes (duh)*/
 :root {
 
     --font: "Inconsolata", monospace;
@@ -479,6 +479,10 @@ button.toggle {
 
 .btns {
     user-select: none;
+}
+.btns img {
+    max-width: 88px;
+    max-height: 31px;
 }
 .bg-wrapper {
     position: absolute;

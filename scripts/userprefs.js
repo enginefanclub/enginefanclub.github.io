@@ -1,3 +1,4 @@
+//this really should have also had themes but themes.js already does the job and this was first used for the gallery view soooo
 let userprefs = {
     "gallery": false,
 }
