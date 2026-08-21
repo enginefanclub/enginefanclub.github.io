@@ -60,10 +60,10 @@ for (let i = 0; i < Object.keys(games).length; i++) {
                 <a href="../articles/${articles.length-count}">
                     <div class="article-content">
                         <span class="article-title">${article.title}</span>
-                        <span class="article-timestamp">${moment(article.timestamp).fromNow()}</span>
+                        <span class="article-timestamp" id="update-timestamp">${article.timestamp}</span>
                     </div>
                 </a>
-            `
+            ` //moment(article.timestamp).fromNow()
         }
         count++;
     }).join("\n")

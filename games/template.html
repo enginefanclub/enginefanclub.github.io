@@ -96,6 +96,15 @@
 
     </main>
 
+    <script>
+        let update = document.querySelectorAll("#update-timestamp")
+
+        update.forEach(timestamp=>{
+            let getStamp = parseInt(timestamp.innerText)
+            timestamp.innerText = moment(getStamp).fromNow()
+        }) // hacky solution
+    </script>
+
 </body>
 
 </html>
