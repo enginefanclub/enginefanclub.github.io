@@ -65,6 +65,7 @@ for (let i = 0; i < Object.keys(games).length; i++) {
                 </a>
             `
         }
+        //this is consistent on the /div/ output but not on the website itself?...
         count++;
     }).join("\n")
     const content = Mustache.render(template, game);

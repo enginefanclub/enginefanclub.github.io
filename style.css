@@ -479,6 +479,10 @@ button.toggle {
 
 .btns {
     user-select: none;
+    display: flex;
+    align-items: start;
+    gap: 4px;
+    flex-wrap: wrap;
 }
 .btns img {
     max-width: 88px;
@@ -595,6 +599,15 @@ button.toggle {
 
     article.game a {
         flex-direction: column;
+    }
+
+    .game-content {
+        flex-direction: column;
+    }
+    .game-content>div {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
     }
 
 }
