@@ -445,6 +445,23 @@ button.toggle {
 .list.games {
     padding: 2px;
 }
+.list.games.gallery a {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}
+.games.gallery a img {
+    width: 30%;
+}
+.games.gallery a .article-content {
+    max-width: 100%;
+    width: 100%;
+}
+.games.gallery a .article-metadesc{
+    text-decoration: none;
+}
 
 .unav {
     text-decoration: none !important;
@@ -576,6 +593,9 @@ button.toggle {
     position: absolute;
     pointer-events:none;
 }
+.list a span {
+    text-decoration: underline;
+}
 
 @media screen and (max-width:775px) {
     main {
@@ -608,6 +628,9 @@ button.toggle {
         min-width: 100% !important;
         max-width: 100% !important;
         width: 100% !important;
+    }
+    .games.gallery a {
+        max-width: 100% !important;
     }
 
 }

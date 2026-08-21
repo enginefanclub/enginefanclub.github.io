@@ -9,9 +9,9 @@ const dist = path.join(root, 'dist');
 
 const MAX_BUILT = 5;
 
-fs.rmSync(dist, {recursive: true, force: true});
+fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
-fs.readdirSync('.').filter(x=>!['.git', '.gitignore', 'package.json', 'node_modules', 'package-lock.json', 'dist', '.github'].includes(x)).forEach(file => {
+fs.readdirSync('.').filter(x => !['.git', '.gitignore', 'package.json', 'node_modules', 'package-lock.json', 'dist', '.github'].includes(x)).forEach(file => {
     fs.cpSync(path.join(root, file), path.join(dist, file), {
         recursive: true
     })
@@ -57,8 +57,10 @@ for (let i = 0; i < Object.keys(games).length; i++) {
     game.articleList = articles.map(article => {
         if (article.game == name) {
             return `
-                <a href="../articles/${articles.length-count}">
+                <a href="../articles/${articles.length - count}">
+                <img src="${article.image}">
                     <div class="article-content">
+                        <span class="article-metadesc">${article.metadesc}</span>
                         <span class="article-title">${article.title}</span>
                         <span class="article-timestamp" id="update-timestamp">${article.timestamp}</span>
                     </div>
