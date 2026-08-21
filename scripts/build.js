@@ -57,7 +57,7 @@ for (let i = 0; i < Object.keys(games).length; i++) {
     game.articleList = articles.map(article => {
         if (article.game == name) {
             return `
-                <a href="../articles/${count}">
+                <a href="../articles/${articles.length-count}">
                     <div class="article-content">
                         <span class="article-title">${article.title}</span>
                         <span class="article-timestamp">${moment(article.timestamp).fromNow()}</span>
@@ -65,7 +65,6 @@ for (let i = 0; i < Object.keys(games).length; i++) {
                 </a>
             `
         }
-        //this is consistent on the /div/ output but not on the website itself?...
         count++;
     }).join("\n")
     const content = Mustache.render(template, game);
