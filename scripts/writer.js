@@ -34,4 +34,20 @@ function updatePreview() {
 
 }
 
+function getJson() {
+
+    let getTimestamp = Date.now()
+
+    navigator.clipboard.writeText(JSON.stringify({
+        "title": ARTICLE_TITLE.value,
+        "game": ARTICLE_GAME.value,
+        "timestamp": getTimestamp,
+        "colour": "#000",
+        "image": ARTICLE_BANNER.value,
+        "metadesc": ARTICLE_SUMMARY.value,
+        "content": ARTICLE_CONTENT.value
+    }, undefined, 2))
+
+}
+
 updatePreview()

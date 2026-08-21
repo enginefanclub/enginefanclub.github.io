@@ -1,5 +1,14 @@
 [
     {
+        "title": "[rpgthing] rpgthing development",
+        "game": "rpgthing",
+        "timestamp": 1787289500328,
+        "colour": "#000",
+        "image": "/assets/games/banners/rpgthing.png",
+        "metadesc": "finally, proper work begins",
+        "content": "(temp banner) this is just to declare official development of rpgthing (name pending) finally. the website is basically all polished up as much as can be and there's no running away from it now.<br>\nas mentioned rpgthing will be a slightly bigger project than previous ones, and i'm using it as a way to prepare for the development of Mustard (those who know).<br>\nupdates will be posted here as done before when there is a significant amount of the frameworks done so its not just a total bore to look at temporary default buttons and stuff, and as mentioned before release will be when the first dungeon is finalised (and balanced).<br>\nfor more detailed progress peep the <a href=\"https://trello.com/b/vJQblwB5/emilys-rpg-thing-prog\" target=\"_blank\">trello</a>."
+    },
+    {
         "title": "The third or fourth time updating the website styling & the future of EFC",
         "game": "",
         "timestamp": 1786218998589,
