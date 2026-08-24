@@ -308,7 +308,8 @@ article.game img {
     line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    filter: opacity(calc(var(--opacity-def) + 30%))
+    filter: opacity(calc(var(--opacity-def) + 30%));
+    text-decoration: none;
 }
 
 button,
