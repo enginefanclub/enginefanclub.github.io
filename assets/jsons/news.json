@@ -1,21 +1,21 @@
 [
     {
-        "title": "[rpgthing] but what even is rpgthing?",
+        "title": "[remoria] but what even is remoria?",
         "game": "remoria",
         "timestamp": 1787561494053,
         "colour": "#000",
-        "image": "/assets/games/banners/rpgthing.png",
-        "metadesc": "discussing the premise of rpgthing and what gameplay would even be like",
-        "content": "rpgthing (name pending) will be an RPG (as the temp name may suggest) set in a more fantasy medieval setting. the MC finds herself randomly revived after blissfully resting in the abyss remembering nothing of what she was up to beforehand. In the graveyard she wakes up in she's surrounded by skeletons and ghouls alike that she has to fend off and loot in order to grow stronger and to have a chance at surviving (again). The game will have elements of dungeon exploration, pikcing up randomly generated gear attributes (armour, weapons, etc) as well as possibly magic (in the future), all of which you collect in order to grow stronger (whilst increasing your stats through levels gained by slaying beasts successfully) and random encounters throughout that may or may not benefit MC on her journey, all in order for her to get back at the person who is supposedly behind all this who may be sitting in a structure she spotted far away.<br>\nRough draft, who knows if this is how the story will actually go and it's heavily subject to change (as well as the gameplay itself, though it's a lot more concrete as it stands)."
+        "image": "/assets/games/banners/remoria.png",
+        "metadesc": "discussing the premise of remoria and what gameplay would even be like",
+        "content": "remoria (name pending) will be an RPG (as the temp name may suggest) set in a more fantasy medieval setting. the MC finds herself randomly revived after blissfully resting in the abyss remembering nothing of what she was up to beforehand. In the graveyard she wakes up in she's surrounded by skeletons and ghouls alike that she has to fend off and loot in order to grow stronger and to have a chance at surviving (again). The game will have elements of dungeon exploration, pikcing up randomly generated gear attributes (armour, weapons, etc) as well as possibly magic (in the future), all of which you collect in order to grow stronger (whilst increasing your stats through levels gained by slaying beasts successfully) and random encounters throughout that may or may not benefit MC on her journey, all in order for her to get back at the person who is supposedly behind all this who may be sitting in a structure she spotted far away.<br>\nRough draft, who knows if this is how the story will actually go and it's heavily subject to change (as well as the gameplay itself, though it's a lot more concrete as it stands)."
     },
     {
-        "title": "[rpgthing] rpgthing development",
+        "title": "[remoria] remoria development",
         "game": "remoria",
         "timestamp": 1787289500328,
         "colour": "#000",
-        "image": "/assets/games/banners/rpgthing.png",
+        "image": "/assets/games/banners/remoria.png",
         "metadesc": "finally, proper work begins",
-        "content": "this is just to declare official development of rpgthing (name pending) finally. the website is basically all polished up as much as can be and there's no running away from it now.<br>\nas mentioned rpgthing will be a slightly bigger project than previous ones, and i'm using it as a way to prepare for the development of Mustard (those who know).<br>\nupdates will be posted here as done before when there is a significant amount of the frameworks done so its not just a total bore to look at temporary default buttons and stuff, and as mentioned before release will be when the first dungeon is finalised (and balanced).<br>\nfor more detailed progress peep the <a href=\"https://trello.com/b/vJQblwB5/emilys-rpg-thing-prog\" target=\"_blank\">trello</a>."
+        "content": "this is just to declare official development of remoria (name pending) finally. the website is basically all polished up as much as can be and there's no running away from it now.<br>\nas mentioned remoria will be a slightly bigger project than previous ones, and i'm using it as a way to prepare for the development of Mustard (those who know).<br>\nupdates will be posted here as done before when there is a significant amount of the frameworks done so its not just a total bore to look at temporary default buttons and stuff, and as mentioned before release will be when the first dungeon is finalised (and balanced).<br>\nfor more detailed progress peep the <a href=\"https://trello.com/b/vJQblwB5/emilys-rpg-thing-prog\" target=\"_blank\">trello</a>."
     },
     {
         "title": "The third or fourth time updating the website styling & the future of EFC",
@@ -24,7 +24,7 @@
         "colour": "#000",
         "image": "/assets/missing.png",
         "metadesc": "the hopefully finalised style of the website & the future of EFC",
-        "content": "As the title suggests, and as one keen-eyed person may have noticed, the website underwent <i>another</i> style change, though this should be the last one for a good while because this gets tiring. <br> As for the future of Engine Fan Club, all games that were developed on roblox since the move will no longer receive any more updates at all. It is essentially a fresh start. <br>So what's next? Currently the active project is <a href='../games/?g=rpgthing'>rpgthing</a> which is planned to release first with basic functionality and one (1) dungeon to get the feel of the balancing. After the initial release, 'rpgthing' will become a separate thing that'll get content updates every so often.<br>Lastly, some extra content related to the games (mainly related to Mustard currently). These are just for fun and should not be treated with the highest utmost expectations (this goes for release times too if unfinished).<br><h2>personal roadmap & TLDR (in no particular order)</h2><ul><li>website finishing touches</li><li>rpgthing v1.0.0 release</li><li>some extra mustard content</li><li>possible secondary, smaller 3D game</li></ul>That's all, folks!"
+        "content": "As the title suggests, and as one keen-eyed person may have noticed, the website underwent <i>another</i> style change, though this should be the last one for a good while because this gets tiring. <br> As for the future of Engine Fan Club, all games that were developed on roblox since the move will no longer receive any more updates at all. It is essentially a fresh start. <br>So what's next? Currently the active project is <a href='../games/?g=remoria'>remoria</a> which is planned to release first with basic functionality and one (1) dungeon to get the feel of the balancing. After the initial release, 'remoria' will become a separate thing that'll get content updates every so often.<br>Lastly, some extra content related to the games (mainly related to Mustard currently). These are just for fun and should not be treated with the highest utmost expectations (this goes for release times too if unfinished).<br><h2>personal roadmap & TLDR (in no particular order)</h2><ul><li>website finishing touches</li><li>remoria v1.0.0 release</li><li>some extra mustard content</li><li>possible secondary, smaller 3D game</li></ul>That's all, folks!"
     },
     {
         "title": "Moving from Roblox to Godot & a second website overhaul",
