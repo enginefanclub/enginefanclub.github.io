@@ -1,5 +1,4 @@
 {
-
     "remoria": {
         "title": "Remoria",
         "desc": "TBA",
@@ -9,7 +8,13 @@
         "release": 7999999999999999,
         "lastupd": "TBA",
         "created": "TBA",
-        "tags": ["RPG", "Turn-based", "Retro-styled", "Vintage", "Dungeon Crawling"],
+        "tags": [
+            "RPG",
+            "Turn-based",
+            "Retro-styled",
+            "Vintage",
+            "Dungeon Crawling"
+        ],
         "credits": [
             "<b>nefarkitti</b> - lead developer"
         ],
@@ -24,7 +29,11 @@
         "release": 1775001600000,
         "lastupd": "April 1st 2026",
         "created": "March 31st 2026",
-        "tags": ["Joke", "Roguelike", "Side-scroller"],
+        "tags": [
+            "Joke",
+            "Roguelike",
+            "Side-scroller"
+        ],
         "credits": [
             "<b>nefarkitti</b> - lead developer",
             "<b>faketitan</b> - artist, roguelike ideas",
@@ -41,12 +50,36 @@
         "release": 1726444800000,
         "lastupd": "July 31st 2025",
         "created": "September 16th 2024",
-        "tags": ["ROBLOX", "Multiplayer PvP", "Action"],
-        "screenshots": ["../assets/games/screenshots/sonbg1.webp"],
+        "tags": [
+            "ROBLOX",
+            "Multiplayer PvP",
+            "Action"
+        ],
+        "screenshots": [
+            "../assets/games/screenshots/sonbg1.webp"
+        ],
         "credits": [
             "<b>nefarkitti</b> - lead developer",
             "<b>cad</b> - initial idea, testing",
             "<b>1nning</b> - proper balance testing"
+        ],
+        "hidden": 0
+    },
+    "gloob": {
+        "title": "Gloob",
+        "desc": "Take care of a pet!",
+        "access": "https://nefarkitti.dev/gloob/",
+        "banner": "/assets/missing.png",
+        "version": "v1.1",
+        "release": 1752019200000,
+        "lastupd": "October 8th 2026",
+        "created": "July 9th 2025",
+        "tags": [
+            "Pet",
+            "Management"
+        ],
+        "credits": [
+            "<b>nefarkitti</b> - lead developer"
         ],
         "hidden": 0
     },
@@ -59,8 +92,16 @@
         "release": 1705190400000,
         "lastupd": "March 10th 2024",
         "created": "January 14th 2024",
-        "tags": ["ROBLOX", "Multiplayer", "Co-op", "Cooking", "Management"],
-        "screenshots": ["/assets/games/screenshots/rfd1.webp"],
+        "tags": [
+            "ROBLOX",
+            "Multiplayer",
+            "Co-op",
+            "Cooking",
+            "Management"
+        ],
+        "screenshots": [
+            "/assets/games/screenshots/rfd1.webp"
+        ],
         "credits": [
             "<b>nefarkitti</b> - lead developer",
             "<b>1029bv</b> - restaurant map, poster art",
@@ -85,7 +126,13 @@
         "release": 1668124800000,
         "lastupd": "i dont remember",
         "created": "November 11th 2022",
-        "tags": ["ROBLOX", "2 Player PvP", "Card-based", "Turn-based", "Downright recreation"],
+        "tags": [
+            "ROBLOX",
+            "2 Player PvP",
+            "Card-based",
+            "Turn-based",
+            "Downright recreation"
+        ],
         "credits": [
             "<b>nefarkitti</b> - lead developer, coding, art",
             "<b>mmmmmonster</b> - game designer, concepts, balancing, some visuals",
@@ -94,5 +141,4 @@
         ],
         "hidden": 0
     }
-
 }

@@ -253,6 +253,13 @@ article.game img {
     height: 300px;
     object-fit: contain;
 }
+.article-container ul {
+    margin: 5px 0px;
+}
+.article-container p {
+    font-weight: 400;
+    margin: 8px 0px;
+}
 
 .timestamp {
     margin: 0;

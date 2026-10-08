@@ -1,5 +1,14 @@
 [
     {
+        "title": "[gloob] GLOOBRAISER (or just Gloob v1.1)",
+        "game": "gloob",
+        "timestamp": 1791492563238,
+        "colour": "#000",
+        "image": "/assets/games/banners/gloobraiserupd.png",
+        "metadesc": "a halloween update for gloob which adds a bunch of items, visual overhauls and a small new mechanic\nand Something Else...",
+        "content": "<h1>New Content</h1>\n<p>This is just a fun little filler halloween update that also combines gloob into EFC instead of just being my own personal thing.</p>\n<h2>Added Explore Tab</h2>\n<p>You can now go on walks with your pet, exploring areas such as <b>Graveyard, Trick or Treatin, Haunted House and Park</b>, and you can gain different items.</p>\n<h2>Added Items</h2>\n<p>Consumables gained from the explore tab, they're less effective ways to improve your Gloob's health or earn a little extra cash.</p>\n<h2>New Icons</h2>\n<p>All statuses/diseases have now been given a unique icon instead of letting it just be straight text.</p>\n<h2>New Species</h2>\n<ul>\n<li>Galumph</li>\n<li>Pony</li>\n</ul>\n<h2>New Items (care/marketplace/whatever)</h2>\n<ul>\n<li>Cigarettes</li>\n<li>Alcohol</li>\n<li>Chocolate</li>\n<li>Candy Corn</li>\n<li>Ritual Candles</li>\n<li>Jack-O-Lantern</li>\n<li>Trip to The Vet</li>\n</ul>\n<h2>New Afflictions</h2>\n<ul>\n<li>Cancer</li>\n<li>Horror</li>\n</ul>\n<h2>Removed</h2>\n<ul>\n<li>Cello species</li>\n</ul>\n<h2>Balance Changes</h2>\n<ul>\n<li>Increased starting balance</li>\n<li>Shifted multipliers in favour of the player</li>\n<li>Fixed some item descriptions to be more accurate</li>\n<li>Reduced the cost of </li>\n<li>Removed the food variety mechanic</li>\n</ul>"
+    },
+    {
         "title": "Replaced Discussing Remoria article for spoilers",
         "game": "",
         "timestamp": 1789614698548,
