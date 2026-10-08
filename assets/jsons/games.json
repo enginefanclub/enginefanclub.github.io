@@ -41,6 +41,24 @@
         ],
         "hidden": 0
     },
+    "gloob": {
+        "title": "Gloob",
+        "desc": "Take care of a pet!",
+        "access": "https://nefarkitti.dev/gloob/",
+        "banner": "/assets/missing.png",
+        "version": "v1.1",
+        "release": 1752019200000,
+        "lastupd": "October 8th 2026",
+        "created": "July 9th 2025",
+        "tags": [
+            "Pet",
+            "Management"
+        ],
+        "credits": [
+            "<b>nefarkitti</b> - lead developer"
+        ],
+        "hidden": 0
+    },
     "son_battlegrounds": {
         "title": "Son Battlegrounds",
         "desc": "Joke ROBLOX game where you swing different types of balls on ropes to PvP.",
@@ -62,24 +80,6 @@
             "<b>nefarkitti</b> - lead developer",
             "<b>cad</b> - initial idea, testing",
             "<b>1nning</b> - proper balance testing"
-        ],
-        "hidden": 0
-    },
-    "gloob": {
-        "title": "Gloob",
-        "desc": "Take care of a pet!",
-        "access": "https://nefarkitti.dev/gloob/",
-        "banner": "/assets/missing.png",
-        "version": "v1.1",
-        "release": 1752019200000,
-        "lastupd": "October 8th 2026",
-        "created": "July 9th 2025",
-        "tags": [
-            "Pet",
-            "Management"
-        ],
-        "credits": [
-            "<b>nefarkitti</b> - lead developer"
         ],
         "hidden": 0
     },
