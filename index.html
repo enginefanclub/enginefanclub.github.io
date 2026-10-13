@@ -11,15 +11,19 @@
     <meta name="title" content="engine fan club" />
     <meta name="description" content="a group of friends banded together to make fun video games." />
     <meta property="og:image" content="/assets/efclogov2.png">
-
+    <script src="https://cdn.socket.io/4.8.4/socket.io.min.js"
+        integrity="sha384-fBrXvbDtHoeKWJ/hcA6M+YGueiDW+h45I7V6F2kD1S8bOkrF9rZYPLVkCR6BLR/1"
+        crossorigin="anonymous"></script>
+    <script src="/scripts/parksocket.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://kit.fontawesome.com/299edb3a7d.js" crossorigin="anonymous"></script>
-    <script src="https://louisabraham.github.io/nekojs/neko.js" data-autostart></script>
+    <!--<script src="https://louisabraham.github.io/nekojs/neko.js" data-autostart></script>-->
     <script src="/scripts/btns.js" defer></script>
     <script src="/scripts/userprefs.js" defer></script>
     <script src="/scripts/navbar.js" defer></script>
     <script src="/scripts/theme.js"></script>
+    <script src="/scripts/park.js" defer></script>
 </head>
 
 <body>
@@ -61,6 +65,12 @@
                 view</button>
         </div>
         <div class="list articles" id="article-list">
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="canvasContainer" id="canvas-container">
+            <canvas id="park" width="746" height="80" style="image-rendering: pixelated;"></canvas>
         </div>
 
         <div class="spacer"></div>

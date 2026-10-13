@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User - Engine Fan Club</title>
+    <link rel="shortcut icon" href="/assets/efcfanfinalnotext.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.socket.io/4.8.4/socket.io.min.js"
+        integrity="sha384-fBrXvbDtHoeKWJ/hcA6M+YGueiDW+h45I7V6F2kD1S8bOkrF9rZYPLVkCR6BLR/1"
+        crossorigin="anonymous"></script>
+    <script src="/scripts/parksocket.js"></script>
+    <script src="/scripts/btns.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <script src="/scripts/theme.js"></script>
+    <script src="/scripts/userprefs.js" defer></script>
+    <script src="/scripts/trophies.js" defer></script>
+</head>
+
+<body>
+
+    <main>
+
+        <div class="logobar">
+            <img class="logo" src="/assets/efclogov2.svg" alt="">
+            <h1>Engine Fan Club</h1>
+        </div>
+
+        <nav id="navbar">
+            <a>home</a>
+        </nav>
+
+        <div class="spacer"></div>
+
+        <h2>user</h2>
+
+        <!--<h3>Achievements (0/0)</h3>
+
+        <div class="trophy-grid" id="trophy-grid">
+            <div class="trophy" style="background-position: 0px 0px;"></div>
+        </div>-->
+
+        <h3>park critter</h3>
+        <div class="critter">
+
+            <div class="preview-container">
+                <div class="preview" style="background: url('/assets/sprites/aoko.png')"></div>
+                <span>Aoko</span>
+            </div>
+
+            <div class="critter-inventory">
+                <div style="width: 40px;height: 40px;background: url('/assets/sprites/test.png')"></div>
+                <div style="width: 40px;height: 40px;background: url('/assets/sprites/aoko.png')"></div>
+                <div style="width: 40px;height: 40px;background: url('/assets/sprites/titan.png')"></div>
+            </div>
+
+        </div>
+
+        <div class="spacer"></div>
+
+        <footer>
+            <div class="btns" id="btns">
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

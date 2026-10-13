@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tattered Letter</title>
     <link rel="shortcut icon" href="/assets/games/extra/r_letter.png" type="image/x-icon">
+    <script src="https://cdn.socket.io/4.8.4/socket.io.min.js"
+        integrity="sha384-fBrXvbDtHoeKWJ/hcA6M+YGueiDW+h45I7V6F2kD1S8bOkrF9rZYPLVkCR6BLR/1"
+        crossorigin="anonymous"></script>
+    <script src="/scripts/parksocket.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=BIZ+UDMincho&display=swap');
 
@@ -22,9 +26,11 @@
             box-sizing: border-box;
             flex-direction: column;
         }
+
         span {
             width: fit-content;
         }
+
         .sign {
             font-family: "Engagement", cursive;
         }
