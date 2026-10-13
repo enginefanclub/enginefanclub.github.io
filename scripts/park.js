@@ -166,7 +166,7 @@ function getCanvasMousePosition(canvas, event) {
     return [x, y]
 }
 
-function resizeCanvasWindow() {
+/*function resizeCanvasWindow() {
     ctx.canvas.width = Math.floor(canvas_container.offsetWidth)
     canvas.width = Math.floor(canvas_container.offsetWidth)
     draw()
@@ -182,4 +182,4 @@ axios.get('/assets/jsons/sheets.json').then(res => {
         draw()
         tick()
     }
-})
+})*/

@@ -58,9 +58,9 @@ function startSocket() {
 
     addSprite('test', true)
 }
-let e = setInterval(function() {
+/*let e = setInterval(function() {
     if (document.body) {
         startSocket()
         clearInterval(e);
     }
-}, 1000)
+}, 1000)*/
