@@ -31,7 +31,7 @@ function startSocket() {
         sprites.forEach(data => {
             addSprite(data.id, false, data.ip)
         })
-        socket.emit('addsprite', 'test')
+        socket.emit('addsprite', 'duck')
     })
 
     socket.on('addsprite', (ip, id)=>{
