@@ -2,8 +2,8 @@ const canvas_container = document.getElementById("canvas-container")
 const canvas = document.getElementById("park")
 const ctx = canvas.getContext("2d")
 
-const FLOOR_HEIGHT = canvas.height - 39
-const SPRITE_SIZE = 40
+const SPRITE_SIZE = 50
+const FLOOR_HEIGHT = (SPRITE_SIZE-19)
 const BORDER_WIDTH = 1
 
 let SPRITESHEETS
@@ -47,7 +47,7 @@ function removeSprite(identifier) {
 function getSpriteGoal() {
     let goal = Math.round(canvas.width * Math.random())
     if (goal <= 0) goal = 0;
-    if (goal >= canvas.width - 41) goal = canvas.width - 41
+    if (goal >= canvas.width - (SPRITE_SIZE+1)) goal = canvas.width - (SPRITE_SIZE+1)
     return goal
 }
 
@@ -67,7 +67,7 @@ function renderSprite(spr) {
     spr.src.src = spritesheet
 
 
-    ctx.drawImage(spr.src, 40 * sheets[sprstate][spr.frame], 40 * spr.facing, SPRITE_SIZE, SPRITE_SIZE, spr.pos[0], spr.pos[1], SPRITE_SIZE, SPRITE_SIZE)
+    ctx.drawImage(spr.src, SPRITE_SIZE * sheets[sprstate][spr.frame], SPRITE_SIZE * spr.facing, SPRITE_SIZE, SPRITE_SIZE, spr.pos[0], spr.pos[1], SPRITE_SIZE, SPRITE_SIZE)
 }
 
 function draw() {
@@ -79,7 +79,7 @@ function draw() {
     ctx.fillRect(0, 0, canvas.width, 150);
 
     sprites.forEach(spr => {
-        if (spr.pos[0] >= canvas.width - 40) spr.pos[0] = canvas.width - 40
+        if (spr.pos[0] >= canvas.width - SPRITE_SIZE) spr.pos[0] = canvas.width - SPRITE_SIZE
         if (spr.pos[0] <= 0) spr.pos[0] = 0
 
         renderSprite(spr)
@@ -87,16 +87,16 @@ function draw() {
         if (spr.isself) {
             ctx.fillStyle = "red";
             ctx.font = "20px";
-            ctx.fillText(`YOU`, spr.pos[0] + 20, 35);
+            ctx.fillText(`YOU`, spr.pos[0] + 25, 30);
         }
 
         if (HOVERING) {
-            if (mousex >= spr.pos[0] && mousex <= spr.pos[0] + 40 && mousey >= FLOOR_HEIGHT) {
+            if (mousex >= spr.pos[0] && mousex <= spr.pos[0] + SPRITE_SIZE && mousey >= FLOOR_HEIGHT) {
 
                 if (spr.isself) return;
                 ctx.fillStyle = "black";
                 ctx.font = "20px";
-                ctx.fillText(`${spr.name}`, spr.pos[0] + 20, 35);
+                ctx.fillText(`${spr.name}`, spr.pos[0] + 25, 30);
 
             }
         }
@@ -166,7 +166,7 @@ function getCanvasMousePosition(canvas, event) {
     return [x, y]
 }
 
-/*function resizeCanvasWindow() {
+function resizeCanvasWindow() {
     ctx.canvas.width = Math.floor(canvas_container.offsetWidth)
     canvas.width = Math.floor(canvas_container.offsetWidth)
     draw()
@@ -182,4 +182,4 @@ axios.get('/assets/jsons/sheets.json').then(res => {
         draw()
         tick()
     }
-})*/
+})
