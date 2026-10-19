@@ -31,7 +31,7 @@ function startSocket() {
         sprites.forEach(data => {
             addSprite(data.id, false, data.ip)
         })
-        socket.emit('addsprite', 'duck')
+        socket.emit('addsprite', 'cat')
     })
 
     socket.on('addsprite', (ip, id)=>{
@@ -56,10 +56,10 @@ function startSocket() {
         //window.location.href = "https://http.cat/418"
     })
 
-    addSprite('duck', true)
+    addSprite('cat', true)
 }
 let e = setInterval(function() {
-    if (document.body) {
+    if (document.body && typeof addSprite == "function") { // wont scream if it doesnt exist now
         startSocket()
         clearInterval(e);
     }

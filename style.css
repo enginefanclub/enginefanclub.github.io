@@ -61,6 +61,10 @@ main {
     padding-top: 10px;
 }
 
+main.main-profile {
+    gap: 5px;
+}
+
 .logobar {
     display: flex;
     align-items: center;
@@ -187,6 +191,12 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.space-around {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .flex-row {
@@ -326,7 +336,8 @@ article.game img {
 }
 
 button,
-select {
+select,
+input {
     border: none;
     background: var(--nav-colour-def);
     background: var(--nav-colour);
@@ -335,8 +346,19 @@ select {
     padding: 5px;
 }
 
+input:focus {
+    outline: none;
+}
+
 button.toggle {
     padding: 5px;
+}
+
+button.danger {
+    background: red;
+    background: linear-gradient(0deg, rgb(109, 0, 0) 0%, rgb(191, 0, 0) 43%, rgb(255, 74, 74) 76%, rgb(250, 3, 3) 100%);
+    ;
+    font-weight: 900;
 }
 
 .pagination {
@@ -576,36 +598,185 @@ button.toggle {
     resize: none;
 }
 
-.list.profiles {
-    flex-direction: column;
-    user-select: none;
-    flex-wrap: wrap;
-}
-
-.profiles .profile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 5px;
+.profile {
+    width: 100%;
+    height: 200px;
+    position: relative;
     box-sizing: border-box;
-    margin: 5px;
+    border: 1px solid var(--border-colour);
+    background: #121212;
+    background: linear-gradient(0deg, rgba(18, 18, 18, 1) 0%, rgba(56, 56, 56, 1) 30%, rgba(0, 0, 0, 1) 100%);
+    box-shadow: inset 0px 0px 5px black;
 }
 
-.profile img {
-    width: 50px;
+.profile .banner {
+    width: 100%;
+    height: 80%;
+    display: block;
+    background-color: black;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--border-colour);
+    /*background-image: url('/assets/profile/banners.png');*/
+    image-rendering: pixelated;
+}
+
+.profile .icon {
+    width: 115px;
     aspect-ratio: 1/1;
-    margin-right: 5px;
+    position: absolute;
+    float: left;
+    bottom: 5px;
+    left: 5px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-colour);
+    image-rendering: pixelated;
+    background-size: 565px;
+    background: black;
+    background-image: url('/assets/profile/icons.png');
+    background-size: 568px;
+    transform: rotate(-1deg);
 }
 
-.profile-content {
+.profile .display-name {
+    margin-left: 125px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+section {
+
+    box-sizing: border-box;
+    border: 1px solid var(--border-colour);
+    background: #121212;
+    background: linear-gradient(0deg, rgb(20, 20, 20) 0%, rgb(36, 36, 36) 30%, rgb(45, 45, 45) 100%);
+    padding: 5px;
+    font-weight: 500;
+    box-shadow: inset 0px 0px 3px black;
+
+}
+
+section header {
+    width: 100%;
+    background: var(--nav-colour);
+    box-sizing: border-box;
+    user-select: none;
+    border-bottom: 1px solid var(--border-colour);
+    box-shadow: inset 0px 0px 4px black;
+    display: flex;
+}
+
+section header span {
+    cursor: pointer;
+    padding: 5px;
+    text-decoration: underline;
+}
+
+section header span.selected {
+    background-color: rgba(255, 255, 255, 0.156);
+    box-shadow: inset 0px 0px 5px black;
+    text-decoration: none;
+}
+
+.profile .badges {
+    width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
 }
 
-.profile-content h3,
-.profile-content p {
+.profile .badges .badge {
+    background-image: url('/assets/profile/badges.png');
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+    transform: scale(70%);
+}
+
+.profile-stats {
+    width: 100%;
+    text-align: left;
+}
+
+.main-profile section h3 {
+    font-weight: 900;
+}
+
+.profile-grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.profile-grid .check::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    background-image: url('/assets/sprites/check.png');
+    image-rendering: pixelated;
+}
+
+.profile-grid .icon {
+    min-width: 100px;
+    min-height: 100px;
+    background: url('/assets/profile/icons.png');
+    border: 1px solid var(--border-colour);
+    transform: scale(50%);
+    margin: -25px;
+    image-rendering: pixelated;
+}
+
+.profile-grid .banner-col {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border-colour);
+}
+.profile-grid .trophy {
+    width: 32px;
+    height: 32px;
+    background: url('/assets/profile/trophies.png');
+    image-rendering: pixelated;
+    filter: drop-shadow(0px 2px 2px black);
+}
+
+section.settings h4 {
     margin: 0;
+}
+
+section hr {
+    border: 1px solid white;
+    filter: opacity(15%);
+}
+
+.critters-grid {
+    display: flex;
+}
+
+.critter-preview {
+    min-width: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    max-width: 50px;
+    margin: 30px;
+    margin-right: 30px;
+    image-rendering: pixelated;
+    transform: scale(190%);
+    background: white;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.profile-grid .critter {
+    width: 50px;
+    height: 50px;
+    image-rendering: pixelated;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid black;
 }
 
 .game-access {
@@ -638,57 +809,6 @@ button.toggle {
     justify-content: center;
 }
 
-.trophy-grid {
-    display: flex;
-    gap: 2px;
-    flex-wrap: wrap;
-}
-
-.trophy-grid .trophy {
-    background-image: url('/assets/trophies.webp');
-    aspect-ratio: 1/1;
-    flex-shrink: 0.5;
-}
-
-.trophy.unobtained {
-    filter: brightness(0%);
-}
-
-.critter {
-    width: 100%;
-    height: 150px;
-    display: flex;
-    box-sizing: border-box;
-    background: black;
-}
-
-.critter .preview-container {
-    height: 100%;
-    aspect-ratio: 1/1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.critter .preview-container span {
-    transform: translateY(42px);
-    max-width: 100%;
-    width: 100%;
-    overflow: hidden;
-    text-align: center;
-}
-
-.preview-container .preview {
-    aspect-ratio: 1/1;
-    width: 40px;
-    image-rendering: pixelated;
-
-    animation-name: previewSpin;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
 .critter-inventory {
     width: 100%;
     height: 100%;
@@ -697,19 +817,55 @@ button.toggle {
     image-rendering: pixelated;
 }
 
+form span {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 2px;
+}
+
+form span label {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+form {
+    gap: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 @keyframes previewSpin {
-    0% {transform: rotateY(0deg) scale(300%);}
-    50% {transform: rotateY(180) scale(300%);}
-    100% {transform: rotateY(360deg) scale(300%);}
+    0% {
+        transform: rotateY(0deg) scale(300%);
+    }
+
+    50% {
+        transform: rotateY(180) scale(300%);
+    }
+
+    100% {
+        transform: rotateY(360deg) scale(300%);
+    }
 }
 
 @media screen and (max-width:775px) {
     main {
-        width: 100%;
+        width: 100vw;
     }
 
     .banner {
         display: none;
+    }
+
+    .profile .icon {
+        transform: scale(50%) translateX(calc(115px / -2)) translateY(calc(115px / 2));
+    }
+
+    .profile .display-name {
+        margin-left: 67px;
     }
 }
 

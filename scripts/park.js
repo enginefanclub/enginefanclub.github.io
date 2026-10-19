@@ -3,7 +3,7 @@ const canvas = document.getElementById("park")
 const ctx = canvas.getContext("2d")
 
 const SPRITE_SIZE = 50
-const FLOOR_HEIGHT = (SPRITE_SIZE-19)
+const FLOOR_HEIGHT = (SPRITE_SIZE - 19)
 const BORDER_WIDTH = 1
 
 let SPRITESHEETS
@@ -20,7 +20,7 @@ function addSprite(id, isself = false, identifier = "") {
 
     sprites.push({
         "id": id,
-        "name": id,
+        "name": "",
         "identifier": identifier,
         "src": img,
         "pos": [Math.round(canvas.width * Math.random()), FLOOR_HEIGHT],
@@ -30,6 +30,9 @@ function addSprite(id, isself = false, identifier = "") {
         "facing": 0, // some hacky shit
         "z": sprites.length,
         "isself": isself,
+        "state": "idle",
+        "emote": 0,
+        "emoteTime": -1
     })
 }
 function removeSprite(identifier) {
@@ -47,7 +50,7 @@ function removeSprite(identifier) {
 function getSpriteGoal() {
     let goal = Math.round(canvas.width * Math.random())
     if (goal <= 0) goal = 0;
-    if (goal >= canvas.width - (SPRITE_SIZE+1)) goal = canvas.width - (SPRITE_SIZE+1)
+    if (goal >= canvas.width - (SPRITE_SIZE + 1)) goal = canvas.width - (SPRITE_SIZE + 1)
     return goal
 }
 
@@ -56,18 +59,23 @@ function renderSprite(spr) {
     let sheets = SPRITESHEETS[spr.id]
 
     let spritesheet = `/assets/sprites/${spr.id}.png`
-    if (spr.goal == 0) {
-        sprstate = "idle"
+    let toRender
+    let animLength
+
+    if (spr.state != "emote") {
+        toRender = sheets[spr.state][spr.frame]
+        animLength = sheets[spr.state].length
     } else {
-        sprstate = "walk"
+        toRender = spr.emote[spr.frame]
+        animLength = spr.emote.length
     }
+
     if (ticks % animfreq == 0) spr.frame++;
-    if (spr.frame > sheets[sprstate].length - 1) spr.frame = 0;
+    if (spr.frame > animLength - 1) spr.frame = 0;
 
     spr.src.src = spritesheet
 
-
-    ctx.drawImage(spr.src, SPRITE_SIZE * sheets[sprstate][spr.frame], SPRITE_SIZE * spr.facing, SPRITE_SIZE, SPRITE_SIZE, spr.pos[0], spr.pos[1], SPRITE_SIZE, SPRITE_SIZE)
+    ctx.drawImage(spr.src, SPRITE_SIZE * toRender, SPRITE_SIZE * spr.facing, SPRITE_SIZE, SPRITE_SIZE, spr.pos[0], spr.pos[1], SPRITE_SIZE, SPRITE_SIZE)
 }
 
 function draw() {
@@ -120,6 +128,7 @@ function tick() {
 
     sprites.forEach(sprite => {
         if (sprite.goal != 0) {
+            sprite.state = "walk"
             if (sprite.goal < sprite.pos[0]) {
                 sprite.pos[0]--
                 sprite.facing = 1
@@ -134,11 +143,33 @@ function tick() {
             if (sprite.goal == sprite.pos[0]) {
                 sprite.goal = 0
                 sprite.move = Math.floor(500 * Math.random()) + 100
+                sprite.state = "idle"
             }
         } else {
-            sprite.move -= 1
-            if (sprite.move == 0) {
-                sprite.goal = getSpriteGoal()
+            if (sprite.state == "idle") {
+
+                if (Math.random() * 100 <= 1 && sprite.state != "emote") {
+                    if ("emotes" in SPRITESHEETS[sprite.id]) {
+                        let sprite_emotes = SPRITESHEETS[sprite.id].emotes
+                        sprite.state = "emote"
+                        sprite.emote = sprite_emotes[getRandomInt(sprite_emotes.length)]
+                    }
+                }
+
+                sprite.move--
+                if (sprite.move == 0) {
+                    sprite.goal = getSpriteGoal()
+                }
+            }
+            if (sprite.state == "emote") {
+                if (sprite.emoteTime == -1) {
+                    sprite.emoteTime = sprite.emote.length * ((getRandomInt(50)+1) + 25)
+                }
+                sprite.emoteTime--
+                if (sprite.emoteTime <= 0) {
+                    sprite.emoteTime = -1
+                    sprite.state = "idle"
+                }
             }
         }
     })
@@ -173,7 +204,7 @@ function resizeCanvasWindow() {
 }
 addEventListener("resize", (event) => { resizeCanvasWindow() })
 
-axios.get('/assets/jsons/sheets.json').then(res => {
+axios.get('/assets/jsons/critters.json').then(res => {
     if (res.data) {
 
         SPRITESHEETS = res.data
@@ -183,3 +214,7 @@ axios.get('/assets/jsons/sheets.json').then(res => {
         tick()
     }
 })
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}

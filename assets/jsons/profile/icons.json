@@ -1,0 +1,120 @@
+{
+    "user": {
+        "name": "Default User",
+        "pos": [
+            0,
+            0
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "userinv": {
+        "name": "Default User Inverted",
+        "pos": [
+            0,
+            1
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "engine1": {
+        "name": "Engine 1",
+        "pos": [
+            1,
+            0
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "sonbg": {
+        "name": "Son",
+        "pos": [
+            2,
+            0
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "rfdworker": {
+        "name": "R.F.D. Worker",
+        "pos": [
+            3,
+            0
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "mossball": {
+        "name": "Moss Ball",
+        "pos": [
+            4,
+            0
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "sodalogo": {
+        "name": "SODA Logo",
+        "pos": [
+            1,
+            1
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "janeid": {
+        "name": "Jane's ID",
+        "pos": [
+            2,
+            1
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "micegal": {
+        "name": "Dr. Micegal",
+        "pos": [
+            3,
+            1
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "engine2": {
+        "name": "Engine 2",
+        "pos": [
+            2,
+            2
+        ],
+        "default": true,
+        "category": "default"
+    },
+
+    "1nning": {
+        "name": "1nning",
+        "pos": [
+            0,
+            4
+        ],
+        "default": false,
+        "category": "default"
+    },
+    "nefarkitti": {
+        "name": "nefarkitti",
+        "pos": [
+            1,
+            4
+        ],
+        "default": false,
+        "category": "default"
+    },
+    "duck": {
+        "name": "Duck",
+        "pos": [
+            2,
+            4
+        ],
+        "default": false,
+        "category": "default"
+    }
+}
