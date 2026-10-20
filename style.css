@@ -618,23 +618,23 @@ button.danger {
     border-bottom: 1px solid var(--border-colour);
     /*background-image: url('/assets/profile/banners.png');*/
     image-rendering: pixelated;
+    box-shadow: inset 0px 0px 4px black;
 }
 
 .profile .icon {
-    width: 115px;
+    width: 100px;
     aspect-ratio: 1/1;
     position: absolute;
     float: left;
-    bottom: 5px;
-    left: 5px;
+    bottom: 12px;
+    left: 12px;
     box-sizing: border-box;
     border: 1px solid var(--border-colour);
     image-rendering: pixelated;
-    background-size: 565px;
     background: black;
     background-image: url('/assets/profile/icons.png');
-    background-size: 568px;
-    transform: rotate(-1deg);
+    background-size: 500px;
+    transform: rotate(-1deg) scale(115%);
 }
 
 .profile .display-name {
@@ -673,6 +673,31 @@ section header span {
     text-decoration: underline;
 }
 
+section header a {
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    text-decoration: underline;
+    outline: none;
+}
+
+.tabs {
+    padding: 5px;
+    box-shadow: inset 0px 0px 5px black;
+}
+
+.tab {
+    display: none;
+}
+
+.tab:target {
+    display: block;
+}
+
+body:not(body:has(form:target)) #login {
+    display: block;
+}
+
 section header span.selected {
     background-color: rgba(255, 255, 255, 0.156);
     box-shadow: inset 0px 0px 5px black;
@@ -709,7 +734,12 @@ section header span.selected {
     flex-wrap: wrap;
     gap: 2px;
 }
-
+.profile-grid button {
+    border-radius: 0;
+    padding: 0;
+    margin-top: 0;
+    background: unset;
+}
 .profile-grid .check::after {
     content: "";
     display: inline-block;

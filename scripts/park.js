@@ -14,13 +14,13 @@ let animfreq = 10
 let mousex = 0
 let mousey = 0
 
-function addSprite(id, isself = false, identifier = "") {
+function addSprite(id, isself = false, identifier = "", username = "") {
     const img = new Image();
     img.src = `/assets/sprites/${id}.png`;
 
     sprites.push({
         "id": id,
-        "name": "",
+        "name": username,
         "identifier": identifier,
         "src": img,
         "pos": [Math.round(canvas.width * Math.random()), FLOOR_HEIGHT],
@@ -115,7 +115,7 @@ function draw() {
 
     ctx.fillStyle = "black";
     ctx.font = "18px DotGothicMPLUS1Code";
-    ctx.fillText(`${sprites.length} users connected`, 5, 15);
+    ctx.fillText(`${sprites.length} users connected | ${spectators.length} spectators connected`, 5, 15);
 
 }
 

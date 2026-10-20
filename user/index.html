@@ -7,15 +7,16 @@
     <title>User - Engine Fan Club</title>
     <link rel="shortcut icon" href="/assets/efcfanfinalnotext.svg" type="image/x-icon">
     <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.socket.io/4.8.4/socket.io.min.js"
         integrity="sha384-fBrXvbDtHoeKWJ/hcA6M+YGueiDW+h45I7V6F2kD1S8bOkrF9rZYPLVkCR6BLR/1"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="/scripts/parksocket.js"></script>
     <script src="/scripts/btns.js" defer></script>
     <script src="/scripts/navbar.js" defer></script>
     <script src="/scripts/theme.js"></script>
-    <script src="/scripts/userprefs.js" defer></script>
-    <script src="/scripts/trophies.js" defer></script>
+    <script src="/scripts/user.js" defer></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
 
         <div class="spacer"></div>
 
-        <div id="window-load" hidden>
+        <div id="window-load">
 
             <div class="space-around">
                 loading..
@@ -48,31 +49,33 @@
             <div class="pagination">
                 <section style="width: fit-content;padding: 0;box-shadow: none;">
                     <header>
-                        <span class="selected">register</span>
-                        <span>login</span>
+                        <a data-tab="tab-registerform" class="tabbtn-register" href="#register">register</a>
+                        <a data-tab="tab-loginform" class="tabbtn-login" href="#login">login</a>
                     </header>
-                    <div style="padding: 5px;box-shadow: inset 0px 0px 5px black;">
-                        <form id="registerform" action="">
-                            <span><label for="register-username">username:</label>
-                                <input type="text" name="register-username"></span><br>
-                            <span><label for="register-password">password:</label>
-                                <input type="password" name="register-password"></span><br>
-                            <span><label for="register-confirmpassword">confirm password:</label>
-                                <input type="password" name="register-confirmpassword"></span>
+                    <div class="tabs">
+                        <form class="tab" id="register">
+                            <span><label for="username">username:</label>
+                                <input type="text" name="username"></span><br>
+                            <span><label for="password">password:</label>
+                                <input type="password" name="password"></span><br>
+                            <span><label for="confirmpassword">confirm password:</label>
+                                <input type="password" name="confirmpassword"></span>
                             <hr>
                             <div class="space-around">
-                                <button>register</button>
+                                <button type="submit">register</button>
                             </div>
+                            <p id="register-status" style="text-align: center;"></p>
                         </form>
-                        <form id="loginform" action="" style="display: none;">
-                            <span><label for="login-username">username:</label>
-                                <input type="text" name="login-username"></span><br>
-                            <span><label for="login-password">password:</label>
-                                <input type="password" name="login-password"></span><br>
+                        <form class="tab" id="login">
+                            <span><label for="username">username:</label>
+                                <input type="text" name="username"></span><br>
+                            <span><label for="password">password:</label>
+                                <input type="password" name="password"></span><br>
                             <hr>
                             <div class="space-around">
-                                <button>login</button>
+                                <button type="submit">login</button>
                             </div>
+                            <p id="login-status" style="text-align: center;"></p>
                         </form>
                     </div>
                 </section>
@@ -80,15 +83,15 @@
 
         </div>
 
-        <div id="window-profile">
+        <div id="window-profile" hidden>
             <div class="profile">
 
-                <div class="banner"></div>
-                <div class="icon"></div>
-                <div class="display-name">nefarkitti
-                    <div class="badges">
+                <div class="banner" id="profile-banner"></div>
+                <div class="icon" id="profile-icon"></div>
+                <div class="display-name" id="username">nefarkitti
+                    <!--<div class="badges">
                         <div class="badge"></div>
-                    </div>
+                    </div>-->
                 </div>
 
             </div>
@@ -100,11 +103,11 @@
                         <th>last online</th>
                     </tr>
                     <tr>
-                        <td>17/10/2026</td>
-                        <td>5 hours ago</td>
+                        <td id="joined">17/10/2026</td>
+                        <td id="lastOnline">5 hours ago</td>
                     </tr>
                 </table>
-                <hr>
+                <!--<hr>
                 <h4>trophies (0 / 10)</h4>
                 <div class="profile-grid">
                     <div class="trophy"></div>
@@ -112,69 +115,35 @@
                     <div class="trophy" style="background-position: -32px 0px;"></div>
                     <div class="trophy" style="background-position: -32px 0px;"></div>
                     <div class="trophy" style="background-position: -32px 0px;"></div>
-                </div>
+                </div>-->
             </section>
-
-            <div class="spacer"></div>
-
+            <div class="spacer" id="setting-divider"></div>
             <section class="settings" id="profile-settings">
                 <h3><u>settings</u></h3>
                 <h4>icon</h4>
 
-                <div class="profile-grid">
-                    <div class="icon check">
-                    </div>
-                    <div class="icon" style="background-position: 0px -100px;"></div>
-                    <div class="icon" style="background-position: -100px 0px;"></div>
-                    <div class="icon" style="background-position: -200px 0px;"></div>
-                    <div class="icon" style="background-position: -300px 0px;"></div>
-                    <div class="icon" style="background-position: -400px 0px;"></div>
-                    <div class="icon" style="background-position: -100px -100px;"></div>
-                    <div class="icon" style="background-position: -200px -100px;"></div>
-                    <div class="icon" style="background-position: -300px -100px;"></div>
-                    <div class="icon" style="background-position: -400px -100px;"></div>
-                    <div class="icon" style="background-position: -0px -200px;"></div>
-                    <div class="icon" style="background-position: -100px -200px;"></div>
-                    <div class="icon" style="background-position: -0px -300px;"></div>
-                    <div class="icon" style="background-position: -200px -200px;"></div>
+                <div class="profile-grid" id="profile-icons">
+                    <!-- <div class="icon check"></div> -->
                 </div>
                 <hr>
                 <h4>banner colour</h4>
-                <div class="profile-grid">
-                    <div class="banner-col check" style="background-color: #000000;">
-                    </div>
-                    <div class="banner-col" style="background-color: #0000A8;"></div>
-                    <div class="banner-col" style="background-color: #00A800;"></div>
-                    <div class="banner-col" style="background-color: #00A8A8;"></div>
-                    <div class="banner-col" style="background-color: #A80000;"></div>
-                    <div class="banner-col" style="background-color: #A800A8;"></div>
-                    <div class="banner-col" style="background-color: #A85400;"></div>
-                    <div class="banner-col" style="background-color: #A8A8A8;"></div>
-
-                    <div class="banner-col" style="background-color: #545454;"></div>
-                    <div class="banner-col" style="background-color: #5454FC;"></div>
-                    <div class="banner-col" style="background-color: #54FC54;"></div>
-                    <div class="banner-col" style="background-color: #54FCFC;"></div>
-                    <div class="banner-col" style="background-color: #FC5454;"></div>
-                    <div class="banner-col" style="background-color: #FC54FC;"></div>
-                    <div class="banner-col" style="background-color: #FCFC54;"></div>
-                    <div class="banner-col" style="background-color: #FCFCFC;"></div>
+                <div class="profile-grid" id="banner-cols">
                 </div>
                 <hr>
                 <h4>critter</h4>
                 <div class="critters-grid">
-                    <div class="critter-preview" style="background-image: url('/assets/sprites/cat.png');"></div>
-                    <div class="profile-grid">
-                        <div class="critter check" style="background-image: url('/assets/sprites/cat.png');">
-                        </div>
-                        <div class="critter" style="background-image: url('/assets/sprites/duck.png');"></div>
+                    <div class="critter-preview" id="critter-preview"></div>
+                    <div class="profile-grid" id="critters">
+                        <!-- <button class="critter check" style="background-image: url('/assets/sprites/cat.png');">
+                        </button>
+                        <button class="critter" style="background-image: url('/assets/sprites/duck.png');"></button> -->
                     </div>
                 </div>
                 <hr>
                 <h4>account</h4>
-                <button>change username</button>
-                <button>change password</button>
-                <button>log out</button>
+                <button onclick="changeUsername()">change username</button>
+                <button onclick="changePassword()">change password</button>
+                <button onclick="logout()">log out</button>
                 <h5>!!!! DANGER ZONE !!!!</h5>
                 <button class="danger">delete account</button>
             </section>
