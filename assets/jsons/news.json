@@ -1,5 +1,14 @@
 [
     {
+        "title": "User Accounts & Critters on the website",
+        "game": "",
+        "timestamp": 1792499353811,
+        "colour": "#000",
+        "image": "/assets/site/banners/accountsdrop.png",
+        "metadesc": "you can now make an account to display your true engine fannness (and have a critter properly)",
+        "content": "You can now register an account on the EFC website. Critters are linked to accounts and will not be accessible without one.\nidk what else to say to be honest it's all kind of self explanatory"
+    },
+    {
         "title": "[gloob] GLOOBRAISER (or just Gloob v1.1)",
         "game": "gloob",
         "timestamp": 1791492563238,
