@@ -328,6 +328,10 @@ function logout() {
     location.reload();
 }
 
+function copyshare() {
+    navigator.clipboard.writeText(`https://efc.nefarkitti.dev/user/#${userData.username}`)
+}
+
 window.addEventListener("hashchange", () => {
     if (!["#login","#register"].includes(window.location.hash)) {
         location.reload();
