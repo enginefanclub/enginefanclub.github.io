@@ -115,7 +115,7 @@ function draw() {
 
     ctx.fillStyle = "black";
     ctx.font = "18px DotGothicMPLUS1Code";
-    ctx.fillText(`${sprites.length} users connected | ${spectators.length} spectators connected`, 5, 15);
+    ctx.fillText(`${sprites.length} user${sprites.length != 1 ? "s" : ""} connected | ${spectators.length} spectator${spectators.length != 1 ? "s" : ""} connected`, 5, 15);
 
 }
 

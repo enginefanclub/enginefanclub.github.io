@@ -867,6 +867,28 @@ form {
     flex-direction: column;
 }
 
+.dashboard-user-list {
+    width: 100%;
+    gap: 4px;
+}
+.dashboard-user {
+    display: flex;
+    border-bottom: 2px solid var(--border-colour);
+}
+.dashboard-user .dashboard-user-icon {
+    background-image: url('/assets/profile/icons.png');
+    width: 100px;
+    height: 100px;
+    transform: scale(50%);
+    margin: -25px;
+}
+.dashboard-user-details {
+    padding-left: 6px;
+    display: flex;
+    flex-direction: column;
+
+}
+
 @keyframes previewSpin {
     0% {
         transform: rotateY(0deg) scale(300%);

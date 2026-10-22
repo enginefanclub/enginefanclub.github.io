@@ -14,7 +14,8 @@ function startSocket(withAddSprite) {
         reconnectionDelayMax: 5000,
         reconnectionAttempts: Infinity,
         auth: {
-            token: localStorage.getItem('efc-identifier')
+            token: localStorage.getItem("efc-usertoken") == null ? localStorage.getItem('efc-identifier') : localStorage.getItem("efc-usertoken"),
+            id: localStorage.getItem('efc-identifier')
         }
     });
     /*socket = io.connect("http://localhost:3000", {
