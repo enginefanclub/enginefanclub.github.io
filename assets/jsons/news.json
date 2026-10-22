@@ -1,5 +1,14 @@
 [
     {
+        "title": "[Gloob] Gloob v1.2 - Mobile Accessibility",
+        "game": "gloob",
+        "timestamp": 1792676070205,
+        "colour": "#000",
+        "image": "/assets/missing.png",
+        "metadesc": "perhaps made it a bit more bearable on mobile",
+        "content": "perhaps made it a bit more bearable on mobile. this is only theoretical though and barely tested. very small thing."
+    },
+    {
         "title": "User Accounts & Critters on the website",
         "game": "",
         "timestamp": 1792499353811,
@@ -9,7 +18,7 @@
         "content": "You can now register an account on the EFC website. Critters are linked to accounts and will not be accessible without one.\nidk what else to say to be honest it's all kind of self explanatory"
     },
     {
-        "title": "[gloob] GLOOBRAISER (or just Gloob v1.1)",
+        "title": "[Gloob] GLOOBRAISER (or just Gloob v1.1)",
         "game": "gloob",
         "timestamp": 1791492563238,
         "colour": "#000",
@@ -27,7 +36,7 @@
         "content": "Sorry! But this finalises the name and the game logo is now finished. Story being fully in production (with everyone now aware) means a bad plot synposis has no real place on the front page of the game. play it yourself! when it comes out...."
     },
     {
-        "title": "[remoria] Remoria Development Announcement",
+        "title": "[REMORIA] Remoria Development Announcement",
         "game": "remoria",
         "timestamp": 1787289500328,
         "colour": "#000",
