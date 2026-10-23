@@ -29,12 +29,12 @@ function startSocket(withAddSprite) {
         }
     });*/
     if (withAddSprite) {
-        socket.on('reconnect', (sprites) =>{
-            console.log("I DONT WANT TO FUCKING RECONNECT", sprites)
-            sprites.filter(data => data.id != null).forEach(data => {
+        socket.on('reconnect', (getsprites) =>{
+            console.log("I DONT WANT TO FUCKING RECONNECT", getsprites)
+            getsprites.filter(data => data.id != null).forEach(data => {
                 addSprite(data.id, false, data.ip, data.username)
             })
-            spectators = sprites.filter(data => data.id == null).map(x => {
+            spectators = getsprites.filter(data => data.id == null).map(x => {
                 return x.ip
             })
             socket.emit('addsprite')
@@ -69,7 +69,7 @@ function startSocket(withAddSprite) {
         })
     }
     socket.on('addspectator', (ip)=>{
-        spectators.push({identifier: ip})
+        spectators.push(ip)
     })
     socket.on('delspectator', (ip) => {
         spectators.splice(spectators.indexOf(ip), 1)

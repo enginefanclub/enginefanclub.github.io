@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Engine Fan Club</title>
+    <link rel="shortcut icon" href="/assets/efcfanfinalnotext.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.socket.io/4.8.4/socket.io.min.js"
+        integrity="sha384-fBrXvbDtHoeKWJ/hcA6M+YGueiDW+h45I7V6F2kD1S8bOkrF9rZYPLVkCR6BLR/1"
+        crossorigin="anonymous"></script>
+    <script src="/scripts/parksocket.js"></script>
+    <script src="/scripts/btns.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <script src="/scripts/theme.js"></script>
+    <script src="/scripts/admin.js" defer></script>
+</head>
+
+<body>
+
+    <main>
+
+        <div class="logobar">
+            <img class="logo" src="/assets/efclogov2.svg" alt="">
+            <h1>Engine Fan Club</h1>
+        </div>
+
+        <nav id="navbar">
+            <a>home</a>
+        </nav>
+
+        <div class="spacer"></div>
+
+        <h2>dashboard</h2>
+
+        <section>
+            <div class="dashboard-user-list" id="user-list">
+
+                <!-- <div class="dashboard-user">
+                    <div class="dashboard-user-icon"></div>
+                    <div class="dashboard-user-details">
+                        <h4>nefarkitt (userid)</h4>
+                        <div id="dashboard-user-buttons">
+                            <button>give icon</button>
+                            <button>give badge</button>
+                            <button>give critter</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-user">
+                    <div class="dashboard-user-icon"></div>
+                    <div class="dashboard-user-details">
+                        <h4>nefarkitt (userid)</h4>
+                        <div id="dashboard-user-buttons">
+                            <button>give icon</button>
+                            <button>give badge</button>
+                            <button>give critter</button>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+            <div class="pagination" id="pagination">
+                <button onclick="prevPage()">last page</button>
+                <select name="" id="dashboard-user-pages" onchange="goToPage(this.value)">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <button onclick="nextPage()">next page</button>
+            </div>
+        </section>
+
+        <div class="spacer"></div>
+
+        <footer>
+            <div class="btns" id="btns">
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
