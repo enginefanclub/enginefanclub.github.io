@@ -134,7 +134,7 @@ async function refreshPage() {
             giveCritterBtn.onclick = function() {
                 let input = prompt("what critter?");
                 if (input != null) {
-                    if (critterDat[input]) {
+                    if (critterData[input]) {
                         giveToUser(user.user_id, "critter", input)
                         return;
                     } else {
