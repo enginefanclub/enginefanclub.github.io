@@ -143,5 +143,14 @@
         ],
         "default": false,
         "category": "default"
+    },
+    "violet": {
+        "name": "Violet",
+        "pos": [
+            4,
+            3
+        ],
+        "default": false,
+        "category": "default"
     }
 }
