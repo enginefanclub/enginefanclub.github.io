@@ -175,7 +175,6 @@ if (localStorage.getItem("efc-usertoken") != null) {
             })
             const myselfData = myselfRes.data;
             if (!JSON.parse(myselfData.badges).includes("admin")) {
-                return;
                 if (Math.floor(Math.random() * 50) < 25) {
                     window.location.href = "/"
                 } else {
