@@ -8,13 +8,16 @@ const BORDER_WIDTH = 1
 
 let SPRITESHEETS
 let HOVERING
+let HOVERING_OVER
 let ticks = 0
 let tickrate = 20
 let animfreq = 10
 let mousex = 0
 let mousey = 0
 
+let totalSpriteCount = 0
 function addSprite(id, isself = false, identifier = "", username = "") {
+    totalSpriteCount++
     const img = new Image();
     img.src = `/assets/sprites/${id}.png`;
 
@@ -28,7 +31,7 @@ function addSprite(id, isself = false, identifier = "", username = "") {
         "move": 0,
         "frame": 0,
         "facing": 0, // some hacky shit
-        "z": sprites.length,
+        "z": totalSpriteCount,
         "isself": isself,
         "state": "idle",
         "emote": 0,
@@ -103,9 +106,9 @@ function draw() {
             ctx.fillText(`\\/`, spr.pos[0] + 25, 40);
         }
 
-        if (HOVERING) {
+        if (HOVERING) { // fix this for overlapping sprites later
             if (mousex >= spr.pos[0] && mousex <= spr.pos[0] + SPRITE_SIZE && mousey >= FLOOR_HEIGHT) {
-
+                HOVERING_OVER = spr
                 if (spr.isself) return;
                 ctx.font = "20px";
                 ctx.strokeStyle = "black";
@@ -114,6 +117,8 @@ function draw() {
                 ctx.fillStyle = "white"
                 ctx.fillText(`${spr.name}`, spr.pos[0] + 25, 35);
 
+            } else {
+                HOVERING_OVER = null
             }
         }
 
@@ -128,6 +133,12 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.font = "22px Cairopixel";
     ctx.fillText(thing, 5, 15);
+
+    /*if (HOVERING_OVER != null) {
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "black";
+        ctx.fillText(HOVERING_OVER.name, 0, 50);
+    }*/
 
 }
 
@@ -201,6 +212,12 @@ canvas.addEventListener("mousemove", (event) => {
 })
 canvas.addEventListener("mouseleave", (event) => {
     HOVERING = false
+})
+canvas.addEventListener("click", (event) => {
+    console.log(HOVERING_OVER)
+    if (HOVERING_OVER != null) {
+        window.open(`/user/#${HOVERING_OVER.name}`, '_blank').focus();
+    }
 })
 function getCanvasMousePosition(canvas, event) {
     let rect = canvas.getBoundingClientRect();
