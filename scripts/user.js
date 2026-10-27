@@ -1,6 +1,7 @@
 
 let apiURL = "https://engine.nefarkitti.dev/efc-backend"
 //let apiURL = "http://localhost:3000"
+let critterJSON
 
 let userData = null;
 // {"user_id":2,"username":"Firee","joined":1792454072443,"lastOnline":1792454072443,"icon":"user","badges":"[]","badgeColor":"#000000","trophies":"[]","critters":"['cat']","critter_selected":"cat"}
@@ -16,16 +17,15 @@ function sethide(id, hide) {
     getel(id).hidden = hide
 }
 
-function getIconSpritePosition(posx, posy) {
-    return [posx * -100, posy * -100]
-}
-function getBadgeSpritePosition(posx, posy) {
-    return [posx * -32, posy * -32]
+function getSpritePosition(posx, posy, sizing) {
+    return [posx * -sizing, posy * -sizing]
 }
 
 if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length > 1) {
     axios.get("/assets/jsons/profile/icons.json").then(iconRes => {
         const badgesResponse = axios.get("/assets/jsons/profile/badges.json")
+        const userCrittersResponse = axios.get("/assets/jsons/critters.json")
+        const userTrophiesResponse = axios.get("/assets/jsons/profile/trophies.json")
         const iconData = iconRes.data;
         const userName = window.location.hash.replace("#", "");
         let checkingOtherUser = false;
@@ -61,6 +61,41 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
             getel("lastOnline").innerText = moment(userData.lastOnline).fromNow();
             getel('profile-banner').style.backgroundColor = userData.badgeColor;
 
+            //trophies
+            userTrophiesResponse.then(trohpiesData => {
+                let trophiesJSON = trohpiesData.data
+                let hasTrophies = 0
+                if (!checkingOtherUser) {
+                    getel('trophy-container').style.display = ""
+                    Object.keys(trophiesJSON).forEach(trophy => {
+                        hasTrophies++
+                        let getTrophy = trophiesJSON[trophy]
+                        let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
+                        let trophyDiv = document.createElement("div")
+                        trophyDiv.classList.add("trophy")
+                        trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
+                        if (!userData.trophies.includes(trophy)) trophyDiv.style.filter = "brightness(0%)"; hasTrophies--;
+                        getel('trophy-grid').appendChild(trophyDiv)
+                        getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see</span>`
+                    })
+                } else {
+                    if (userData.trophies.length >= 1) {
+                        Object.keys(trophiesJSON).forEach(trophy => {
+                            if (userData.trophies.includes(trophy)) {
+                                hasTrophies++
+                                let getTrophy = trophiesJSON[trophy]
+                                let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
+                                let trophyDiv = document.createElement("div")
+                                trophyDiv.classList.add("trophy")
+                                trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
+                                getel('trophy-grid').appendChild(trophyDiv)
+                            }
+                        })
+                    }
+                }
+                getel('trophy-count').innerText = `trophies (${hasTrophies}/${Object.keys(trophiesJSON).length})`
+            })
+            //badges
             badgesResponse.then(badgeres => {
                 if (userData.badges.length >= 1) {
                     let badgeList = document.createElement("div")
@@ -69,7 +104,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                         let badgeData = badgeres.data[badge]
                         let badgeEl = document.createElement("div")
                         badgeEl.classList.add("badge")
-                        let getBadgePos = getBadgeSpritePosition(badgeData.pos[0], badgeData.pos[1])
+                        let getBadgePos = getSpritePosition(badgeData.pos[0], badgeData.pos[1], 32)
                         badgeEl.style.backgroundPosition = `${getBadgePos[0]}px ${getBadgePos[1]}px`
                         badgeEl.title = badgeData.name
                         badgeList.appendChild(badgeEl)
@@ -77,10 +112,16 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                     getel("username").appendChild(badgeList)
                 }
             })
+            //critter info
+            userCrittersResponse.then(critterdata => {
+                critterJSON = critterdata.data
+                let dataCritter = userData.critter_selected
+                getel('critter-info').innerText = critterJSON[dataCritter].name
+            })
 
             const dataIcon = iconData[userData.icon];
             if (dataIcon) {
-                let getSpritePos = getIconSpritePosition(dataIcon.pos[0], dataIcon.pos[1])
+                let getSpritePos = getSpritePosition(dataIcon.pos[0], dataIcon.pos[1], 100)
                 getel('profile-icon').style.backgroundPosition = `${getSpritePos[0]}px ${getSpritePos[1]}px`
             }
             if (checkingOtherUser) {
@@ -114,6 +155,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                         for (const child of getel("critters").children) {
                             if (child.id == critter) {
                                 getel('critter-preview').style.backgroundImage = `url('/assets/sprites/${critter}.png')`
+                                if (critterJSON) getel('critter-info').innerText = critterJSON[critter].name;
                                 button.classList.add("check")
                                 checkedcritter = button
                             }
@@ -196,7 +238,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                     checkedicon = button
                 }
                 button.id = `${iconName}-id`;
-                let getSpritePos = getIconSpritePosition(data.pos[0], data.pos[1])
+                let getSpritePos = getSpritePosition(data.pos[0], data.pos[1], 100)
                 button.style.backgroundPosition = `${getSpritePos[0]}px ${getSpritePos[1]}px`
 
                 button.onclick = async function () {

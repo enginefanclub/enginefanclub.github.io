@@ -787,6 +787,7 @@ section hr {
 
 .critters-grid {
     display: flex;
+    margin-bottom: 30px;
 }
 
 .critter-preview {
@@ -801,6 +802,13 @@ section hr {
     background: white;
     border: 1px solid black;
     box-sizing: border-box;
+}
+#critter-info {
+    width: 100%;
+    text-align: center;
+    font-size: 8px;
+    position: relative;
+    top: 50px;
 }
 
 .profile-grid .critter {
@@ -917,6 +925,13 @@ form {
     display: flex;
     flex-direction: column;
 
+}
+
+span.extra {
+    font-size: 10px;
+    font-style: italic;
+    filter: opacity(50%);
+    user-select: none;
 }
 
 @keyframes previewSpin {

@@ -108,15 +108,13 @@
                         <td id="lastOnline">5 hours ago</td>
                     </tr>
                 </table>
-                <!--<hr>
-                <h4>trophies (0 / 10)</h4>
-                <div class="profile-grid">
-                    <div class="trophy"></div>
-                    <div class="trophy" style="background-position: -32px 0px;"></div>
-                    <div class="trophy" style="background-position: -32px 0px;"></div>
-                    <div class="trophy" style="background-position: -32px 0px;"></div>
-                    <div class="trophy" style="background-position: -32px 0px;"></div>
-                </div>-->
+                <div id="trophy-container" style="display: none;">
+                    <hr>
+                    <h4 id="trophy-count">trophies (0 / 10)</h4>
+                    <div class="profile-grid" id="trophy-grid">
+                        <!--<div class="trophy"></div>-->
+                    </div>
+                </div>
             </section>
             <div class="spacer" id="setting-divider"></div>
             <section class="settings" id="profile-settings">
@@ -134,7 +132,11 @@
                 <hr>
                 <h4>critter</h4>
                 <div class="critters-grid">
-                    <div class="critter-preview" id="critter-preview"></div>
+                    <div class="critter-preview" id="critter-preview">
+                        <div id="critter-info">
+
+                        </div>
+                    </div>
                     <div class="profile-grid" id="critters">
                         <!-- <button class="critter check" style="background-image: url('/assets/sprites/cat.png');">
                         </button>

@@ -89,7 +89,6 @@
         "default": true,
         "category": "default"
     },
-
     "1nning": {
         "name": "1nning",
         "pos": [
@@ -170,5 +169,23 @@
         ],
         "default": false,
         "category": "default"
+    },
+    "efclogo": {
+        "name": "E.F.C. Metal Logo",
+        "pos": [
+            6,
+            0
+        ],
+        "default": true,
+        "category": "default"
+    },
+    "26hw_efclogo": {
+        "name": "Bloody E.F.C. Metal Logo",
+        "pos": [
+            6,
+            0
+        ],
+        "default": false,
+        "category": "2026 Halloween"
     }
 }
