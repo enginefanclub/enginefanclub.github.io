@@ -1,4 +1,44 @@
 {
+    "letter": {
+        "name": "Letter",
+        "desc": "Find the letter to Agnes.",
+        "pos": [
+            0,
+            1
+        ]
+    },
+    "thinker": {
+        "name": "The Philosopher",
+        "desc": "Hmmmmm",
+        "pos": [
+            1,
+            1
+        ]
+    },
+    "mustardtext": {
+        "name": "Conversation",
+        "desc": "Find the conversation between two people.",
+        "pos": [
+            2,
+            1
+        ]
+    },
+    "arcanahopium": {
+        "name": "Humanity's Salvation",
+        "desc": "Happen upon the company that will save us all.",
+        "pos": [
+            0,
+            2
+        ]
+    },
+    "duck": {
+        "name": "Duck",
+        "desc": "Quack",
+        "pos": [
+            2,
+            0
+        ]
+    },
     "2026hw": {
         "name": "Knock Knock Master (2026)",
         "desc": "Get all the rewards during 2026's Halloween",

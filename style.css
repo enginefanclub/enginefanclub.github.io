@@ -717,6 +717,7 @@ section header span.selected {
     height: 32px;
     image-rendering: pixelated;
     transform: scale(70%);
+    margin: 0px -5px;
 }
 
 .profile-stats {

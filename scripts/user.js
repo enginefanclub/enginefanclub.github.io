@@ -76,8 +76,8 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                         trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
                         if (!userData.trophies.includes(trophy)) trophyDiv.style.filter = "brightness(0%)"; hasTrophies--;
                         getel('trophy-grid').appendChild(trophyDiv)
-                        getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see</span>`
                     })
+                    getel('trophy-container').innerHTML += `<span class="extra">(all unobtainable currently) only obtained trophies will be displayed for others to see</span>`
                 } else {
                     if (userData.trophies.length >= 1) {
                         Object.keys(trophiesJSON).forEach(trophy => {
