@@ -77,8 +77,10 @@ function renderSprite(spr) {
 
     ctx.drawImage(spr.src, SPRITE_SIZE * toRender, SPRITE_SIZE * spr.facing, SPRITE_SIZE, SPRITE_SIZE, spr.pos[0], spr.pos[1], SPRITE_SIZE, SPRITE_SIZE)
 }
-
 function draw() {
+
+    //???  https://stackoverflow.com/questions/195262/can-i-turn-off-antialiasing-on-an-html-canvas-element
+    ctx.filter = "url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxmaWx0ZXIgaWQ9ImZpbHRlciIgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj48ZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVGdW5jUiB0eXBlPSJpZGVudGl0eSIvPjxmZUZ1bmNHIHR5cGU9ImlkZW50aXR5Ii8+PGZlRnVuY0IgdHlwZT0iaWRlbnRpdHkiLz48ZmVGdW5jQSB0eXBlPSJkaXNjcmV0ZSIgdGFibGVWYWx1ZXM9IjAgMSIvPjwvZmVDb21wb25lbnRUcmFuc2Zlcj48L2ZpbHRlcj48L3N2Zz4=#filter)";
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -93,29 +95,39 @@ function draw() {
         renderSprite(spr)
 
         if (spr.isself) {
-            ctx.fillStyle = "red";
             ctx.font = "20px";
-            ctx.fillText(`YOU`, spr.pos[0] + 25, 30);
+            ctx.strokeStyle = "red";
+            ctx.lineWidth = 2
+            ctx.strokeText("\\/", spr.pos[0] + 25 + 0.5, 40)
+            ctx.fillStyle = "red"
+            ctx.fillText(`\\/`, spr.pos[0] + 25, 40);
         }
 
         if (HOVERING) {
             if (mousex >= spr.pos[0] && mousex <= spr.pos[0] + SPRITE_SIZE && mousey >= FLOOR_HEIGHT) {
 
                 if (spr.isself) return;
-                ctx.fillStyle = "black";
                 ctx.font = "20px";
-                ctx.fillText(`${spr.name}`, spr.pos[0] + 25, 30);
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = 3
+                ctx.strokeText(spr.name, spr.pos[0] + 25 + 0.5, 35)
+                ctx.fillStyle = "white"
+                ctx.fillText(`${spr.name}`, spr.pos[0] + 25, 35);
 
             }
         }
 
     })
 
-    ctx.textAlign = "left"
+    let thing = `${sprites.length} user${sprites.length != 1 ? "s" : ""} connected | ${spectators.length} spectator${spectators.length != 1 ? "s" : ""} connected`
 
-    ctx.fillStyle = "black";
-    ctx.font = "18px DotGothicMPLUS1Code";
-    ctx.fillText(`${sprites.length} user${sprites.length != 1 ? "s" : ""} connected | ${spectators.length} spectator${spectators.length != 1 ? "s" : ""} connected`, 5, 15);
+    ctx.textAlign = "left"
+    ctx.strokeStyle = "black"
+    ctx.lineWidth = 3
+    ctx.strokeText(thing, 5, 15)
+    ctx.fillStyle = "white";
+    ctx.font = "22px Cairopixel";
+    ctx.fillText(thing, 5, 15);
 
 }
 
@@ -163,7 +175,7 @@ function tick() {
             }
             if (sprite.state == "emote") {
                 if (sprite.emoteTime == -1) {
-                    sprite.emoteTime = sprite.emote.length * ((getRandomInt(50)+1) + 25)
+                    sprite.emoteTime = sprite.emote.length * ((getRandomInt(50) + 1) + 25)
                 }
                 sprite.emoteTime--
                 if (sprite.emoteTime <= 0) {

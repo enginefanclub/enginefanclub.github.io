@@ -160,6 +160,20 @@
 
     </main>
 
+    <script>
+        // cuz im extra extra
+        const userName = window.location.hash.replace("#", "");
+
+        if (userName == "nefarkitti") {
+
+            let element = document.createElement('link');
+            element.setAttribute('rel', 'stylesheet');
+            element.setAttribute('href', `/assets/themes/neffi.css`);
+            document.head.appendChild(element);
+
+        }
+    </script>
+
 </body>
 
 </html>

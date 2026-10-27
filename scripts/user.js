@@ -1,3 +1,4 @@
+
 let apiURL = "https://engine.nefarkitti.dev/efc-backend"
 //let apiURL = "http://localhost:3000"
 
@@ -18,11 +19,15 @@ function sethide(id, hide) {
 function getIconSpritePosition(posx, posy) {
     return [posx * -100, posy * -100]
 }
+function getBadgeSpritePosition(posx, posy) {
+    return [posx * -32, posy * -32]
+}
 
 if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length > 1) {
     axios.get("/assets/jsons/profile/icons.json").then(iconRes => {
+        const badgesResponse = axios.get("/assets/jsons/profile/badges.json")
         const iconData = iconRes.data;
-        const userName = window.location.hash.replace("#","");
+        const userName = window.location.hash.replace("#", "");
         let checkingOtherUser = false;
         if (userName.length > 0 && userName != "login" && userName != "register") {
             checkingOtherUser = true;
@@ -55,6 +60,23 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
             getel("joined").innerText = moment(userData.joined).format("DD/MM/YYYY");
             getel("lastOnline").innerText = moment(userData.lastOnline).fromNow();
             getel('profile-banner').style.backgroundColor = userData.badgeColor;
+
+            badgesResponse.then(badgeres => {
+                if (userData.badges.length >= 1) {
+                    let badgeList = document.createElement("div")
+                    badgeList.classList.add("badges")
+                    userData.badges.forEach(badge => {
+                        let badgeData = badgeres.data[badge]
+                        let badgeEl = document.createElement("div")
+                        badgeEl.classList.add("badge")
+                        let getBadgePos = getBadgeSpritePosition(badgeData.pos[0], badgeData.pos[1])
+                        badgeEl.style.backgroundPosition = `${getBadgePos[0]}px ${getBadgePos[1]}px`
+                        badgeEl.title = badgeData.name
+                        badgeList.appendChild(badgeEl)
+                    })
+                    getel("username").appendChild(badgeList)
+                }
+            })
 
             const dataIcon = iconData[userData.icon];
             if (dataIcon) {
@@ -193,10 +215,10 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                         checkedicon.classList.remove("check")
                         for (const child of getel("profile-icons").children) {
                             if (child.id == `${iconName}-id`) {
-                                
+
                                 //setting profile icon
                                 getel('profile-icon').style.backgroundPosition = `${getSpritePos[0]}px ${getSpritePos[1]}px`
-                                
+
                                 button.classList.add("check")
                                 checkedicon = button
                             }
@@ -333,7 +355,7 @@ function copyshare() {
 }
 
 window.addEventListener("hashchange", () => {
-    if (!["#login","#register"].includes(window.location.hash)) {
+    if (!["#login", "#register"].includes(window.location.hash)) {
         location.reload();
     }
 })

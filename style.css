@@ -623,6 +623,7 @@ button.danger {
 
 .profile .icon {
     width: 100px;
+    height: 100px;
     aspect-ratio: 1/1;
     position: absolute;
     float: left;
@@ -633,7 +634,6 @@ button.danger {
     image-rendering: pixelated;
     background: black;
     background-image: url('/assets/profile/icons.png');
-    background-size: 500px;
     transform: rotate(-1deg) scale(115%);
 }
 
@@ -734,12 +734,14 @@ section header span.selected {
     flex-wrap: wrap;
     gap: 2px;
 }
+
 .profile-grid button {
     border-radius: 0;
     padding: 0;
     margin-top: 0;
     background: unset;
 }
+
 .profile-grid .check::after {
     content: "";
     display: inline-block;
@@ -765,6 +767,7 @@ section header span.selected {
     height: 30px;
     border: 1px solid var(--border-colour);
 }
+
 .profile-grid .trophy {
     width: 32px;
     height: 32px;
@@ -839,6 +842,15 @@ section hr {
     justify-content: center;
 }
 
+canvas {
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: pixelated; 
+    image-rendering: crisp-edges;
+}
+
 .critter-inventory {
     width: 100%;
     height: 100%;
@@ -874,6 +886,7 @@ form {
     gap: 4px;
     margin-bottom: 10px;
 }
+
 .dashboard-user {
     display: flex;
     background: var(--);
@@ -883,9 +896,11 @@ form {
     background: var(--nav-colour-def);
     background: var(--nav-colour);
 }
+
 .dashboard-user h4 {
     margin: 0;
 }
+
 .dashboard-user .dashboard-user-icon {
     background-image: url('/assets/profile/icons.png');
     width: 100px;
@@ -896,6 +911,7 @@ form {
     border: 1px solid var(--border-colour);
     image-rendering: pixelated;
 }
+
 .dashboard-user-details {
     padding-left: 6px;
     display: flex;

@@ -30,7 +30,7 @@ function startSocket(withAddSprite) {
     });*/
     if (withAddSprite) {
         socket.on('reconnect', (getsprites) =>{
-            console.log("I DONT WANT TO FUCKING RECONNECT", getsprites)
+            console.log(getsprites)
             getsprites.filter(data => data.id != null).forEach(data => {
                 addSprite(data.id, false, data.ip, data.username)
             })

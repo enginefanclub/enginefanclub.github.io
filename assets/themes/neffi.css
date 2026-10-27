@@ -1,0 +1,13 @@
+.profile .icon::after {
+
+    position: relative;
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: url('/assets/misc/capri.png');
+    background-size: 100%;
+    display: inline-block;
+    left: 50px;
+    top: -65px;
+
+}

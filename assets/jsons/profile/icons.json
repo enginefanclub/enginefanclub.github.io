@@ -152,5 +152,23 @@
         ],
         "default": false,
         "category": "default"
+    },
+    "marie": {
+        "name": "Marie",
+        "pos": [
+            0,
+            5
+        ],
+        "default": false,
+        "category": "default"
+    },
+    "deity": {
+        "name": "Deity",
+        "pos": [
+            6,
+            6
+        ],
+        "default": false,
+        "category": "default"
     }
 }
