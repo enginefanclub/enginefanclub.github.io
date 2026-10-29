@@ -1034,6 +1034,12 @@ span.extra {
 
 }
 
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @keyframes candy-fade {
     from {
         filter: opacity(100%);

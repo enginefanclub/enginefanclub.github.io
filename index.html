@@ -24,6 +24,7 @@
     <script src="/scripts/navbar.js" defer></script>
     <script src="/scripts/theme.js"></script>
     <script src="/scripts/park.js" defer></script>
+    <script src="/scripts/tools/countdown.js"></script>
     <style>
         @font-face {
             font-family: 'Cairopixel';
@@ -48,7 +49,9 @@
 
         <div class="spacer"></div>
 
-        <img src="/assets/games/banners/remoriatest.png" alt="" srcset="" style="image-rendering: pixelated;">
+        <a href="/halloween/" target="_blank"><img src="/assets/site/seasonal/halloweeneventsitetop.png" alt="" srcset="" style="image-rendering: pixelated;width:100%;border: 1px solid var(--border-colour);"></a>
+
+        <div class="countdown"></div>
 
         <h2>in the back alley</h2>
 
@@ -110,7 +113,7 @@
 
     <script src="/scripts/news.js"></script>
     <script>loadarticles(20, "articles/")</script>
-
+    <script>countdown(1793404801000, document.querySelector(".countdown"))</script>
 </body>
 
 </html>
