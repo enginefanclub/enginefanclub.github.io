@@ -28,6 +28,7 @@
 * {
     color: var(--font-colour);
     font-family: var(--font);
+    /*cursor: url('/assets/sprites/cursor.png'), auto !important;*/
 }
 
 body {
@@ -804,6 +805,7 @@ section hr {
     border: 1px solid black;
     box-sizing: border-box;
 }
+
 #critter-info {
     width: 100%;
     text-align: center;
@@ -856,7 +858,7 @@ canvas {
     -webkit-font-smoothing: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    image-rendering: pixelated; 
+    image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
 
@@ -935,17 +937,131 @@ span.extra {
     user-select: none;
 }
 
-@keyframes previewSpin {
-    0% {
-        transform: rotateY(0deg) scale(300%);
+.doors-contain {
+    display: flex;
+    flex-direction: row;
+
+    .door {
+        all: unset;
+        cursor: pointer;
+        width: fit-content;
+        height: fit-content;
+        image-rendering: pixelated;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .door:hover::after {
+        content: "Knock";
+        position: absolute;
+        -webkit-text-stroke: 0.5px black;
+        font-weight: 900;
     }
 
-    50% {
-        transform: rotateY(180) scale(300%);
+    .door:disabled {
+        filter: brightness(30%);
+        cursor: auto;
     }
 
-    100% {
-        transform: rotateY(360deg) scale(300%);
+    .door:disabled::after {
+        content: attr(data-timer);
+    }
+
+    .door:disabled:hover::after {
+        -webkit-text-stroke: 0.5px black;
+        font-weight: 900;
+        position: unset;
+    }
+}
+
+.tot-overlay {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100dvh;
+    background: #12121200;
+    z-index: 100;
+
+    animation-name: tot-overlay-intro;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+
+    * {
+        user-select: none;
+        text-shadow: 2px 2px 0px black;
+    }
+
+    .tot-window {
+        animation-name: tot-window-in;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+
+        .doorbg {
+            background: url('/assets/site/seasonal/door_open.png');
+            image-rendering: pixelated;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 50dvh;
+            width: 70vw;
+            text-align: center;
+
+            p {
+                animation-name: tot-window-in;
+                animation-duration: 0.5s;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+}
+#candy-display {
+    display: flex;
+    align-items: center;
+    image-rendering: pixelated;
+}
+.dropped-candy {
+
+    transition: 0.2s;
+    animation-name: candy-fade;
+    animation-duration: 9s;
+    animation-fill-mode: forwards;
+
+    position: absolute;
+
+}
+
+@keyframes candy-fade {
+    from {
+        filter: opacity(100%);
+    }
+    to {
+        filter: opacity(0%);
+    }
+}
+
+@keyframes tot-overlay-intro {
+    from {
+        background: #12121200;
+    }
+
+    to {
+        background: #121212c2;
+    }
+}
+
+@keyframes tot-window-in {
+    from {
+        filter: opacity(0%);
+        transform: translateY(10px);
+    }
+
+    to {
+        filter: opacity(100%);
+        transform: translateY(0px);
     }
 }
 

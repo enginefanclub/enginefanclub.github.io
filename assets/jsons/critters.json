@@ -32,9 +32,19 @@
             [7,8]
         ]
     },
+    "rfdworker": {
+        "name": "RFD Worker",
+        "category": "default",
+        "default": true,
+        "idle": [0, 0, 1, 1],
+        "walk": [2,3,4,5]
+    },
+
+    
     "black_cat": {
         "name": "Black Cat",
         "category": "2026 Halloween",
+        "price": 1000,
         "default": false,
         "idle": [0],
         "walk": [1,2],
@@ -44,16 +54,10 @@
             [7,8]
         ]
     },
-    "rfdworker": {
-        "name": "RFD Worker",
-        "category": "default",
-        "default": true,
-        "idle": [0, 0, 1, 1],
-        "walk": [2,3,4,5]
-    },
     "ghost": {
         "name": "Ghost",
         "category": "2026 Halloween",
+        "price": 1000,
         "default": false,
         "idle": [0,1],
         "walk": [2,3]
@@ -61,6 +65,7 @@
     "horse": {
         "name": "Horseman",
         "category": "2026 Halloween",
+        "price": 1000,
         "default": false,
         "idle": [0],
         "walk": [1,2,3,4,5,6,7,8,9,10]

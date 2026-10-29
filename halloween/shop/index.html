@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween Shop - Engine Fan Club</title>
+    <link rel="shortcut icon" href="/assets/efcfanfinalnotext.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.socket.io/4.8.4/socket.io.min.js"
+        integrity="sha384-fBrXvbDtHoeKWJ/hcA6M+YGueiDW+h45I7V6F2kD1S8bOkrF9rZYPLVkCR6BLR/1"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="/scripts/parksocket.js"></script>
+    <script src="/scripts/btns.js" defer></script>
+    <script src="/scripts/navbar.js" defer></script>
+    <script src="/scripts/theme.js"></script>
+    <script src="/scripts/seasonal/shop.js" defer></script>
+    <link rel="stylesheet" href="/assets/themes/goldsrc.css">
+</head>
+
+<body>
+
+    <main>
+
+        <div class="logobar">
+            <img class="logo" src="/assets/efclogov2.svg" alt="">
+            <h1>Engine Fan Club</h1>
+        </div>
+
+        <nav id="navbar">
+            <a>home</a>
+        </nav>
+
+        <div class="spacer"></div>
+
+        <p id="notyet">Not yet!</p>
+
+        <div class="goldsrc-window" id="shop-window" style="display: none;">
+
+            <div class="title space-between">
+                <span>Halloween Shop</span>
+                <span id="candy-display"><img src="/assets/site/seasonal/candy_red.png" alt="">999</span>
+            </div>
+
+            <div class="shop-main">
+                <div class="preview" id="shop-preview">
+
+                    <span class="preview-name">?</span>
+                    <div class="preview-icon"></div>
+
+                    <div class="preview-lines">
+                        <span class="preview-line"><span>Type:</span><span>?</span></span>
+                        <span class="preview-line"><span>Cost:</span><span>?</span></span>
+                        <button>Purchase</button>
+                        <span class="preview-line"><span class="desc extra"></span></span>
+                    </div>
+
+                </div>
+                <div class="shop-list">
+
+                    <div class="navbar">
+                        <button class="selected tabbtn" data-target="icons">icons</button>
+                        <button class="tabbtn" data-target="critters">critters</button>
+                    </div>
+                    <div class="tab-window" id="icons">
+
+                        <div class="inner nopad" style="width: 100%;">
+                            <table style="width: 100%;">
+                                <tbody id="icons-shop-list">
+                                    <tr class="headerrow">
+                                        <th><span>Name</span></th>
+                                        <th><span>Price</span></th>
+                                    </tr>
+                                    <tr class="selected">
+                                        <td><span>Bloody E.F.C. Metal Logo</span></td>
+                                        <td class="price">100C</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Skeleton Jane</span></td>
+                                        <td class="price">100C</td>
+                                    </tr>
+                                    <tr class="owned">
+                                        <td><span>Skeleton Jane</span></td>
+                                        <td class="price">OWNED</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="tab-window" id="critters" style="display: none;">
+
+                        <div class="inner nopad" style="width: 100%;">
+                            <table style="width: 100%;">
+                                <tbody id="critters-shop-list">
+                                    <tr class="headerrow">
+                                        <th><span>Name</span></th>
+                                        <th><span>Price</span></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="progress inner" id="progress-bar-container" style="display: none;">
+                <div id="progress-check">0/10</div>
+                <div class="bar inner">
+                    <div class="fill" id="progress-fill"></div>
+                </div>
+                <div>
+                    <div class="badge-reward" style="background-position: -32px 0px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <footer>
+            <div class="btns" id="btns">
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

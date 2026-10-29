@@ -1,0 +1,271 @@
+@import url(https://db.onlinewebfonts.com/c/42f9562c8f7c7a67c631997066a9bff4?family=fs+Tahoma+8px);
+
+:root {
+    --window-bg: #4b5843;
+}
+
+.goldsrc-window {
+
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px rgb(130, 139, 125), inset -1px -1px grey, inset 1px 1px #ff0000;
+    background: var(--window-bg);
+
+    padding: 0px 4px;
+
+    .extra {
+        color: #A0AA95;
+        filter: opacity(100%);
+        font-style: normal;
+    }
+
+    * {
+        font-family: "fs Tahoma 8px";
+        font-size: 24px;
+        user-select: none;
+    }
+
+    .inner {
+        background: #3c4534;
+        padding: 2px 4px;
+        box-shadow: inset -1px -1px #899281, inset 1px 1px #212A19, inset -1px -1px #dfdfdf, inset 1px 1px #0a0a0a;
+    }
+
+    .inner.nopad {
+        padding: 1px;
+        overflow: hidden;
+        overflow-y: auto;
+        scrollbar-color: #4C5844 #5A6A50;
+        scrollbar-width: thin;
+    }
+
+    button {
+        all: unset;
+        cursor: pointer;
+        background: #4b5843;
+        box-shadow: inset -1px -1px #202B1A, inset 1px 1px rgb(130, 139, 125), inset -1px -1px grey;
+        padding: 0px 6px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .navbar {
+        display: flex;
+
+        button {
+            all: unset;
+            cursor: pointer;
+            font-size: 20px;
+            background: #4b5843;
+            box-shadow: inset -1px -1px #202B1A, inset 1px 1px rgb(130, 139, 125), inset -1px -1px grey;
+            padding: 0px 6px;
+            box-sizing: border-box;
+        }
+
+        button.selected {
+            z-index: 10;
+            box-shadow: inset -1px -1px var(--window-bg), inset 1px 1px rgb(130, 139, 125);
+            border-right: #202B1A 1px solid;
+        }
+
+        button:not(.selected) {
+            transform: translateY(2px);
+        }
+
+    }
+
+    .tab-window {
+        background: #4b5843;
+        box-shadow: inset -1px -1px #202B1A, inset 1px 1px rgb(130, 139, 125), inset -1px -1px grey;
+        font-size: 16px;
+        padding: 4px 6px;
+        max-width: 100%;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        text-overflow: clip;
+        word-break: break-all;
+        transform: translateY(-1px);
+        z-index: 9;
+        box-sizing: border-box;
+
+        table {
+            border-collapse: collapse;
+
+            * {
+                font-size: 16px;
+            }
+
+            tr,
+            th,
+            td {
+                max-height: 10px;
+                padding: 0px;
+                text-align: left;
+                box-sizing: border-box;
+                padding: 0px 4px;
+            }
+
+            span {
+                display: inline-block;
+                width: 100%;
+                word-break: break-all;
+                white-space: nowrap;
+            }
+
+            th {
+                background: #4b5843;
+                box-shadow: inset -1px -1px #202B1A, inset 1px 1px rgb(130, 139, 125), inset -1px -1px grey;
+            }
+
+            tr.owned {
+                filter: opacity(50%);
+            }
+
+            .price {
+                text-align: center;
+            }
+
+            tr:not(.headerrow):hover {
+                background: #282E22;
+            }
+
+            tr.owned:hover {
+                background: none;
+            }
+
+            tr.selected,
+            tr.selected:hover {
+                background: #C7B64E;
+
+                * {
+                    color: black;
+                }
+            }
+        }
+    }
+
+    .shop-main {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        .preview {
+            padding: 5px;
+            padding-top: 0px;
+            max-width: 111px;
+            min-width: 111px;
+
+            .preview-name {
+                display: inline-block;
+                height: 22px;
+                max-width: 101px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-align: left;
+                width: 100%;
+                word-break: break-all;
+                white-space: nowrap;
+            }
+
+            .preview-icon {
+                width: 100px;
+                height: 100px;
+                background-color: #C7B64E;
+                border: 2px solid #C7B64E;
+                box-sizing: border-box;
+                image-rendering: pixelated;
+                background-image: url('/assets/profile/icons.png');
+                background-position: -500px -600px;
+            }
+
+            .preview-lines {
+                display: flex;
+                flex-direction: column;
+                max-width: 101px;
+
+                .preview-line {
+                    display: flex;
+                    justify-content: space-between;
+
+                    * {
+                        font-size: 16px
+                    }
+
+                    .desc {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+
+        .shop-list {
+            flex-grow: 1;
+            width: 100%;
+        }
+    }
+
+
+    .progress {
+        display: flex;
+
+        * {
+            font-size: 14px;
+        }
+
+        height: 20;
+        align-items: center;
+        box-sizing: border-box;
+
+        .bar {
+            width: 100%;
+            background-color: #2e3528;
+            height: 24px;
+            margin: 0px 2px;
+            box-sizing: border-box;
+            padding: 2px;
+            overflow: hidden;
+
+            .fill {
+                width: 0%;
+                height: 100%;
+                background: #cc6d14;
+                background: linear-gradient(0deg, rgba(204, 109, 20, 1) 0%, rgba(250, 170, 95, 1) 79%, rgba(223, 126, 36, 1) 100%);
+                transition: 0.2s;
+                overflow: hidden;
+            }
+
+            .fill::after {
+                position: relative;
+                content: "";
+                width: 0px;
+                height: 100%;
+                display: block;
+                
+                animation-name: fill-shine;
+                animation-duration: 5s;
+                animation-iteration-count: infinite;
+                box-shadow: 0px 0px 20px 50px rgba(255, 255, 255, 0.199);
+                left: 10%;
+                transform: rotate(40deg);
+            }
+        }
+    }
+
+    .badge-reward {
+        background: url('/assets/profile/trophies.png');
+        width: 32px;
+        height: 32px;
+        image-rendering: pixelated;
+        filter: brightness(0%) drop-shadow(0px 0px 2px #cc6d14);
+    }
+
+}
+
+@keyframes fill-shine {
+    0% {
+        left: -200%;
+    }
+    100% {
+        left: 300%
+    }
+}

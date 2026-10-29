@@ -179,13 +179,88 @@
         "default": true,
         "category": "default"
     },
-    "26hw_efclogo": {
+
+
+    "26hw_bloodyefclogo": {
         "name": "Bloody E.F.C. Metal Logo",
         "pos": [
-            6,
+            5,
             0
         ],
         "default": false,
+        "price": 500,
+        "category": "2026 Halloween"
+    },
+    "26hw_fedorapumpkin": {
+        "name": "Classy Pumpkin",
+        "pos": [
+            5,
+            1
+        ],
+        "default": false,
+        "price": 500,
+        "category": "2026 Halloween"
+    },
+    "26hw_pumpking": {
+        "name": "The Pumpking",
+        "pos": [
+            6,
+            1
+        ],
+        "default": false,
+        "price": 500,
+        "category": "2026 Halloween"
+    },
+    "26hw_evilgloob": {
+        "name": "Hyperrealistic Evil Gloob",
+        "pos": [
+            6,
+            2
+        ],
+        "default": false,
+        "price": 500,
+        "category": "2026 Halloween"
+    },
+    "26hw_rfdburnt": {
+        "name": "Sloppy Work",
+        "pos": [
+            5,
+            2
+        ],
+        "default": false,
+        "price": 500,
+        "category": "2026 Halloween"
+    },
+    "26hw_agnes": {
+        "name": "Agnes",
+        "pos": [
+            4,
+            2
+        ],
+        "default": false,
+        "price": 1000,
+        "category": "2026 Halloween"
+    },
+    "26hw_skelejane": {
+        "name": "Jane If She Was Dead",
+        "pos": [
+            3,
+            3
+        ],
+        "default": false,
+        "price": 1000,
+        "category": "2026 Halloween"
+    },
+    "26hw_uepdog": {
+        "name": "Unidentified Dog",
+        "pos": [
+            6,
+            3
+        ],
+        "default": false,
+        "price": 1000,
         "category": "2026 Halloween"
     }
+
+
 }
