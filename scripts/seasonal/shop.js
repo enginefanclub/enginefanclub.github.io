@@ -92,16 +92,19 @@ async function init() {
                 newRow.classList.add("shop-list-row")
                 newRow.id = iconkey
 
-                newRow.innerHTML = `
-                <td><span>${getIcon.name}</span></td>
-                <td class="price">${getIcon.price}C</td>
-                `
+                let getprice = getIcon.price + "C"
 
                 totalCount++
                 if (userData.exclusive_icons.includes(iconkey)) {
                     totalHas++
                     newRow.classList.add("owned")
+                    getprice = "OWNED"
                 }
+
+                newRow.innerHTML = `
+                <td><span>${getIcon.name}</span></td>
+                <td class="price">${getprice}</td>
+                `
 
                 ICONS_SHOP_LIST.appendChild(newRow)
 
@@ -121,16 +124,19 @@ async function init() {
                 newRow.classList.add("shop-list-row")
                 newRow.id = critterkey
 
-                newRow.innerHTML = `
-                <td><span>${getCritter.name}</span></td>
-                <td class="price">${getCritter.price}C</td>
-                `
+                let getprice = getCritter.price + "C"
 
                 totalCount++
                 if (userData.critters.includes(critterkey)) {
                     totalHas++
                     newRow.classList.add("owned")
+                    getprice = "OWNED"
                 }
+
+                newRow.innerHTML = `
+                <td><span>${getCritter.name}</span></td>
+                <td class="price">${getprice}</td>
+                `
 
                 CRITTERS_SHOP_LIST.appendChild(newRow)
 
@@ -148,8 +154,6 @@ async function init() {
     })
 
 }
-
-init()
 
 function selectItem(id, typ, elm) {
 
@@ -189,7 +193,7 @@ function selectItem(id, typ, elm) {
             icon_preview.style.backgroundPosition = `${getOffset[0]}px ${getOffset[1]}px`
             break;
         case "critter":
-            icon_preview.style.backgroundImage = `url('/assets/sprites/${id}.png')`
+            icon_preview.style.backgroundImage = `url('/assets/sprites/critters/${id}.png')`
             icon_preview.style.backgroundPosition = `0px 0px`
             break;
         default:
