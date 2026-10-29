@@ -69,5 +69,13 @@
         "default": false,
         "idle": [0],
         "walk": [1,2,3,4,5,6,7,8,9,10]
+    },
+    "jane_witch": {
+        "name": "Witch from SODACORP",
+        "category": "2026 Halloween",
+        "price": 1000,
+        "default": false,
+        "idle": [0,0,1,1],
+        "walk": [0,0,1,1]
     }
 }

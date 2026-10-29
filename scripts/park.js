@@ -19,7 +19,7 @@ let totalSpriteCount = 0
 function addSprite(id, isself = false, identifier = "", username = "") {
     totalSpriteCount++
     const img = new Image();
-    img.src = `/assets/sprites/${id}.png`;
+    img.src = `/assets/sprites/critters/${id}.png`;
 
     sprites.push({
         "id": id,
@@ -61,7 +61,7 @@ function renderSprite(spr) {
     let sprstate = ""
     let sheets = SPRITESHEETS[spr.id]
 
-    let spritesheet = `/assets/sprites/${spr.id}.png`
+    let spritesheet = `/assets/sprites/critters/${spr.id}.png`
     let toRender
     let animLength
 
@@ -247,3 +247,5 @@ axios.get('/assets/jsons/critters.json').then(res => {
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
+
+addSprite("jane_witch")
