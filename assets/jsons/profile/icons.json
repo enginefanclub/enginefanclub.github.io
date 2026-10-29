@@ -231,11 +231,21 @@
         "price": 500,
         "category": "2026 Halloween"
     },
-        "26hw_marketing": {
+    "26hw_marketing": {
         "name": "Genius Marketing Strategy",
         "pos": [
             3,
             2
+        ],
+        "default": false,
+        "price": 500,
+        "category": "2026 Halloween"
+    },
+    "26hw_evilson": {
+        "name": "Evil Son (Cuz He Red)",
+        "pos": [
+            2,
+            3
         ],
         "default": false,
         "price": 500,
