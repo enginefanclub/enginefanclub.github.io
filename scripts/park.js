@@ -247,5 +247,3 @@ axios.get('/assets/jsons/critters.json').then(res => {
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
-
-addSprite("jane_witch")
