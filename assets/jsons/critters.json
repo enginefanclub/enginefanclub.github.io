@@ -39,6 +39,16 @@
         "idle": [0, 0, 1, 1],
         "walk": [2,3,4,5]
     },
+    "bigrat": {
+        "name": "Big Rat",
+        "category": "default",
+        "default": true,
+        "idle": [0],
+        "walk": [2,3,4,3],
+        "emotes": [
+            [0,1]
+        ]
+    },
 
     
     "black_cat": {
