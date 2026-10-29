@@ -139,12 +139,12 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
 
                 button.classList.add("critter");
                 if (userData.critter_selected == critter) {
-                    getel('critter-preview').style.backgroundImage = `url('/assets/sprites/${critter}.png')`
+                    getel('critter-preview').style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
                     button.classList.add("check");
                     checkedcritter = button
                 }
                 button.id = critter;
-                button.style.backgroundImage = `url('/assets/sprites/${critter}.png')`
+                button.style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
 
                 button.onclick = function () {
                     // if (critter == userData.critter_selected) return;
@@ -154,7 +154,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                         checkedcritter.classList.remove("check")
                         for (const child of getel("critters").children) {
                             if (child.id == critter) {
-                                getel('critter-preview').style.backgroundImage = `url('/assets/sprites/${critter}.png')`
+                                getel('critter-preview').style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
                                 if (critterJSON) getel('critter-info').innerText = critterJSON[critter].name;
                                 button.classList.add("check")
                                 checkedcritter = button
