@@ -235,7 +235,7 @@
             0
         ],
         "default": false,
-        "price": 500,
+        "price": 50,
         "category": "2026 Halloween"
     },
     "26hw_fedorapumpkin": {
@@ -245,7 +245,7 @@
             1
         ],
         "default": false,
-        "price": 500,
+        "price": 75,
         "category": "2026 Halloween"
     },
     "26hw_pumpking": {
@@ -255,7 +255,7 @@
             1
         ],
         "default": false,
-        "price": 500,
+        "price": 75,
         "category": "2026 Halloween"
     },
     "26hw_evilgloob": {
@@ -265,7 +265,7 @@
             2
         ],
         "default": false,
-        "price": 500,
+        "price": 100,
         "category": "2026 Halloween"
     },
     "26hw_rfdburnt": {
@@ -275,7 +275,7 @@
             2
         ],
         "default": false,
-        "price": 500,
+        "price": 125,
         "category": "2026 Halloween"
     },
     "26hw_marketing": {
@@ -285,7 +285,7 @@
             2
         ],
         "default": false,
-        "price": 500,
+        "price": 125,
         "category": "2026 Halloween"
     },
     "26hw_evilson": {
@@ -295,7 +295,7 @@
             3
         ],
         "default": false,
-        "price": 500,
+        "price": 150,
         "category": "2026 Halloween"
     },
     "26hw_agnes": {
@@ -305,7 +305,7 @@
             2
         ],
         "default": false,
-        "price": 1000,
+        "price": 175,
         "category": "2026 Halloween"
     },
     "26hw_skelejane": {
@@ -315,7 +315,7 @@
             3
         ],
         "default": false,
-        "price": 1000,
+        "price": 200,
         "category": "2026 Halloween"
     },
     "26hw_uepdog": {
@@ -325,7 +325,7 @@
             3
         ],
         "default": false,
-        "price": 1000,
+        "price": 200,
         "category": "2026 Halloween"
     }
 
