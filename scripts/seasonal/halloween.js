@@ -421,7 +421,7 @@ function treat() {
 }
 function trick() {
     if (dateCheck()) return;
-    let roll = ["gfredy", "skelong", "rick"].random()
+    let roll = ["gfredy", "skelong", "rick", "roll"].random()
     switch (roll) {
         case "gfredy":
             let golden = document.createElement("img")
@@ -457,6 +457,8 @@ function trick() {
         case "rick":
             window.open("https://www.youtube.com/watch?v=iupPG8x_Zfo", "_blank")
             break;
+        case "roll":
+            document.body.style.transform = `rotate(${getRndInteger(-360, 360)}deg)`
         default:
             break;
     }
