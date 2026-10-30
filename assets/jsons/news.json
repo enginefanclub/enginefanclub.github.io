@@ -1,5 +1,14 @@
 [
     {
+        "title": "[EVENT] Engine Fan Club Halloween Event",
+        "game": "",
+        "timestamp": 1793399801182,
+        "colour": "#000",
+        "image": "/assets/site/seasonal/halloweeneventnews.png",
+        "metadesc": "More icons,, more critters,,, more features!",
+        "content": "<h2>an actual live event!1!</h2>\n<p>trick or treat for a buncha new halloween related icons or critters at the event button up top</p>\n<h3>actual new content</h3>\n<ul>\n<li>10 new Halloween icons</li>\n<li>5 new Halloween critters</li>\n<li>5 new Secret icons</li>\n<li>Functional trophies (for visiting secret pages or 100%ing halloween rewards)</li>\n<li>Halloween event trick or treating and candy pity shop</li>\n</ul>\n<br>\n<span>Go get em when the time comes...... muahahahhaa!</span><br>\n<span class=\"extra\">P.S. also give firee a big ol' thank you for staying up for 6 hours to make this all work with me</span><br>\n<span class=\"extra\">and one to titan for drawing basically all the new icons and some of the critters</span>"
+    },
+    {
         "title": "[Gloob] Gloob v1.2 - Mobile Accessibility",
         "game": "gloob",
         "timestamp": 1792676070205,
