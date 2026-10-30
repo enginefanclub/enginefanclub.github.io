@@ -51,7 +51,7 @@
     },
 
     
-    "black_cat": {
+    "26hw_blackcat": {
         "name": "Black Cat",
         "category": "2026 Halloween",
         "price": 1000,
@@ -64,7 +64,7 @@
             [7,8]
         ]
     },
-    "ghost": {
+    "26hw_ghost": {
         "name": "Ghost",
         "category": "2026 Halloween",
         "price": 1000,
@@ -72,7 +72,7 @@
         "idle": [0,1],
         "walk": [2,3]
     },
-    "horse": {
+    "26hw_horse": {
         "name": "Horseman",
         "category": "2026 Halloween",
         "price": 1000,
@@ -80,7 +80,15 @@
         "idle": [0],
         "walk": [1,2,3,4,5,6,7,8,9,10]
     },
-    "jane_witch": {
+    "26hw_pumpkin": {
+        "name": "Pumpkin",
+        "category": "2026 Halloween",
+        "price": 1000,
+        "default": false,
+        "idle": [0],
+        "walk": [1,2,3,4,5,6]
+    },
+    "26hw_janewitch": {
         "name": "Witch from SODACORP",
         "category": "2026 Halloween",
         "price": 1000,

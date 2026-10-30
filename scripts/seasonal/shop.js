@@ -13,7 +13,10 @@ const HWDATE = 1793404801000
 // 1793491200000
 const EXPIRY = 1793491200000
 
-const apiURL = "https://engine.nefarkitti.dev/efc-backend"
+let apiURL = "https://engine.nefarkitti.dev/efc-backend"
+if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+    apiURL = "http://localhost:3000"
+}
 
 let totalCount = 0
 let totalHas = 0
@@ -21,6 +24,10 @@ let totalHas = 0
 let ICONS_JSON
 let CRITTERS_JSON
 let userData
+
+let SELECTED_ITEM = false
+
+let getCurrentCandyAmount = 0
 
 let tabs = ["icons", "critters"]
 
@@ -81,6 +88,9 @@ async function init() {
     }).then(res => {
 
         userData = res.data
+
+        getCurrentCandyAmount = userData.candies
+        document.getElementById("candy-display").innerHTML = `<img src="/assets/site/seasonal/candy_red.png" alt="">${userData.candies}`
 
         Object.keys(getIcons.data).forEach(iconkey => {
 
@@ -151,6 +161,16 @@ async function init() {
         PROGRESS_FILL.style.width = `${(totalHas / totalCount) * 100}%`
         PROGRESS_BAR_CONTAINER.style.display = ""
 
+        if (totalHas / totalCount == 1) {
+            getel("trophy-reward").style.filter = "drop-shadow(0px 0px 2px #cc6d14)"
+        }
+
+        getel("purchase-button").onclick = function () {
+            if (SELECTED_ITEM != false) {
+                purchaseItem(SELECTED_ITEM)
+            }
+        }
+
     })
 
 }
@@ -159,7 +179,9 @@ function selectItem(id, typ, elm) {
 
     if (dateCheck()) return console.warn("not yet!")
 
-    if (elm.classList.contains("owned") || userData.exclusive_icons.includes(id)) return;
+    if (elm.classList.contains("owned")) return;
+    if (userData.exclusive_icons.includes(id) && typ == "icon") return;
+    if (userData.critters.includes(id) && typ == "critter") return;
 
     let getData
     let getSpriteSize
@@ -167,39 +189,135 @@ function selectItem(id, typ, elm) {
     if (typ == "icon") getData = ICONS_JSON[id]; getSpriteSize = 100;
     if (typ == "critter") getData = CRITTERS_JSON[id]; getSpriteSize = 50
 
-    SHOP_PREVIEW.innerHTML = `
-<span class="preview-name">${getData.name}</span>
-<div class="preview-icon" id="preview-icon"></div>
-
-<div class="preview-lines">
-    <span class="preview-line"><span>Type:</span><span>${capitalizeFirstLetter(typ)}</span></span>
-    <span class="preview-line"><span>Cost:</span><span>${getData.price}C</span></span>
-    <button>Purchase</button>
-    <span class="preview-line"><span class="desc extra"></span></span>
-</div>
-    `
+    updateShopPreview({ id: id, type: typ, })
 
     document.querySelectorAll(".shop-list-row").forEach(elm => {
         elm.classList.remove("selected")
     })
     document.getElementById(id).classList.add("selected")
 
-    let icon_preview = document.getElementById("preview-icon")
+    SELECTED_ITEM = id
 
-    switch (typ) {
-        case "icon":
-            let getOffset = getSpritePosition(getData.pos[0], getData.pos[1], 100)
-            icon_preview.style.backgroundImage = `url('/assets/profile/icons.png')`
-            icon_preview.style.backgroundPosition = `${getOffset[0]}px ${getOffset[1]}px`
-            break;
-        case "critter":
-            icon_preview.style.backgroundImage = `url('/assets/sprites/critters/${id}.png')`
-            icon_preview.style.backgroundPosition = `0px 0px`
-            break;
-        default:
-            break;
+}
+
+function resetState() {
+
+    SELECTED_ITEM = false
+    updateShopPreview(false)
+    document.querySelectorAll("tr.selected").forEach(e => {
+        e.classList.remove("selected")
+    })
+
+}
+
+function getel(id) {
+    return document.getElementById(id)
+}
+
+function updateShopPreview(item) {
+
+    if (item) {
+
+        let getData
+
+        if (item.type == "icon") getData = ICONS_JSON[item.id];
+        if (item.type == "critter") getData = CRITTERS_JSON[item.id];
+
+        getel("preview-name").innerText = getData.name
+        getel("preview-type").innerText = capitalizeFirstLetter(item.type)
+        getel("preview-cost").innerText = getData.price
+
+        switch (item.type) {
+            case "icon":
+                let getOffset = getSpritePosition(getData.pos[0], getData.pos[1], 100)
+                getel("preview-icon").style.backgroundImage = `url('/assets/profile/icons.png')`
+                getel("preview-icon").style.backgroundPosition = `${getOffset[0]}px ${getOffset[1]}px`
+                break;
+            case "critter":
+                getel("preview-icon").style.backgroundImage = `url('/assets/sprites/critters/${item.id}.png')`
+                getel("preview-icon").style.backgroundPosition = `0px 0px`
+                break;
+            default:
+                break;
+        }
+
+    } else {
+
+        getel("preview-name").innerText = "?"
+        getel("preview-type").innerText = "?"
+        getel("preview-cost").innerText = "?"
+        getel("preview-icon").style.backgroundImage = `url('/assets/profile/icons.png')`
+        getel("preview-icon").style.backgroundPosition = `-500px -600px`
+
     }
 
+}
+
+function purchaseItem(id) {
+    console.log(`trying to purchase ${id}`)
+    axios({
+        url: `${apiURL}/buy/${id}`,
+        method: "POST",
+        headers: {
+            "authorization": localStorage.getItem("efc-usertoken")
+        },
+        timeout: 5000
+    }).then(res => {
+
+        let getJSON
+        let getType
+        if (id in ICONS_JSON) {
+            getJSON = ICONS_JSON
+            getType = "icon"
+        }
+        if (id in CRITTERS_JSON) {
+            getJSON = CRITTERS_JSON
+            getType = "critter"
+        }
+        if (!getJSON) return console.warn(`what the hell is ${id}`)
+
+        getel(id).classList.add("owned")
+        getel(id).querySelector(".price").innerText = "OWNED"
+
+        getCurrentCandyAmount -= getJSON[id].price
+        getel("candy-display").innerHTML = `<img src="/assets/site/seasonal/candy_red.png" alt="">${getCurrentCandyAmount}`
+
+        totalHas++
+
+        PROGRESS_CHECK.innerText = `${totalHas}/${totalCount}`
+        PROGRESS_FILL.style.width = `${(totalHas / totalCount) * 100}%`
+
+        if (totalHas / totalCount == 1) {
+            getel("trophy-reward").style.filter = "drop-shadow(0px 0px 2px #cc6d14)"
+        }
+
+        displayReward({
+            id: id,
+            type: getType,
+        })
+
+        resetState()
+
+    }).catch(e => {
+        if (e && e.response && e.response.data) {
+            switch (e.response.data) {
+                case "You already bought that!":
+                    console.log("alrewady")
+                    break;
+                case "Not enough candies!":
+                    console.log("not enough")
+                    break;
+                default:
+                    console.log("defaulted")
+                    break;
+                // unknwon error
+            }
+            //alert(e.response.data) // TODO: change this! This happens if for example the
+        } else {
+            console.error(e)
+            console.log("??? fuck knows")
+        }
+    })
 }
 
 function capitalizeFirstLetter(val) {
@@ -228,6 +346,41 @@ function timeleft() {
             return timeleft()
         }, 1000);
     }
+}
+
+function displayReward(reward) {
+    console.log(reward)
+    let jsonTypes = {
+        icon: ICONS_JSON,
+        critter: CRITTERS_JSON
+    }
+    let getRewardJSON = jsonTypes[reward.type][reward.id]
+    let overlay = document.createElement("div")
+    overlay.classList.add("reward-overlay")
+    let rewardContent = document.createElement("div")
+    rewardContent.classList.add("reward-content")
+    rewardContent.innerHTML += `
+    <span class="reward-title">Got ${getRewardJSON.name}!</span>
+    <div class="reward-preview" id="reward-preview"></div>
+    `
+    overlay.appendChild(rewardContent)
+    document.body.appendChild(overlay)
+    switch (reward.type) {
+        case "icon":
+            let getOffset = getSpritePosition(getRewardJSON.pos[0], getRewardJSON.pos[1], 100)
+            getel("reward-preview").style.backgroundImage = `url('/assets/profile/icons.png')`
+            getel("reward-preview").style.backgroundPosition = `${getOffset[0]}px ${getOffset[1]}px`
+            break;
+        case "critter":
+            getel("reward-preview").style.backgroundImage = `url('/assets/sprites/critters/${reward.id}.png')`
+            getel("reward-preview").style.backgroundPosition = `0px 0px`
+            break;
+        default:
+            break;
+    }
+    setTimeout(() => {
+        overlay.remove()
+    }, 1500);
 }
 
 updateTime()

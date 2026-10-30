@@ -1,9 +1,18 @@
-//stop peeking
-// if this seems incomprehensible to you it is incomprehensible to me too i wrote all of this at like 2am and i have a massive fucking headache
+let apiURL = "https://engine.nefarkitti.dev/efc-backend"
+if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+    apiURL = "http://localhost:3000"
+}
+
 const DISPLAY = getel("display")
 const TIMER_SPAN = document.getElementById("hw-timer")
 
-let candy = 0
+
+let jsonTypes = {
+    icon: {},
+    critter: {}
+}
+
+// let candy = 0 // replace with user candy balance
 
 let doors = []
 let doorCD = {}
@@ -26,6 +35,9 @@ function dateCheck() {
     if (Date.now() > EXPIRY) return true
 }
 
+function getSpritePosition(posx, posy, sizing) {
+    return [posx * -sizing, posy * -sizing]
+}
 
 function updateTime() {
     TIMER_SPAN.innerText = moment(HWDATE).fromNow();
@@ -42,56 +54,85 @@ function updateTime() {
 
 updateTime()
 
-function init() {
+async function init() {
 
     if (dateCheck()) return;
 
-    getel('show-shop').style.display = ""
+    try {
+        const res = await axios({
+            url: `${apiURL}/myself`,
+            method: "GET",
+            headers: {
+                "authorization": localStorage.getItem("efc-usertoken")
+            },
+            timeout: 5000
+        });
 
-    let getCDs = localStorage.getItem("efchw-doorcd")
-    if (getCDs != null) {
-        doorCD = JSON.parse(getCDs)
-    }
+        let userdata = res.data
 
-    let getLastOn = localStorage.getItem("efchw-laston")
-    if (getLastOn != null) {
-        lastOn = getLastOn
-    }
-    if ((Date.now() - lastOn) / 1000 >= 3) {
-        Object.keys(doorCD).forEach(key => {
-            doorCD[key] = Math.floor(doorCD[key] - ((Date.now() - lastOn) / 1000))
-        })
-    }
-    localStorage.setItem("efchw-laston", Date.now())
+        getel('candy-display').innerHTML = `<img src="/assets/site/seasonal/candy_red.png" alt="">${userdata.candies}`
 
-    DISPLAY.innerHTML = `<h5>Somewhere, Something Street</h5>`
+        console.log("getting icons")
+        let fetchIconJSON = await axios.get("/assets/jsons/profile/icons.json")
+        jsonTypes.icon = fetchIconJSON.data
+        console.log("getting critters")
+        let fetchCritterJSON = await axios.get("/assets/jsons/critters.json")
+        jsonTypes.critter = fetchCritterJSON.data
 
-    let doorContainer = document.createElement("div")
-    doorContainer.classList.add("doors-contain")
-    DISPLAY.appendChild(doorContainer)
+        console.log(`loaded `, jsonTypes)
 
-    for (let i = 0; i < 5; i++) {
-        let door = document.createElement("button")
-        door.classList.add("door")
-        door.id = `${i + 1}`
+        getel('show-shop').style.display = ""
 
-        let doorname = document.createElement("span")
-        doorname.innerText = `${i + 1}`
-        door.appendChild(doorname)
-
-        let img = document.createElement("img")
-        img.src = "/assets/site/seasonal/door_closed.png"
-        door.appendChild(img)
-
-        doorContainer.appendChild(door)
-        doors.push(door)
-
-        door.onclick = function () {
-            clickOnDoor(i + 1)
+        let getCDs = localStorage.getItem("efchw-doorcd")
+        if (getCDs != null) {
+            doorCD = JSON.parse(getCDs)
         }
-    }
 
-    timer()
+        let getLastOn = localStorage.getItem("efchw-laston")
+        if (getLastOn != null) {
+            lastOn = getLastOn
+        }
+        if ((Date.now() - lastOn) / 1000 >= 3) {
+            Object.keys(doorCD).forEach(key => {
+                doorCD[key] = Math.floor(doorCD[key] - ((Date.now() - lastOn) / 1000))
+                if (doorCD[key] < 0) doorCD[key] = 0;
+            })
+        }
+        localStorage.setItem("efchw-laston", Date.now())
+
+        DISPLAY.innerHTML = `<h5>Somewhere, Something Street</h5>`
+
+        let doorContainer = document.createElement("div")
+        doorContainer.classList.add("doors-contain")
+        DISPLAY.appendChild(doorContainer)
+
+        for (let i = 0; i < 5; i++) {
+            let door = document.createElement("button")
+            door.classList.add("door")
+            door.id = `${i + 1}`
+
+            let doorname = document.createElement("span")
+            doorname.innerText = `${i + 1}`
+            door.appendChild(doorname)
+
+            let img = document.createElement("img")
+            img.src = "/assets/site/seasonal/door_closed.png"
+            door.appendChild(img)
+
+            doorContainer.appendChild(door)
+            doors.push(door)
+
+            door.onclick = function () {
+                clickOnDoor(i + 1)
+            }
+        }
+
+        timer()
+
+    } catch (e) {
+        document.getElementById("notyet").remove()
+        document.getElementById("display").innerHTML = `you need <a href="/user">an account</a> to participate in this event!`
+    }
 
 }
 
@@ -172,22 +213,34 @@ function getSomething(d) {
     // stupid sound has stupid delay
     setTimeout(() => {
         getel('doorbg').style.backgroundImage = "url('/assets/site/seasonal/door_open.png')"
+        axios({
+            url: `${apiURL}/doreme`,
+            method: "POST",
+            headers: {
+                "authorization": localStorage.getItem("efc-usertoken")
+            },
+            data: {
+                door_id: d
+            },
+            timeout: 5000
+        }).then(res => {
+            const data = res.data;
+            let rolled = data.rolled;
 
-        let rolled = "good"
-        if (Math.random() <= 0.6) rolled = "bad";
+            getel('doorbg').innerHTML += `<p>${LINES[rolled].random()}</p>`
 
-        getel('doorbg').innerHTML += `<p>${LINES[rolled].random()}</p>`
+            setTimeout(() => {
+                getel(`tot-overlay`).remove()
+                response(d, rolled, data.handout, data.candy)
+            }, 2100);
 
-        setTimeout(() => {
-            getel(`tot-overlay`).remove()
-            response(d, rolled)
-        }, 2100);
+        })
 
     }, 600);
 
 }
 
-function response(door, r) {
+function response(door, r, handout, candy) {
 
     if (dateCheck()) return;
 
@@ -205,16 +258,11 @@ function response(door, r) {
             d.disabled = false
         }
     })
-
-    let handout = [1, 2, 3, 4, 5].random()
-
     if (r == "good") {
         treat();
-        handout += [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].random();
     }
     if (r == "bad") trick();
 
-    candy += handout
     spawnCandies(handout)
 
     getel('candy-display').innerHTML = `<img src="/assets/site/seasonal/candy_red.png" alt="">${candy}`
@@ -308,13 +356,72 @@ const LINES = {
     ],
 }
 
+function displayReward(reward) {
+    let getRewardJSON = jsonTypes[reward.type][reward.id]
+    let overlay = document.createElement("div")
+    overlay.classList.add("reward-overlay")
+    let rewardContent = document.createElement("div")
+    rewardContent.classList.add("reward-content")
+    rewardContent.innerHTML += `
+    <span class="reward-title">Got ${getRewardJSON.name}!</span>
+    <div class="reward-preview" id="reward-preview"></div>
+    `
+    overlay.appendChild(rewardContent)
+    document.body.appendChild(overlay)
+    switch (reward.type) {
+        case "icon":
+            let getOffset = getSpritePosition(getRewardJSON.pos[0], getRewardJSON.pos[1], 100)
+            getel("reward-preview").style.backgroundImage = `url('/assets/profile/icons.png')`
+            getel("reward-preview").style.backgroundPosition = `${getOffset[0]}px ${getOffset[1]}px`
+            break;
+        case "critter":
+            getel("reward-preview").style.backgroundImage = `url('/assets/sprites/critters/${reward.id}.png')`
+            getel("reward-preview").style.backgroundPosition = `0px 0px`
+            break;
+        default:
+            break;
+    }
+    setTimeout(() => {
+        overlay.remove()
+    }, 1500);
+}
+
 function treat() {
     if (dateCheck()) return;
-    console.log("give em something nice! yeah!")
+    axios({
+        url: `${apiURL}/random`,
+        method: "POST",
+        headers: {
+            "authorization": localStorage.getItem("efc-usertoken")
+        },
+        timeout: 5000
+    }).then(res => {
+        displayReward(res.data)
+    }).catch(e => {
+        if (e && e.response && e.response.data) {
+            switch (e.response.data) {
+                case "no items to give, sobbing":
+                    console.log("no items to give")
+                    break;
+                case "please contact firee because omg what type is this":
+                    console.error("please beat emily to death for this thank you")
+                    break;
+                default:
+                    console.error(e)
+                    console.log("defaulted")
+                    break;
+                // unknwon error
+            }
+            //alert(e.response.data) // TODO: change this! This happens if for example the
+        } else {
+            console.error(e)
+            console.log("??? fuck knows")
+        }
+    })
 }
 function trick() {
     if (dateCheck()) return;
-    let roll = ["gfredy", "skelong"].random()
+    let roll = ["gfredy", "skelong", "rick"].random()
     switch (roll) {
         case "gfredy":
             let golden = document.createElement("img")
@@ -346,6 +453,9 @@ function trick() {
             setTimeout(() => {
                 skel.remove()
             }, 1100);
+            break;
+        case "rick":
+            window.open("https://www.youtube.com/watch?v=iupPG8x_Zfo", "_blank")
             break;
         default:
             break;

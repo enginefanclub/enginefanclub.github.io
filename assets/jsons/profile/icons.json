@@ -180,6 +180,53 @@
         "category": "default"
     },
 
+    "s_duck": {
+        "name": "Duck",
+        "pos": [
+            0,
+            6
+        ],
+        "default": false,
+        "category": "secretpages"
+    },
+    "s_arcanalogo": {
+        "name": "Arcana Logo",
+        "pos": [
+            1,
+            6
+        ],
+        "default": false,
+        "category": "secretpages"
+    },
+    "s_micegalrot": {
+        "name": "Micegal Computering",
+        "pos": [
+            2,
+            6
+        ],
+        "default": false,
+        "category": "secretpages"
+    },
+    "s_philosopher": {
+        "name": "The Philosopher",
+        "pos": [
+            3,
+            6
+        ],
+        "default": false,
+        "category": "secretpages"
+    },
+    "s_cecillia": {
+        "name": "Letter Writing",
+        "pos": [
+            4,
+            6
+        ],
+        "default": false,
+        "category": "secretpages"
+    },
+
+
 
     "26hw_bloodyefclogo": {
         "name": "Bloody E.F.C. Metal Logo",

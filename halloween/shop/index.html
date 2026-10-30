@@ -41,20 +41,20 @@
 
             <div class="title space-between">
                 <span>Halloween Shop</span>
-                <span id="candy-display"><img src="/assets/site/seasonal/candy_red.png" alt="">999</span>
+                <span id="candy-display"><img src="/assets/site/seasonal/candy_red.png" alt=""></span>
             </div>
 
             <div class="shop-main">
                 <div class="preview" id="shop-preview">
 
-                    <span class="preview-name">?</span>
-                    <div class="preview-icon"></div>
+                    <span class="preview-name" id="preview-name">?</span>
+                    <div class="preview-icon" id="preview-icon"></div>
 
                     <div class="preview-lines">
-                        <span class="preview-line"><span>Type:</span><span>?</span></span>
-                        <span class="preview-line"><span>Cost:</span><span>?</span></span>
-                        <button>Purchase</button>
-                        <span class="preview-line"><span class="desc extra"></span></span>
+                        <span class="preview-line"><span>Type:</span><span id="preview-type">?</span></span>
+                        <span class="preview-line"><span>Cost:</span><span id="preview-cost">?</span></span>
+                        <button id="purchase-button">Purchase</button>
+                        <span class="preview-line"><span class="desc extra" id="preview-extra"></span></span>
                     </div>
 
                 </div>
@@ -114,9 +114,14 @@
                     <div class="fill" id="progress-fill"></div>
                 </div>
                 <div>
-                    <div class="badge-reward" style="background-position: -32px 0px;"></div>
+                    <div id="trophy-reward" class="badge-reward" style="background-position: -32px 0px;"></div>
+                    <!--why is this called badge-->
                 </div>
             </div>
+
+            <span>
+                <a style="font-size: 16px;" href="/halloween/">go back to trick or treating</a>
+            </span>
         </div>
 
         <div class="spacer"></div>

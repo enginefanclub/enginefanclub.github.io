@@ -1,6 +1,7 @@
-
 let apiURL = "https://engine.nefarkitti.dev/efc-backend"
-//let apiURL = "http://localhost:3000"
+if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+    apiURL = "http://localhost:3000"
+}
 let critterJSON
 
 let userData = null;
@@ -42,6 +43,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
         }).then(res => {
             userData = res.data;
             try {
+                console.log(userData)
                 if (!checkingOtherUser) {
                     userData.critters = JSON.parse(userData.critters)
                     userData.trophies = JSON.parse(userData.trophies)
@@ -68,24 +70,26 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                 if (!checkingOtherUser) {
                     getel('trophy-container').style.display = ""
                     Object.keys(trophiesJSON).forEach(trophy => {
-                        hasTrophies++
                         let getTrophy = trophiesJSON[trophy]
                         let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
                         let trophyDiv = document.createElement("div")
                         trophyDiv.classList.add("trophy")
                         trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
-                        if (!userData.trophies.includes(trophy)) trophyDiv.style.filter = "brightness(0%)"; hasTrophies--;
+                        if (!userData.trophies.includes(trophy)) trophyDiv.style.filter = "brightness(0%)";
+                        if (userData.trophies.includes(trophy)) hasTrophies++;
                         getel('trophy-grid').appendChild(trophyDiv)
                     })
-                    getel('trophy-container').innerHTML += `<span class="extra">(all unobtainable currently) only obtained trophies will be displayed for others to see</span>`
+                    getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see</span>`
                 } else {
                     if (userData.trophies.length >= 1) {
+                        getel('trophy-container').style.display = ""
                         Object.keys(trophiesJSON).forEach(trophy => {
                             if (userData.trophies.includes(trophy)) {
                                 hasTrophies++
                                 let getTrophy = trophiesJSON[trophy]
                                 let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
                                 let trophyDiv = document.createElement("div")
+                                trophyDiv.title = getTrophy.name
                                 trophyDiv.classList.add("trophy")
                                 trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
                                 getel('trophy-grid').appendChild(trophyDiv)

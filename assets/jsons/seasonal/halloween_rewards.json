@@ -1,0 +1,18 @@
+[
+    { "id": "26hw_bloodyefclogo", "type": "icon" },
+    { "id": "26hw_fedorapumpkin", "type": "icon" },
+    { "id": "26hw_pumpking", "type": "icon" },
+    { "id": "26hw_evilgloob", "type": "icon" },
+    { "id": "26hw_rfdburnt", "type": "icon" },
+    { "id": "26hw_marketing", "type": "icon" },
+    { "id": "26hw_evilson", "type": "icon" },
+    { "id": "26hw_agnes", "type": "icon" },
+    { "id": "26hw_skelejane", "type": "icon" },
+    { "id": "26hw_uepdog", "type": "icon" },
+    
+    { "id": "26hw_blackcat", "type": "critter" },
+    { "id": "26hw_ghost", "type": "critter" },
+    { "id": "26hw_horse", "type": "critter" },
+    { "id": "26hw_janewitch", "type": "critter" },
+    { "id": "26hw_pumpkin", "type": "critter" }
+]

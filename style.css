@@ -23,6 +23,8 @@
 
     --opacity-def: 50%;
 
+    --reward-content-size: 30vw;
+
 }
 
 * {
@@ -99,12 +101,70 @@ nav {
     background: var(--nav-colour-def);
     background: var(--nav-colour);
     margin-top: 10px;
+    overflow: hidden;
+
+    a {
+        text-decoration: none;
+        font-weight: 900;
+        box-sizing: border-box;
+
+        span {
+            display: flex;
+            padding: 5px;
+            z-index: 1;
+            align-items: center;
+        }
+        span .icon {
+            width: auto;
+            height: 16px;
+            aspect-ratio: 1/1;
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-right: 2px;
+        }
+    }
+
+    a.halloween {
+        background: #cc6d14;
+        background: linear-gradient(0deg, rgba(204, 109, 20, 1) 0%, rgba(250, 170, 95, 1) 79%, rgba(223, 126, 36, 1) 100%);
+        border: 1px solid #cc6d14;
+
+        * {
+            color: rgb(74, 32, 19);
+        }
+
+        margin: 0px 4px;
+
+        overflow: hidden;
+    }
+
+    a.halloween::after {
+        position: relative;
+        content: "";
+        width: 0px;
+        height: 100%;
+        display: block;
+
+        animation-name: fill-shine;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        box-shadow: 0px 0px 20px 50px rgba(255, 255, 255, 0.199);
+        left: 10%;
+        transform: rotate(40deg);
+    }
+
 }
 
-nav a {
-    text-decoration: none;
-    padding: 5px;
-    font-weight: 900;
+
+@keyframes fill-shine {
+    0% {
+        left: -200%;
+    }
+
+    100% {
+        left: 300%
+    }
 }
 
 .content {
@@ -953,6 +1013,7 @@ span.extra {
         align-items: center;
         flex-direction: column;
     }
+
     .door:hover::after {
         content: "Knock";
         position: absolute;
@@ -1018,11 +1079,13 @@ span.extra {
         }
     }
 }
+
 #candy-display {
     display: flex;
     align-items: center;
     image-rendering: pixelated;
 }
+
 .dropped-candy {
 
     transition: 0.2s;
@@ -1040,10 +1103,86 @@ span.extra {
     align-items: center;
 }
 
+.reward-overlay {
+
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100dvh;
+    background: #1212125c;
+    z-index: 100;
+
+    .reward-content {
+        width: var(--reward-content-size);
+        height: auto;
+        aspect-ratio: 1/1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .reward-title {
+            height: 0px;
+            transform: translateY(-70px);
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .reward-preview {
+            width: 100px;
+            height: 100px;
+            aspect-ratio: 1/1;
+            border: 1px solid var(--border-colour);
+            transform: scale(140%);
+            box-sizing: border-box;
+            background: url('/assets/profile/icons.png');
+            background-color: white;
+            background-position: -100px -100px;
+            image-rendering: pixelated;
+        }
+    }
+
+    .reward-content::before {
+        z-index: -1;
+        position: absolute;
+        display: block;
+        content: "";
+        width: var(--reward-content-size);
+        height: auto;
+        aspect-ratio: 1/1;
+        background: url('/assets/sprites/spotlight.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        animation-name: reward-shine-spin;
+        animation-timing-function: linear;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+    }
+
+}
+
+@keyframes reward-shine-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @keyframes candy-fade {
     from {
         filter: opacity(100%);
     }
+
     to {
         filter: opacity(0%);
     }
@@ -1072,6 +1211,10 @@ span.extra {
 }
 
 @media screen and (max-width:775px) {
+    :root {
+        --reward-content-size: 70vw;
+    }
+
     main {
         width: 100vw;
     }
@@ -1090,6 +1233,7 @@ span.extra {
 }
 
 @media screen and (max-width:405px) {
+
     .game {
         flex-direction: column;
     }

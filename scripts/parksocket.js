@@ -7,27 +7,31 @@ let socket = null;
 
 function startSocket(withAddSprite) {
     if (localStorage.getItem("efc-identifier") == null) localStorage.setItem("efc-identifier", Date.now().toString())
-    socket = io.connect("https://engine.nefarkitti.dev", {
-        path: "/efc-backend/socket.io/",
-        reconnect: true,
-        reconnectionDelay: 1000,
-        reconnectionDelayMax: 5000,
-        reconnectionAttempts: Infinity,
-        auth: {
-            token: localStorage.getItem("efc-usertoken") == null ? localStorage.getItem('efc-identifier') : localStorage.getItem("efc-usertoken"),
-            id: localStorage.getItem('efc-identifier')
-        }
-    });
-    /*socket = io.connect("http://localhost:3000", {
-        reconnect: true,
-        reconnectionDelay: 1000,
-        reconnectionDelayMax: 5000,
-        reconnectionAttempts: Infinity,
-        auth: {
-            token: localStorage.getItem("efc-usertoken") == null ? localStorage.getItem('efc-identifier') : localStorage.getItem("efc-usertoken"),
-            id: localStorage.getItem('efc-identifier')
-        }
-    });*/
+    if (["localhost","127.0.0.1"].includes(window.location.hostname)) {
+        socket = io.connect("http://localhost:3000", {
+            reconnect: true,
+            reconnectionDelay: 1000,
+            reconnectionDelayMax: 5000,
+            reconnectionAttempts: Infinity,
+            auth: {
+                token: localStorage.getItem("efc-usertoken") == null ? localStorage.getItem('efc-identifier') : localStorage.getItem("efc-usertoken"),
+                id: localStorage.getItem('efc-identifier')
+            }
+        });
+    } else {
+        socket = io.connect("https://engine.nefarkitti.dev", {
+            path: "/efc-backend/socket.io/",
+            reconnect: true,
+            reconnectionDelay: 1000,
+            reconnectionDelayMax: 5000,
+            reconnectionAttempts: Infinity,
+            auth: {
+                token: localStorage.getItem("efc-usertoken") == null ? localStorage.getItem('efc-identifier') : localStorage.getItem("efc-usertoken"),
+                id: localStorage.getItem('efc-identifier')
+            }
+        });
+    }
+    /**/
     if (withAddSprite) {
         socket.on('reconnect', (getsprites) =>{
             console.log(getsprites)

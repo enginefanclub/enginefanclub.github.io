@@ -5,7 +5,13 @@
         "pos": [
             0,
             1
-        ]
+        ],
+        "req":{
+            "page": "letter"
+        },
+        "reward": {
+            "exclusive_icons": ["s_cecillia"]
+        }
     },
     "thinker": {
         "name": "The Philosopher",
@@ -13,7 +19,13 @@
         "pos": [
             1,
             1
-        ]
+        ],
+        "req":{
+            "page": "elosofer"
+        },
+        "reward": {
+            "exclusive_icons": ["s_philosopher"]
+        }
     },
     "mustardtext": {
         "name": "Conversation",
@@ -21,7 +33,13 @@
         "pos": [
             2,
             1
-        ]
+        ],
+        "req":{
+            "page": "mustard"
+        },
+        "reward": {
+            "exclusive_icons": ["s_micegalrot"]
+        }
     },
     "arcanahopium": {
         "name": "Humanity's Salvation",
@@ -29,7 +47,13 @@
         "pos": [
             0,
             2
-        ]
+        ],
+        "req":{
+            "page": "arcana"
+        },
+        "reward": {
+            "exclusive_icons": ["s_arcanalogo"]
+        }
     },
     "duck": {
         "name": "Duck",
@@ -37,7 +61,13 @@
         "pos": [
             2,
             0
-        ]
+        ],
+        "req":{
+            "page": "duck"
+        },
+        "reward": {
+            "exclusive_icons": ["s_duck"]
+        }
     },
     "2026hw": {
         "name": "Knock Knock Master (2026)",
@@ -45,6 +75,10 @@
         "pos": [
             1,
             0
-        ]
+        ],
+        
+        "req":{
+            "all_hw": true
+        }
     }
 }
