@@ -2,6 +2,7 @@ let apiURL = "https://engine.nefarkitti.dev/efc-backend"
 if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
     apiURL = "http://localhost:3000"
 }
+apiURL = "https://engine.nefarkitti.dev/efc-backend"
 let critterJSON
 
 let userData = null;
