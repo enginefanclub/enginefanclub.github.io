@@ -2,7 +2,7 @@
 function award(id, page) {
 
     axios({
-        url: `http://engine.nefarkitti.dev/efc-backend/grant`,
+        url: `https://engine.nefarkitti.dev/efc-backend/grant`,
         method: "POST",
         headers: {
             "authorization": localStorage.getItem("efc-usertoken")
