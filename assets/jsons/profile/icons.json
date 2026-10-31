@@ -225,6 +225,15 @@
         "default": false,
         "category": "secretpages"
     },
+    "s_engine": {
+        "name": "Deep Sea Creature",
+        "pos": [
+            5,
+            3
+        ],
+        "default": false,
+        "category": "secretpages"
+    },
 
 
 

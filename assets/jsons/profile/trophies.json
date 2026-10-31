@@ -69,6 +69,20 @@
             "exclusive_icons": ["s_duck"]
         }
     },
+    "engine404": {
+        "name": "Found Engine",
+        "desc": "Well, he's clearly right there!",
+        "pos": [
+            3,
+            0
+        ],
+        "req":{
+            "page": "ohmygoditsengine"
+        },
+        "reward": {
+            "exclusive_icons": ["s_engine"]
+        }
+    },
     "2026hw": {
         "name": "Knock Knock Master (2026)",
         "desc": "Get all the rewards during 2026's Halloween",
