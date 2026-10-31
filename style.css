@@ -1164,6 +1164,19 @@ span.extra {
 
 }
 
+#currency-container {
+    display: flex;
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            image-rendering: pixelated;
+            width: 20px;
+        }
+    }
+}
+
 @keyframes reward-shine-spin {
     0% {
         transform: rotate(0deg);

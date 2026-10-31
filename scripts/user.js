@@ -64,6 +64,13 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
             getel("lastOnline").innerText = moment(userData.lastOnline).fromNow();
             getel('profile-banner').style.backgroundColor = userData.badgeColor;
 
+            //currencies for fun
+            if (userData.candies >= 1) {
+                getel("show-currency").style.display = ""
+
+                getel("currency-container").innerHTML+=`<div><img src="/assets/site/seasonal/candy_red.png" alt="">${userData.candies}</div>`
+            }
+
             //trophies
             userTrophiesResponse.then(trohpiesData => {
                 let trophiesJSON = trohpiesData.data
