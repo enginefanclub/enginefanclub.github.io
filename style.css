@@ -114,6 +114,7 @@ nav {
             z-index: 1;
             align-items: center;
         }
+
         span .icon {
             width: auto;
             height: 16px;
@@ -1166,15 +1167,37 @@ span.extra {
 
 #currency-container {
     display: flex;
+
     div {
         display: flex;
         justify-content: center;
         align-items: center;
+
         img {
             image-rendering: pixelated;
             width: 20px;
         }
     }
+}
+
+.lb-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    .head {
+        box-shadow: inset 0px 0px 2px black;
+        background: var(--nav-colour);
+        padding: 2px;
+    }
+
+    * {
+        text-align: left;
+    }
+
+    tr:nth-child(odd) {
+        background-color: rgba(0, 0, 0, 0.113);
+    }
+
 }
 
 @keyframes reward-shine-spin {

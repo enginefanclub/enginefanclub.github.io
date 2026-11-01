@@ -36,6 +36,53 @@
         <h2>trick or treat</h2>
         <p>
             see you next year
+
+            <div id="leaderboard">
+
+                
+
+            </div>
+
+            <script>
+
+                let leaderboard = document.getElementById("leaderboard")
+
+                axios.get("https://engine.nefarkitti.dev/efc-backend/leaderboard").then(res=>{
+
+                    if (res.data && res.data.list) {
+
+                        let lb = res.data.list
+
+                        leaderboard.appendChild(document.createElement("br"))
+
+                        let sec = document.createElement("section")
+                        leaderboard.appendChild(sec)
+
+                        let table = document.createElement("table")
+                        table.classList.add("lb-table")
+                        sec.appendChild(table)
+
+                        table.innerHTML += `<tr class="head">
+                            <th>Place</th>
+                            <th>User</th>
+                            <th>Candies</th>
+                        </tr>`
+
+                        let place = 0
+                        lb.forEach(person => {
+                            place++
+                            let newTR = document.createElement("tr")
+                            newTR.innerHTML = `<td>${place}.</td> <td><a href="https://efc.nefarkitti.dev/user/#${person.username}" target="_blank">${person.username}</a></td> <td>${person.candies}</td>`
+                            table.appendChild(newTR)
+
+                        });
+
+                    }
+
+                })
+
+            </script>
+
         </p>
 
         <div class="spacer"></div>
