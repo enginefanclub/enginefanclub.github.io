@@ -15,20 +15,39 @@ const cssDict = {
 
 let getCSS = ""
 
-if (getMonth in cssDict) {
-    getCSS = cssDict[getMonth]
-}
-if (`${getDay}-${getMonth}` in cssDict) {
-    getCSS = cssDict[`${getDay}-${getMonth}`]
+function applyTheme(theme) {
+
+    if (theme == null || theme == "default") {
+        if (getMonth in cssDict) {
+            getCSS = cssDict[getMonth]
+        }
+        if (`${getDay}-${getMonth}` in cssDict) {
+            getCSS = cssDict[`${getDay}-${getMonth}`]
+        }
+
+        if (getCSS != "") {
+            let element = document.createElement('link');
+            element.setAttribute('rel', 'stylesheet');
+            element.setAttribute('href', `/assets/themes/${getCSS}.css`);
+            document.head.appendChild(element);
+            console.log(`applied seasonal theme ${getCSS}`)
+        } else {
+            console.log(`${getDay}-${getMonth} no seasonal theme to apply`)
+        }
+    } else {
+
+        let element = document.createElement('link');
+        element.setAttribute('rel', 'stylesheet');
+        element.setAttribute('href', `/assets/themes/${theme}.css`);
+        document.head.appendChild(element);
+        console.log(`applied custom theme ${theme}`)
+
+    }
+
 }
 
-if (getCSS != "") {
-    let element = document.createElement('link');
-    element.setAttribute('rel', 'stylesheet');
-    element.setAttribute('href', `/assets/themes/${getCSS}.css`);
-    document.head.appendChild(element);
-    console.log(`applied seasonal theme ${getCSS}`)
-} else {
-    console.log(`${getDay}-${getMonth} no seasonal theme to apply`)
+try {
+    applyTheme(JSON.parse(localStorage.getItem("efc-settings")).theme)
+} catch (error) {
+    applyTheme(null)
 }
-

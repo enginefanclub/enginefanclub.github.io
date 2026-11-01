@@ -5,9 +5,17 @@ body {
     background-color: black;
 }
 
-.site-border {
+body::after {
+
+    content: "";
     background: url('/assets/site/borders/bloodbar.gif');
     background-repeat: repeat-x;
+    z-index: 999;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    pointer-events: none;
+
 }
 
 .logobar {

@@ -1,6 +1,13 @@
 const btns = document.getElementById("btns")
+let getFooter = document.querySelector("footer")
 
-btns.innerHTML = `
+let p = document.createElement("span")
+p.classList.add("settings-tag")
+p.innerHTML = `<a href="/settings/">site settings</a>`
+
+getFooter.prepend(p)
+
+btns.innerHTML += `
 <a href="/"><img src="https://nefarkitti.github.io/btnlocker/btns/efc.gif"></a>
 <a href="https://nefarkitti.dev/" target="_blank"><img src="https://nefarkitti.github.io/btnlocker/btns/nefarkitti.gif"></a>
 <a href="https://firee.dev" target="_blank"><img src="https://nefarkitti.github.io/btnlocker/btns/fireedev.gif"></a>

@@ -37,6 +37,7 @@ body::after {
     width: 100%;
     height: 100px;
     position: absolute;
+    pointer-events: none;
 
 }
 
