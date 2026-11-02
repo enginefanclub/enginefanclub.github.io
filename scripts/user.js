@@ -2,7 +2,6 @@ let apiURL = "https://engine.nefarkitti.dev/efc-backend"
 if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
     apiURL = "http://localhost:3000"
 }
-apiURL = "https://engine.nefarkitti.dev/efc-backend"
 let critterJSON
 
 let userData = null;
@@ -144,7 +143,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                 let dataCritter = userData.critter_selected
                 getel('critter-info').innerText = critterJSON[dataCritter].name
 
-                Object.keys(critterJSON).map(critter => { // defaults later
+                userData.critters.map(critter => { // defaults later
                     const button = document.createElement("button");
                     if (!userData.critters.includes(critter) && critterJSON[critter].default != true) return;
                     button.classList.add("critter");
