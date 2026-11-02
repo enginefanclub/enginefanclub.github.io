@@ -144,8 +144,9 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                 let dataCritter = userData.critter_selected
                 getel('critter-info').innerText = critterJSON[dataCritter].name
 
-                userData.critters.forEach(critter => { // defaults later
+                Object.keys(critterJSON).map(critter => { // defaults later
                     const button = document.createElement("button");
+                    if (!userData.critters.includes(critter) && critterJSON[critter].default != true) return;
                     button.classList.add("critter");
                     if (userData.critter_selected == critter) {
                         getel('critter-preview').style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
