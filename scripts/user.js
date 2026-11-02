@@ -133,8 +133,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
 
             const dataIcon = iconData[userData.icon];
             if (dataIcon) {
-                let getSpritePos = getSpritePosition(dataIcon.pos[0], dataIcon.pos[1], 100)
-                getel('profile-icon').style.backgroundPosition = `${getSpritePos[0]}px ${getSpritePos[1]}px`
+                getel('profile-icon').style.background = `url('/assets/profile/icons/${dataIcon.category}/${userData.icon}.png')`
             }
             if (checkingOtherUser) {
                 getel('setting-divider').hidden = true
@@ -250,8 +249,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                     checkedicon = button
                 }
                 button.id = `${iconName}-id`;
-                let getSpritePos = getSpritePosition(data.pos[0], data.pos[1], 100)
-                button.style.backgroundPosition = `${getSpritePos[0]}px ${getSpritePos[1]}px`
+                button.style.background = `url('/assets/profile/icons/${data.category}/${iconName}.png')`
 
                 button.onclick = async function () {
                     //if (iconName == userData.icon) return;
@@ -271,7 +269,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                             if (child.id == `${iconName}-id`) {
 
                                 //setting profile icon
-                                getel('profile-icon').style.backgroundPosition = `${getSpritePos[0]}px ${getSpritePos[1]}px`
+                                getel('profile-icon').style.background = `url('/assets/profile/icons/${data.category}/${iconName}.png')`
 
                                 button.classList.add("check")
                                 checkedicon = button

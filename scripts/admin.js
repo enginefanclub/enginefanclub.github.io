@@ -2,6 +2,7 @@ let apiURL = "https://engine.nefarkitti.dev/efc-backend"
 if (["localhost","127.0.0.1"].includes(window.location.hostname)) {
     apiURL = "http://localhost:3000"
 }
+apiURL = "https://engine.nefarkitti.dev/efc-backend"
 
 function getel(id) {
     return document.getElementById(id)
@@ -70,19 +71,6 @@ async function refreshPage() {
         const userListDiv = getel('user-list');
         userListDiv.innerHTML = "";
         users.forEach(user => {
-            /*
-            <div class="dashboard-user">
-                <div class="dashboard-user-icon"></div>
-                <div class="dashboard-user-details">
-                    <h4>nefarkitt (userid)</h4>
-                    <div id="dashboard-user-buttons">
-                        <button>give icon</button>
-                        <button>give badge</button>
-                        <button>give critter</button>
-                    </div>
-                </div>
-            </div>
-            */
             const div = document.createElement("div");
             div.classList.add("dashboard-user");
 
@@ -100,55 +88,6 @@ async function refreshPage() {
             h4Username.textContent = `${user.username} (${user.user_id})`
             const buttonDiv = document.createElement("div");
             buttonDiv.classList.add("dashboard-user-buttons");
-
-            const giveIconBtn = document.createElement("button");
-            giveIconBtn.innerText = "give icon";
-            giveIconBtn.onclick = function() {
-                let input = prompt("what icon?");
-                if (input != null) {
-                    if (iconData[input]) {
-                        giveToUser(user.user_id, "icon", input)
-                        return;
-                    } else {
-                        alert("thats not valid... (cant find in icons.json)")
-                    }
-                } else {
-                    alert("cancelled")
-                }
-            }
-            const giveBadgeBtn = document.createElement("button");
-            giveBadgeBtn.innerText = "give badge";
-            giveBadgeBtn.onclick = function() {
-                let input = prompt("what badge?");
-                if (input != null) {
-                    if (badgeData[input]) {
-                        giveToUser(user.user_id, "badge", input)
-                        return;
-                    } else {
-                        alert("thats not valid... (cant find in badges.json)")
-                    }
-                } else {
-                    alert("cancelled")
-                }
-            }
-            const giveCritterBtn = document.createElement("button");
-            giveCritterBtn.innerText = "give critter";
-            giveCritterBtn.onclick = function() {
-                let input = prompt("what critter?");
-                if (input != null) {
-                    if (critterData[input]) {
-                        giveToUser(user.user_id, "critter", input)
-                        return;
-                    } else {
-                        alert("thats not valid... (cant find in critters.json)")
-                    }
-                } else {
-                    alert("cancelled")
-                }
-            }
-            buttonDiv.appendChild(giveIconBtn);
-            buttonDiv.appendChild(giveBadgeBtn);
-            buttonDiv.appendChild(giveCritterBtn);
 
             userDetailDiv.appendChild(h4Username);
             userDetailDiv.appendChild(buttonDiv);

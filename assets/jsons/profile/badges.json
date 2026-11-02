@@ -12,5 +12,12 @@
             1,
             0
         ]
+    },
+    "moderator": {
+        "name": "Santa's Elf",
+        "pos": [
+            2,
+            0
+        ]
     }
 }
