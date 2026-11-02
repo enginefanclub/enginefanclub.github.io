@@ -6,6 +6,13 @@
         "idle": [0, 1],
         "walk": [2, 3]
     },
+    "original_test": {
+        "name": "OG Test",
+        "category": "default",
+        "default": false,
+        "idle": [0, 1],
+        "walk": [2, 3]
+    },
     "titan": {
         "name": "Titan",
         "category": "default",
