@@ -9,6 +9,11 @@ body {
     background-size: cover;
 }
 
+a {
+    color: #ec3333;
+    font-weight: 600;
+}
+
 nav {
     background: none;
     display: flex;
