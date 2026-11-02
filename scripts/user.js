@@ -68,7 +68,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
             if (userData.candies >= 1) {
                 getel("show-currency").style.display = ""
 
-                getel("currency-container").innerHTML+=`<div><img src="/assets/site/seasonal/candy_red.png" alt="">${userData.candies}</div>`
+                getel("currency-container").innerHTML += `<div><img src="/assets/site/seasonal/candy_red.png" alt="">${userData.candies}</div>`
             }
 
             //trophies
@@ -124,12 +124,6 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                     getel("username").appendChild(badgeList)
                 }
             })
-            //critter info
-            userCrittersResponse.then(critterdata => {
-                critterJSON = critterdata.data
-                let dataCritter = userData.critter_selected
-                getel('critter-info').innerText = critterJSON[dataCritter].name
-            })
 
             const dataIcon = iconData[userData.icon];
             if (dataIcon) {
@@ -145,35 +139,40 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
 
             localStorage.setItem("efc-critter", userData.critter_selected);
             let checkedcritter
-            userData.critters.forEach(critter => {
-                const button = document.createElement("button");
+            userCrittersResponse.then(critterdata => {
+                critterJSON = critterdata.data
+                let dataCritter = userData.critter_selected
+                getel('critter-info').innerText = critterJSON[dataCritter].name
 
-                button.classList.add("critter");
-                if (userData.critter_selected == critter) {
-                    getel('critter-preview').style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
-                    button.classList.add("check");
-                    checkedcritter = button
-                }
-                button.id = critter;
-                button.style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
+                userData.critters.forEach(critter => { // defaults later
+                    const button = document.createElement("button");
+                    button.classList.add("critter");
+                    if (userData.critter_selected == critter) {
+                        getel('critter-preview').style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
+                        button.classList.add("check");
+                        checkedcritter = button
+                    }
+                    button.id = critter;
+                    button.style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
 
-                button.onclick = function () {
-                    // if (critter == userData.critter_selected) return;
-                    if (socket != null) {
-                        socket.emit('changesprite', critter);
-                        localStorage.setItem("efc-critter", critter);
-                        checkedcritter.classList.remove("check")
-                        for (const child of getel("critters").children) {
-                            if (child.id == critter) {
-                                getel('critter-preview').style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
-                                if (critterJSON) getel('critter-info').innerText = critterJSON[critter].name;
-                                button.classList.add("check")
-                                checkedcritter = button
+                    button.onclick = function () {
+                        // if (critter == userData.critter_selected) return;
+                        if (socket != null) {
+                            socket.emit('changesprite', critter);
+                            localStorage.setItem("efc-critter", critter);
+                            checkedcritter.classList.remove("check")
+                            for (const child of getel("critters").children) {
+                                if (child.id == critter) {
+                                    getel('critter-preview').style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
+                                    if (critterJSON) getel('critter-info').innerText = critterJSON[critter].name;
+                                    button.classList.add("check")
+                                    checkedcritter = button
+                                }
                             }
                         }
                     }
-                }
-                getel("critters").appendChild(button);
+                    getel("critters").appendChild(button);
+                })
             })
             const bannerColours = [
                 "#000000",

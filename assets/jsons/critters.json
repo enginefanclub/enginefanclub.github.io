@@ -56,6 +56,13 @@
             [0,1]
         ]
     },
+    "moss_ball": {
+        "name": "Moss Ball",
+        "category": "default",
+        "default": true,
+        "idle": [0],
+        "walk": [1,2]
+    },
 
     
     "26hw_blackcat": {

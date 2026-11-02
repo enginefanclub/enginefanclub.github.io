@@ -179,6 +179,16 @@
         "default": true,
         "category": "default"
     },
+    "diviante": {
+        "name": "Diviante",
+        "pos": [
+            6,
+            0
+        ],
+        "default": false,
+        "category": "default"
+    },
+
 
     "s_duck": {
         "name": "Duck",
