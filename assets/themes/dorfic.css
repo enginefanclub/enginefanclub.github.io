@@ -1,0 +1,139 @@
+:root {
+    --list-bg-child: none;
+}
+
+body {
+    background: url('https://frutiger-aero.org/img/DORFic-2.webp');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+}
+
+nav {
+    background: none;
+    display: flex;
+    gap: 4px;
+    a {
+        flex-grow: 1;
+        border-radius: 10px;
+        box-sizing: border-box;
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    border-radius: 10px;
+    width: calc(100% - 40px);
+}
+
+main {
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    background: rgba(225, 225, 225, 0.76);
+    box-shadow: inset 0px 0px 2px black, 0px 0px 2px black;
+}
+
+.logo {
+    filter: invert();
+}
+
+* {
+    color: black;
+}
+
+main>*:nth-child(n+2):not(.spacer) {
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+.headerbar {
+    background: #db6e00;
+    background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+    padding: 10px;
+    border: 1px solid rgb(197, 128, 0);
+    border-radius: 0px 0px 50px 10px;
+    box-shadow: inset 0px 0px 2px black, 0px 0px 4px black;
+    overflow: hidden;
+    * {
+        color: white;
+    }
+}
+
+.spacer {
+    border-top: 2px dashed #ff8000;
+}
+
+.list {
+    background: #db6e00;
+    background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+    padding: 0px !important;
+    border: 1px solid rgb(197, 128, 0);
+    box-shadow: inset 0px 0px 2px black;
+    margin: 0px 10px;
+    overflow: hidden;
+    border-radius: 5px;
+
+    * {
+        color: white;
+    }
+
+    a {
+        display: block;
+        background: #db6e00;
+        background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+        padding: 5px;
+        box-sizing: border-box;
+        box-shadow: inset 0px 0px 1px black;
+    }
+}
+
+button,
+select {
+    background: #db6e00;
+    background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+    border: 1px solid rgb(197, 128, 0);
+    box-shadow: inset 0px 0px 1px black;
+
+    * {
+        color: white;
+    }
+}
+
+.right .info, section, .profile, .lb-table .head, nav a, h2 {
+
+    background: #db6e00;
+    background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+    border: 1px solid rgb(197, 128, 0);
+    box-shadow: inset 0px 0px 1px black;
+    border-radius: 5px;
+    * {
+        color: white;
+    }
+
+}
+.info hr {
+    border: none;
+    border-top: 2px dashed #d46a00;
+}
+
+h2 {
+    color: white;
+    padding: 5px 15px !important;
+    border-radius: 20px 0px 20px 0px;
+    width: fit-content;
+    display: block;
+    margin: 5px 10px;
+}
+.space-between h2 {
+    margin: 5px 0px;
+}
+
+canvas {
+    box-sizing: border-box;
+    border: 1px solid orange;
+    width: calc(100% - 5px);
+}
+
