@@ -98,7 +98,7 @@ function draw() {
         renderSprite(spr)
 
         if (spr.isself) {
-            ctx.font = "20px";
+            ctx.font = "22px";
             ctx.strokeStyle = "red";
             ctx.lineWidth = 2
             ctx.strokeText("\\/", spr.pos[0] + 25 + 0.5, 40)
@@ -110,7 +110,7 @@ function draw() {
             if (mousex >= spr.pos[0] && mousex <= spr.pos[0] + SPRITE_SIZE && mousey >= FLOOR_HEIGHT) {
                 HOVERING_OVER = spr
                 if (spr.isself) return;
-                ctx.font = "20px";
+                ctx.font = "22px";
                 ctx.strokeStyle = "black";
                 ctx.lineWidth = 3
                 ctx.strokeText(spr.name, spr.pos[0] + 25 + 0.5, 35)
