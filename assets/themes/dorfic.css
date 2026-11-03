@@ -231,13 +231,15 @@ section header {
         box-shadow: inset 0px 0px 2px black;
         color: black !important;
     }
-    a:hover{
+
+    a:hover {
         filter: brightness(110%);
     }
 }
 
 .userdeets {
     all: unset;
+
     input {
         color: black !important;
     }
@@ -259,6 +261,7 @@ section header {
 
 .profile {
     border-radius: 30px 30px 20px 10px;
+
     .icon {
         background-size: 100%;
         background-repeat: no-repeat;
@@ -268,6 +271,7 @@ section header {
         justify-content: center;
         align-items: center;
     }
+
     .icon::before {
         content: "";
         width: 100%;
@@ -279,10 +283,18 @@ section header {
         border-image: linear-gradient(to bottom, #ffb039 0%, #db6e00 50%, #db6e00 100%) 1;
         box-shadow: 0px 0px 4px black;
     }
+
     .display-name {
         margin-left: 132px;
     }
+
     .banner {
         border-radius: 10px 10px 0px 0px;
+    }
+}
+
+@media screen and (max-width: 775px) {
+    .profile .display-name {
+        margin-left: 67px;
     }
 }

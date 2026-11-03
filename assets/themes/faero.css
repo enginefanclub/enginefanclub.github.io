@@ -1,0 +1,263 @@
+body {
+    background: url('https://frutigeraeroarchive.org/images/wallpapers/windows_vista/windows_vista_50.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+main {
+    background: none;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0.7) 70%, rgba(196, 255, 250, 0.8) 100%);
+    backdrop-filter: blur(4px);
+    margin-top: 62px;
+    margin-bottom: 50px;
+    border: none;
+    box-shadow: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 1px black, 0px 0px 1px black;
+
+    /*
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 82%, rgba(0, 0, 0, 0) 100%);
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    mask-position: top bottom;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 82%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: top bottom;
+    /*for some dumb reason this hides the header which is such a shame because itd be such a cool effect otherwise
+    alternatively i have to update every page AGAIN*/
+}
+
+.headerbar {
+    transform: translateY(-56px);
+
+    * {
+        color: white;
+    }
+
+    .logo {
+        filter: invert();
+    }
+
+    margin-bottom: -56px;
+}
+
+.logobar {
+    transform: translateY(-10px);
+}
+
+main::before {
+    width: 100%;
+    height: 100%;
+    background: url('https://frutigeraeroarchive.org/images/resources/flares/flares_24.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    position: absolute;
+    z-index: -2;
+    box-sizing: border-box;
+    transform: translate(-10px, -10px);
+}
+
+.logo {
+    filter: none;
+}
+
+* {
+    color: #063b83;
+    font-weight: 500 !important;
+}
+
+nav {
+    background: none;
+    background: linear-gradient(180deg, #fffffff2 0%, #d7eeffe6 48%, #aedefed9 52%, #cbe7f9e6 100%);
+    box-shadow: inset 0px 0px 1px black, 0px 0px 1px black;
+
+    * {
+        color: black !important;
+    }
+}
+
+.list {
+    background: none;
+}
+
+.list:not(.gallery) a:nth-child(2n) {
+    background: none;
+}
+
+.spacer {
+    border: none;
+    margin: 4px 0px;
+}
+
+.primary-content {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    box-sizing: border-box;
+    gap: 5px;
+    justify-content: center;
+
+    >div:not(.spacer) {
+        box-sizing: border-box;
+        flex-grow: 1;
+        padding: 5px;
+    }
+}
+
+.wip {
+
+    background: #ecf4f5;
+    border-radius: 5px;
+    border: 1px solid #eaeded;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    mask-position: top bottom;
+    height: fit-content;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: top bottom;
+
+    h2 {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .game {
+        a {
+            display: flex;
+            flex-direction: column;
+
+            * {
+                font-size: 16px;
+            }
+
+            img {
+                border: 1px solid lightgrey;
+                box-sizing: border-box;
+                box-shadow: 0px 0px 1px black;
+            }
+        }
+    }
+}
+
+section, .right .info {
+    background: #ecf4f5;
+    border-radius: 5px;
+    border: 1px solid #eaeded;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+    mask-size: 100%;
+    mask-repeat: no-repeat;
+    mask-position: top bottom;
+    height: fit-content;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: top bottom;
+    box-shadow: none;
+    padding-bottom: 50px;
+}
+
+.danger {
+    color: white !important;
+}
+
+.list.articles:not(.gallery) {
+    display: unset;
+    width: 100%;
+
+    a {
+        display: block;
+        width: 100%;
+    }
+}
+
+h2 {
+    margin: 0;
+}
+
+canvas {
+    border: 1px solid lightgray;
+    box-shadow: 0px 0px 1px black;
+}
+
+button,
+.display-name {
+    background: linear-gradient(180deg, #fffffff2 0%, #d7eeffe6 48%, #aedefed9 52%, #cbe7f9e6 100%);
+}
+
+.profile {
+    .display-name {
+        margin: 0 !important;
+        box-sizing: border-box;
+        padding-left: 125px;
+    }
+
+    .banner {
+        box-shadow: none !important;
+    }
+    .icon {
+        transform: scale(115%);
+    }
+}
+
+i.fa-solid {
+    font-weight: 900 !important;
+}
+
+.game-banner, .article-banner {
+    border: 1px solid lightgray;
+    box-shadow: 0px 0px 1px black;
+}
+
+.list.articles.gallery {
+    display: flex;
+    width: 100%;
+    a {
+        max-width: 100%;
+    }
+    a:nth-child(n+10) {
+        display: none;
+    }
+}
+.articles-container {
+    width: 75%
+}
+
+.tabs {
+    box-shadow: none;
+}
+section header {
+    background: none;
+    box-shadow: none;
+    a {
+        color: #063b83;
+    }
+    border-bottom: 1px solid #063b83;
+}
+
+input {
+    background: white;
+}
+
+@media screen and (max-width: 775px) {
+
+    .primary-content {
+        flex-direction: column;
+    }
+
+    .articles-container {
+        width: 100%;
+    }
+
+    .wip .game a {
+        flex-direction: row;
+    }
+
+}
