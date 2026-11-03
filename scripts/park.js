@@ -233,7 +233,7 @@ canvas.addEventListener("click", (event) => {
         if (sprite.hovered == 0) return;
         if (!cansend) return;
         try {
-            location.href = `/users/#${sprite.username}`
+            location.href = `/users/#${sprite.name}`
             cansend = false
             setTimeout(() => {
                 cansend = true
