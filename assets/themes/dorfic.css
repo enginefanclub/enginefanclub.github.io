@@ -18,16 +18,28 @@ nav {
     background: none;
     display: flex;
     gap: 4px;
+
     a {
         flex-grow: 1;
-        border-radius: 10px;
+        border-radius: 6px;
         box-sizing: border-box;
+
+        background: #FAC069;
+        background: linear-gradient(0deg, rgba(250, 192, 105, 1) 0%, rgba(250, 192, 105, 1) 83%, rgba(255, 242, 222, 1) 100%);
+        box-shadow: inset 0px 0px 2px black;
+
         span {
             display: flex;
             justify-content: center;
             align-items: center;
+            color: black !important;
         }
     }
+
+    a:hover {
+        filter: brightness(110%);
+    }
+
     border-radius: 10px;
     width: calc(100% - 40px);
 }
@@ -62,6 +74,7 @@ main>*:nth-child(n+2):not(.spacer) {
     border-radius: 0px 0px 50px 10px;
     box-shadow: inset 0px 0px 2px black, 0px 0px 4px black;
     overflow: hidden;
+
     * {
         color: white;
     }
@@ -74,24 +87,53 @@ main>*:nth-child(n+2):not(.spacer) {
 .list {
     background: #db6e00;
     background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
-    padding: 0px !important;
-    border: 1px solid rgb(197, 128, 0);
+    border: 1px solid lightgrey;
     box-shadow: inset 0px 0px 2px black;
     margin: 0px 10px;
     overflow: hidden;
     border-radius: 5px;
+    padding: 5px !important;
+    gap: 2px;
 
     * {
-        color: white;
+        color: black;
+        text-decoration: none !important;
     }
 
     a {
         display: block;
-        background: #db6e00;
-        background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+        background: #ffb039 !important;
         padding: 5px;
         box-sizing: border-box;
-        box-shadow: inset 0px 0px 1px black;
+        box-shadow: inset 0px 0px 2px black;
+        border-radius: 5px;
+    }
+
+    a:hover {
+        filter: brightness(110%);
+    }
+}
+
+.list:not(.gallery) {
+    a {
+        display: block;
+        background: #fac069 !important;
+        padding: 5px;
+        box-sizing: border-box;
+        box-shadow: inset 0px 0px 2px black;
+        border-radius: 5px;
+    }
+
+    a:nth-child(even) {
+        background: #ffa92763 !important;
+    }
+
+    a:nth-child(even):hover {
+        filter: brightness(130%);
+    }
+
+    a:hover {
+        filter: brightness(110%);
     }
 }
 
@@ -107,18 +149,28 @@ select {
     }
 }
 
-.right .info, section, .profile, .lb-table .head, nav a, h2 {
+button:hover {
+    filter: brightness(110%);
+}
+
+.right .info,
+section,
+.profile,
+.lb-table .head,
+h2 {
 
     background: #db6e00;
     background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
     border: 1px solid rgb(197, 128, 0);
     box-shadow: inset 0px 0px 1px black;
     border-radius: 5px;
+
     * {
         color: white;
     }
 
 }
+
 .info hr {
     border: none;
     border-top: 2px dashed #d46a00;
@@ -132,6 +184,7 @@ h2 {
     display: block;
     margin: 5px 10px;
 }
+
 .space-between h2 {
     margin: 5px 0px;
 }
@@ -142,3 +195,11 @@ canvas {
     width: calc(100% - 5px);
 }
 
+.game-banner {
+    background: #db6e00;
+    background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 2px black;
+    box-sizing: border-box;
+}
