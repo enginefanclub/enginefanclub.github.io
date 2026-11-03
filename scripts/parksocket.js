@@ -7,7 +7,7 @@ let socket = null;
 
 function startSocket(withAddSprite) {
     if (localStorage.getItem("efc-identifier") == null) localStorage.setItem("efc-identifier", Date.now().toString())
-    if (["localhost","127.0.0.1"].includes(window.location.hostname) && false == true) {
+    if (["localhost","127.0.0.1"].includes(window.location.hostname)) {
         socket = io.connect("http://localhost:3000", {
             reconnect: true,
             reconnectionDelay: 1000,
