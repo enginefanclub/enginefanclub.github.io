@@ -242,7 +242,7 @@ section header {
     border-bottom: 1px solid #063b83;
 }
 
-input {
+input, select {
     background: white;
 }
 
