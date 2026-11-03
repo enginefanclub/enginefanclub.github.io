@@ -127,7 +127,7 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
 
             const dataIcon = iconData[userData.icon];
             if (dataIcon) {
-                getel('profile-icon').style.background = `url('/assets/profile/icons/${dataIcon.category}/${userData.icon}.png')`
+                getel('profile-icon').style.backgroundImage = `url('/assets/profile/icons/${dataIcon.category}/${userData.icon}.png')`
             }
             if (checkingOtherUser) {
                 getel('setting-divider').hidden = true
