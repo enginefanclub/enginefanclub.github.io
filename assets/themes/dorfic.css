@@ -203,3 +203,57 @@ canvas {
     box-shadow: inset 0px 0px 2px black;
     box-sizing: border-box;
 }
+
+input {
+    background: #ffb039;
+    font-weight: 900;
+}
+
+section header {
+    background: #db6e00;
+    background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+    border: 1px solid rgb(197, 128, 0);
+    box-shadow: inset 0px 0px 1px black;
+    border-radius: 5px 5px 0px 0px;
+    z-index: 9999;
+    display: flex;
+    padding: 5px;
+    gap: 5px;
+
+    a {
+        flex-grow: 1;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        box-sizing: border-box;
+
+        background: #FAC069;
+        background: linear-gradient(0deg, rgba(250, 192, 105, 1) 0%, rgba(250, 192, 105, 1) 83%, rgba(255, 242, 222, 1) 100%);
+        box-shadow: inset 0px 0px 2px black;
+        color: black !important;
+    }
+    a:hover{
+        filter: brightness(110%);
+    }
+}
+
+.userdeets {
+    all: unset;
+    input {
+        color: black !important;
+    }
+}
+
+.tabs {
+    box-shadow: inset 0px 0px 1px black;
+    background: rgba(225, 225, 225, 0.76);
+    border-radius: 0px 0px 5px 5px;
+
+    label {
+        color: black !important;
+    }
+
+    button {
+        font-weight: 900;
+    }
+}
