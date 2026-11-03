@@ -232,8 +232,6 @@ canvas.addEventListener("click", (event) => {
 
                 if (localStorage.getItem("c") == null) {
 
-                    localStorage.setItem("c", true)
-
                     axios({
                         url: `https://engine.nefarkitti.dev/efc-backend/grant`,
                         method: "POST",
@@ -247,6 +245,7 @@ canvas.addEventListener("click", (event) => {
                         },
                         timeout: 5000
                     }).then(res => {
+                        localStorage.setItem("c", true)
                         console.log(res)
                     })
 
