@@ -21,7 +21,11 @@ function addSprite(id, isself = false, identifier = "", username = "") {
     totalSpriteCount++
     const img = new Image();
     img.src = `/assets/sprites/critters/${id}.png`;
+    try {
+        console.log(`adding sprite ${username}`)
+    } catch (e) {
 
+    }
     sprites.push({
         "id": id,
         "name": username,
@@ -45,6 +49,11 @@ function removeSprite(identifier) {
     for (let i = 0; i < sprites.length; i++) {
         let sprite = sprites[i]
         if (sprite.identifier == identifier) {
+            try {
+                console.log(`removing sprite ${sprite.name}`)
+            } catch (e) {
+
+            }
             sprite.src.remove()
             sprites.splice(i, 1)
             break
@@ -218,14 +227,16 @@ canvas.addEventListener("mousemove", (event) => {
 canvas.addEventListener("mouseleave", (event) => {
     HOVERING = false
 })
+let cansend = true
 canvas.addEventListener("click", (event) => {
     sprites.map(sprite => {
         if (sprite.hovered == 0) return;
+        if (!cansend) return;
         try {
             window.open(`/user/#${sprite.name}`, '_blank').focus();
-            canHover = false
+            cansend = false
             setTimeout(() => {
-                canHover = true
+                cansend = true
             }, 100);
 
             if (sprite.name == "nefarkitti") {
