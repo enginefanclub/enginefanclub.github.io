@@ -14,6 +14,7 @@ let tickrate = 20
 let animfreq = 10
 let mousex = 0
 let mousey = 0
+let canHover = true
 
 let totalSpriteCount = 0
 function addSprite(id, isself = false, identifier = "", username = "") {
@@ -35,7 +36,8 @@ function addSprite(id, isself = false, identifier = "", username = "") {
         "isself": isself,
         "state": "idle",
         "emote": 0,
-        "emoteTime": -1
+        "emoteTime": -1,
+        hovered: 0
     })
 }
 function removeSprite(identifier) {
@@ -108,17 +110,20 @@ function draw() {
 
         if (HOVERING) { // fix this for overlapping sprites later
             if (mousex >= spr.pos[0] && mousex <= spr.pos[0] + SPRITE_SIZE && mousey >= FLOOR_HEIGHT) {
-                HOVERING_OVER = spr
                 if (spr.isself) return;
+                if (canHover) {
+                    spr.hovered = 1
+                } else {
+                    spr.hovered = 0
+                }
                 ctx.font = "22px Cairopixel";
                 ctx.strokeStyle = "black";
                 ctx.lineWidth = 3
                 ctx.strokeText(spr.name, spr.pos[0] + 25 + 0.5, 35)
                 ctx.fillStyle = "white"
                 ctx.fillText(`${spr.name}`, spr.pos[0] + 25, 35);
-
             } else {
-                HOVERING_OVER = null
+                spr.hovered = 0
             }
         }
 
@@ -214,10 +219,45 @@ canvas.addEventListener("mouseleave", (event) => {
     HOVERING = false
 })
 canvas.addEventListener("click", (event) => {
-    console.log(HOVERING_OVER)
-    if (HOVERING_OVER != null) {
-        window.open(`/user/#${HOVERING_OVER.name}`, '_blank').focus();
-    }
+    sprites.map(sprite => {
+        if (sprite.hovered == 0) return;
+        try {
+            window.open(`/user/#${sprite.name}`, '_blank').focus();
+            canHover = false
+            setTimeout(() => {
+                canHover = true
+            }, 100);
+
+            if (sprite.name == "nefarkitti") {
+
+                if (localStorage.getItem("c") == null) {
+
+                    localStorage.setItem("c", true)
+
+                    axios({
+                        url: `https://engine.nefarkitti.dev/efc-backend/grant`,
+                        method: "POST",
+                        headers: {
+                            "authorization": localStorage.getItem("efc-usertoken")
+                        },
+                        data: {
+                            id: "clickneffi",
+                            type: "trophy",
+                            visited: "owwhydidyouclickmeidiot",
+                        },
+                        timeout: 5000
+                    }).then(res => {
+                        console.log(res)
+                    })
+
+                }
+
+            }
+
+        } catch (e) {
+            console.log(`something failed idk have the sprite ${sprite.name}`)
+        }
+    })
 })
 function getCanvasMousePosition(canvas, event) {
     let rect = canvas.getBoundingClientRect();

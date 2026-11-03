@@ -7,11 +7,13 @@
             0,
             1
         ],
-        "req":{
+        "req": {
             "page": "letter"
         },
         "reward": {
-            "exclusive_icons": ["s_cecillia"]
+            "exclusive_icons": [
+                "s_cecillia"
+            ]
         }
     },
     "thinker": {
@@ -22,11 +24,13 @@
             1,
             1
         ],
-        "req":{
+        "req": {
             "page": "elosofer"
         },
         "reward": {
-            "exclusive_icons": ["s_philosopher"]
+            "exclusive_icons": [
+                "s_philosopher"
+            ]
         }
     },
     "mustardtext": {
@@ -37,11 +41,13 @@
             2,
             1
         ],
-        "req":{
+        "req": {
             "page": "mustard"
         },
         "reward": {
-            "exclusive_icons": ["s_micegalrot"]
+            "exclusive_icons": [
+                "s_micegalrot"
+            ]
         }
     },
     "arcanahopium": {
@@ -52,11 +58,13 @@
             0,
             2
         ],
-        "req":{
+        "req": {
             "page": "arcana"
         },
         "reward": {
-            "exclusive_icons": ["s_arcanalogo"]
+            "exclusive_icons": [
+                "s_arcanalogo"
+            ]
         }
     },
     "duck": {
@@ -67,11 +75,13 @@
             2,
             0
         ],
-        "req":{
+        "req": {
             "page": "duck"
         },
         "reward": {
-            "exclusive_icons": ["s_duck"]
+            "exclusive_icons": [
+                "s_duck"
+            ]
         }
     },
     "engine404": {
@@ -82,11 +92,25 @@
             3,
             0
         ],
-        "req":{
+        "req": {
             "page": "ohmygoditsengine"
         },
         "reward": {
-            "exclusive_icons": ["s_engine"]
+            "exclusive_icons": [
+                "s_engine"
+            ]
+        }
+    },
+    "clickneffi": {
+        "name": "Ow!",
+        "desc": "Why'd you do that??",
+        "hint": "I'm usually online. Usually.",
+        "pos": [
+            4,
+            0
+        ],
+        "req": {
+            "page": "owwhydidyouclickmeidiot"
         }
     },
     "2026hw": {
@@ -97,8 +121,7 @@
             1,
             0
         ],
-        
-        "req":{
+        "req": {
             "all_hw": true
         }
     }
