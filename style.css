@@ -550,8 +550,10 @@ button.danger {
     justify-content: start;
     align-items: start;
 }
+
 .list.articles.gallery a:nth-child(n+10) {
-    display: none; /*do something else LATER!!!!!*/
+    display: none;
+    /*do something else LATER!!!!!*/
 }
 
 .games.gallery a img {
@@ -840,6 +842,7 @@ section header span.selected {
     display: flex;
     justify-content: center;
 }
+
 .trophy:hover::after {
     display: flex;
     justify-content: center;
@@ -855,6 +858,7 @@ section header span.selected {
     color: black;
     box-shadow: inset 0px 0px 1px black, 0px 0px 1px black;
 }
+
 .trophy:hover::before {
     display: flex;
     justify-content: center;
@@ -1030,6 +1034,11 @@ span.extra {
     font-style: italic;
     filter: opacity(50%);
     user-select: none;
+
+    a {
+        font-size: 10px;
+        font-style: italic;
+    }
 }
 
 .doors-contain {
@@ -1264,31 +1273,44 @@ span.extra {
     border: 1px solid var(--border-colour);
     box-sizing: border-box;
     padding: 5px;
+
     h2 {
         font-size: 16px;
         margin: 0;
     }
 
-    .game {
-        a {
-            display: flex;
-            flex-direction: column;
+    .extra {
+        white-space: nowrap;
+        font-size: 12px;
+        text-decoration: underline;
+        font-style: italic;
+        filter: opacity(50%);
+    }
+    .extra a {
+        width: fit-content;
+    }
 
-            * {
-                font-size: 16px;
-            }
-            img {
-                width: 100%;
-                image-rendering: pixelated;
-                max-height: 200px;
-                object-fit: contain;
-            }
+    .game>a {
+        display: flex;
+        flex-direction: column;
+
+        * {
+            font-size: 16px;
+        }
+
+        img {
+            width: 100%;
+            image-rendering: pixelated;
+            max-height: 200px;
+            object-fit: contain;
         }
     }
 }
+
 .articles-container {
     width: calc(100% - 200px);
 }
+
 .asidelist {
     display: flex;
     flex-direction: column;
@@ -1298,9 +1320,11 @@ span.extra {
 .post {
     display: flex;
     border: 1px solid var(--border-colour);
+
     * {
         box-sizing: border-box;
     }
+
     .post-profile {
         display: flex;
         flex-direction: column;
@@ -1308,17 +1332,20 @@ span.extra {
         padding: 10px;
         width: 100%;
     }
+
     .post-icon {
         border: 1px solid var(--border-colour);
         width: 100%;
         height: auto;
         aspect-ratio: 1/1;
     }
+
     .post-username {
         display: block;
         width: 100%;
         word-break: break-all;
     }
+
     .split {
         display: block;
         height: 100%;
@@ -1326,6 +1353,7 @@ span.extra {
         border: 1px solid var(--border-colour);
         background: var(--border-colour);
     }
+
     .post-content {
         padding: 10px;
     }
@@ -1382,23 +1410,29 @@ span.extra {
     :root {
         --reward-content-size: 70vw;
     }
+
     .primary-content {
         flex-direction: column;
     }
+
     .articles-container {
         width: 100% !important;
     }
+
     main {
         width: 100vw;
     }
+
     .asidelist {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        >div{
+
+        >div {
             max-width: 32%;
         }
     }
+
     .banner {
         display: none;
     }
