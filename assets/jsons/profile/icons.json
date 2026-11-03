@@ -244,6 +244,15 @@
         "default": false,
         "category": "secretpages"
     },
+    "s_poplogo": {
+        "name": "Pop! Logo",
+        "pos": [
+            5,
+            3
+        ],
+        "default": false,
+        "category": "secretpages"
+    },
 
 
 
