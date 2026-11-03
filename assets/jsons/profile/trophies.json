@@ -113,6 +113,23 @@
             "page": "owwhydidyouclickmeidiot"
         }
     },
+    "enajrant": {
+        "name": "?orbdamu",
+        "desc": "She's easily irritable, it's okay.",
+        "hint": ".hguoht ,dratsum ni derevoc lla era selif ehT .enim fo tcejorp rehtonA",
+        "pos": [
+            5,
+            0
+        ],
+        "req": {
+            "page": "enajisaveryangrygal"
+        },
+        "reward": {
+            "exclusive_icons": [
+                "s_poplogo"
+            ]
+        }
+    },
     "2026hw": {
         "name": "Knock Knock Master (2026)",
         "desc": "Get all the rewards during 2026 Halloween Event",

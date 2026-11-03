@@ -83,11 +83,13 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                         let trophyDiv = document.createElement("div")
                         trophyDiv.classList.add("trophy")
                         trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
-                        if (!userData.trophies.includes(trophy)) trophyDiv.style.filter = "brightness(0%)";
+                        if (!userData.trophies.includes(trophy)) trophyDiv.style.filter = "contrast(50%)";
                         if (userData.trophies.includes(trophy)) hasTrophies++;
+                        trophyDiv.setAttribute("data-after", getTrophy.name)
+                        trophyDiv.setAttribute("data-before", getTrophy.hint)
                         getel('trophy-grid').appendChild(trophyDiv)
                     })
-                    getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see</span>`
+                    getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see (hover to see hints, sorry mobile)</span>`
                 } else {
                     if (userData.trophies.length >= 1) {
                         getel('trophy-container').style.display = ""
@@ -97,9 +99,10 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                                 let getTrophy = trophiesJSON[trophy]
                                 let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
                                 let trophyDiv = document.createElement("div")
-                                trophyDiv.title = getTrophy.name
                                 trophyDiv.classList.add("trophy")
                                 trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
+                                trophyDiv.setAttribute("data-after", getTrophy.name)
+                                trophyDiv.setAttribute("data-before", getTrophy.hint)
                                 getel('trophy-grid').appendChild(trophyDiv)
                             }
                         })
