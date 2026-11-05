@@ -556,6 +556,10 @@ button.danger {
     /*do something else LATER!!!!!*/
 }
 
+.list.articles {
+    width: 536px;
+}
+
 .games.gallery a img {
     width: 30%;
 }
@@ -1286,6 +1290,7 @@ span.extra {
         font-style: italic;
         filter: opacity(50%);
     }
+
     .extra a {
         width: fit-content;
     }
@@ -1417,6 +1422,10 @@ span.extra {
 
     .articles-container {
         width: 100% !important;
+    }
+
+    .list.articles {
+        width: 100%;
     }
 
     main {
