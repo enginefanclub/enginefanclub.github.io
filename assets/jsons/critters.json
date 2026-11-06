@@ -20,6 +20,18 @@
         "idle": [0, 0, 0, 0, 0, 0, 0, 0, 1],
         "walk": [2]
     },
+    "technet_cat": {
+        "name": "Technet Cat",
+        "category": "default",
+        "default": false,
+        "idle": [0],
+        "walk": [1,2],
+        "emotes": [
+            [3, 4],
+            [0, 5],
+            [7,8]
+        ]
+    },
     "duck": {
         "name": "Duck",
         "category": "default",
