@@ -11,13 +11,11 @@ const cssDict = {
     "31-12": "newyear",
 }
 
-// actual themes maybe one day if im bothered
-
 let getCSS = ""
 
-function applyTheme(theme) {
+function applyTheme(theme, type = null) {
 
-    if (theme == null || theme == "default") {
+    if (theme == null || theme == "default" && type == null) {
         if (getMonth in cssDict) {
             getCSS = cssDict[getMonth]
         }
@@ -48,6 +46,7 @@ function applyTheme(theme) {
 
 try {
     applyTheme(JSON.parse(localStorage.getItem("efc-settings")).theme)
+    applyTheme(JSON.parse(localStorage.getItem("efc-settings")).accessibility.font, "font")
 } catch (error) {
     applyTheme(null)
 }

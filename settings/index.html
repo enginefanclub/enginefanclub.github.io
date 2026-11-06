@@ -37,6 +37,8 @@
         <h2>site settings</h2>
         <div class="settings">
             <section>
+                <h3>general</h3>
+                <hr>
                 <div>
                     <label for="theme">site theme:</label>
                     <select name="theme" id="theme-select">
@@ -48,6 +50,19 @@
                     </select>
                 </div>
                 <span class="extra">'default' will display seasonal themes as normal</span><br>
+                <h3>accessibility</h3>
+                <hr>
+                <div>
+                    <label for="font">font: </label>
+                    <select name="font" id="font-select" class="font-select">
+                        <option value="default">default</option>
+                        <option value="opendyslexic" class="opendyslexic">Open Dyslexic</option>
+                        <option value="lexend" class="lexend">Lexend</option>
+                    </select><br>
+                    <span class="extra">support may vary for themes other than 'default' & seasonal ones</span><br>
+                    <!--<label for="font-size">font size:</label>
+                    <input type="range" name="font-size" id="font-size-select">-->
+                </div>
             </section>
         </div>
 

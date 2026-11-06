@@ -1,7 +1,12 @@
 const THEME_SELECT = document.getElementById("theme-select")
+const FONT_SELECT = document.getElementById("font-select")
 
 let def = { // default settings
     theme: "",
+    accessibility: {
+        font: "default",
+        font_mod: 0,
+    }
 }
 
 let user_settings
@@ -11,7 +16,7 @@ try {
     user_settings = JSON.parse(localStorage.getItem("efc-settings"))
     THEME_SELECT.value = user_settings.theme
 
-    Object.keys(def).forEach(key=>{ // parity
+    Object.keys(def).forEach(key => { // parity
         console.log("HELP")
         if (!(key in user_settings)) {
             user_settings[key] = def[key]
@@ -28,10 +33,12 @@ try {
 }
 
 THEME_SELECT.addEventListener("change", (e) => {
-
     user_settings.theme = THEME_SELECT.value
     localStorage.setItem("efc-settings", JSON.stringify(user_settings))
-
     location.reload()
-
+})
+FONT_SELECT.addEventListener("change", (e) => {
+    user_settings.accessibility.font = FONT_SELECT.value
+    localStorage.setItem("efc-settings", JSON.stringify(user_settings))
+    location.reload()
 })
