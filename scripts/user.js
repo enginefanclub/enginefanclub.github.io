@@ -25,10 +25,10 @@ function getSpritePosition(posx, posy, sizing) {
 async function init() {
     if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length > 1) {
 
-        const iconsResponse = await axios.get("/assets/jsons/profile/icons.json")
-        const badgesResponse = await axios.get("/assets/jsons/profile/badges.json")
-        const crittersResponse = await axios.get("/assets/jsons/critters.json")
-        const trophiesResponse = await axios.get("/assets/jsons/profile/trophies.json")
+        const iconsResponse = await axios.get("/assets/jsons/profile/icons.json?v=2")
+        const badgesResponse = await axios.get("/assets/jsons/profile/badges.json?v=2")
+        const crittersResponse = await axios.get("/assets/jsons/critters.json?v=2")
+        const trophiesResponse = await axios.get("/assets/jsons/profile/trophies.json?v=2")
         const userName = window.location.hash.replace("#", "");
 
         let organisedIcons = {}
