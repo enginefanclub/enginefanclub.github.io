@@ -31,8 +31,10 @@
 }
 
 @font-face {
-  font-family: OpenDyslexic; /* set name */
-  src: url('/assets/fonts/OpenDyslexic-Regular.otf'); /* url of the font */
+    font-family: OpenDyslexic;
+    /* set name */
+    src: url('/assets/fonts/OpenDyslexic-Regular.otf');
+    /* url of the font */
 }
 
 * {
@@ -51,6 +53,7 @@ body {
     background: radial-gradient(circle, var(--bg-light) 0%, var(--bg-dark) 100%);
     overflow-x: hidden;
 }
+
 body::after {
     width: 100%;
     height: 100%;
@@ -842,7 +845,9 @@ section header span.selected {
 .profile-grid .icon {
     min-width: 100px;
     min-height: 100px;
-    background: url('/assets/profile/icons.png');
+    max-height: 100px;
+    max-width: 100px;
+    background: white;
     border: 1px solid var(--border-colour);
     transform: scale(50%);
     margin: -25px;
@@ -863,6 +868,7 @@ section header span.selected {
     filter: drop-shadow(0px 2px 2px black);
     display: flex;
     justify-content: center;
+    z-index: 99999999;
 }
 
 .trophy:hover::after {
@@ -1381,6 +1387,91 @@ span.extra {
         padding: 10px;
     }
 
+}
+
+section.settings {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+
+    .tab-btns {
+        background: none;
+        box-shadow: none;
+        border: none;
+
+        button {
+            border-bottom: 0px;
+            border-radius: 3px 3px 0px 0px;
+            transform: translateY(2px);
+            z-index: 999;
+            background: rgb(45, 45, 45);
+            font-weight: 900;
+        }
+
+        button:not(.sel) {
+            filter: brightness(80%);
+            transform: translateY(3px);
+            z-index: 0;
+        }
+    }
+
+    .tabs-container {
+        padding: 5px;
+        border: 1px solid var(--border-colour);
+        z-index: 100;
+        position: relative;
+        background: linear-gradient(0deg, rgb(20, 20, 20) 0%, rgb(36, 36, 36) 30%, rgb(45, 45, 45) 100%);
+        box-shadow: 0px -1px 1px black;
+    }
+
+    .settings-tab {
+        display: flex;
+        gap: 4px;
+        height: 200px;
+    }
+
+    .categories {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        overflow-y: scroll;
+        width: 100px;
+        max-width: 100px;
+        min-width: 100px;
+        border: 1px solid var(--border-colour);
+        background: rgba(0, 0, 0, 0.155);
+
+        button {
+            background: none;
+            border: none;
+            border-radius: 0px;
+            width: 100%;
+            margin: 0;
+            padding: 10px 5px;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid var(--border-colour);
+            box-sizing: border-box;
+        }
+
+        button.sel {
+            background: var(--font-colour);
+            color: black;
+            font-weight: 900;
+        }
+    }
+
+    .profile-grid {
+        overflow: hidden;
+        overflow-y: scroll;
+        align-content: start;
+        border: 1px solid var(--border-colour);
+        background: rgba(0, 0, 0, 0.155);
+        box-sizing: border-box;
+        padding: 4px;
+        gap: 0px;
+    }
 }
 
 @keyframes reward-shine-spin {

@@ -96,7 +96,7 @@
             4
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
     "nefarkitti": {
         "name": "nefarkitti",
@@ -105,7 +105,7 @@
             4
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
     "duck": {
         "name": "Duck",
@@ -114,7 +114,7 @@
             4
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
     "firee": {
         "name": "Firee",
@@ -123,7 +123,7 @@
             3
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
     "stella": {
         "name": "Stella",
@@ -132,7 +132,7 @@
             4
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
     "fern": {
         "name": "Fern",
@@ -141,7 +141,7 @@
             4
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
     "violet": {
         "name": "Violet",
@@ -150,7 +150,7 @@
             3
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
     "marie": {
         "name": "Marie",
@@ -159,7 +159,7 @@
             5
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
     "deity": {
         "name": "Deity",
@@ -168,7 +168,7 @@
             6
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
     "efclogo": {
         "name": "E.F.C. Metal Logo",
@@ -186,7 +186,7 @@
             0
         ],
         "default": false,
-        "category": "default"
+        "category": "exclusive"
     },
 
 
@@ -197,7 +197,7 @@
             6
         ],
         "default": false,
-        "category": "secretpages"
+        "category": "secret"
     },
     "s_arcanalogo": {
         "name": "Arcana Logo",
@@ -206,7 +206,7 @@
             6
         ],
         "default": false,
-        "category": "secretpages"
+        "category": "secret"
     },
     "s_micegalrot": {
         "name": "Micegal Computering",
@@ -215,7 +215,7 @@
             6
         ],
         "default": false,
-        "category": "secretpages"
+        "category": "secret"
     },
     "s_philosopher": {
         "name": "The Philosopher",
@@ -224,7 +224,7 @@
             6
         ],
         "default": false,
-        "category": "secretpages"
+        "category": "secret"
     },
     "s_cecillia": {
         "name": "Letter Writing",
@@ -233,7 +233,7 @@
             6
         ],
         "default": false,
-        "category": "secretpages"
+        "category": "secret"
     },
     "s_engine": {
         "name": "Deep Sea Creature",
@@ -242,7 +242,7 @@
             3
         ],
         "default": false,
-        "category": "secretpages"
+        "category": "secret"
     },
     "s_poplogo": {
         "name": "Pop! Logo",
@@ -251,7 +251,7 @@
             3
         ],
         "default": false,
-        "category": "secretpages"
+        "category": "secret"
     },
 
 
@@ -264,7 +264,7 @@
         ],
         "default": false,
         "price": 50,
-        "category": "2026 Halloween"
+        "category": "halloween"
     },
     "26hw_fedorapumpkin": {
         "name": "Classy Pumpkin",
@@ -274,7 +274,7 @@
         ],
         "default": false,
         "price": 75,
-        "category": "2026 Halloween"
+        "category": "halloween"
     },
     "26hw_pumpking": {
         "name": "The Pumpking",
@@ -284,7 +284,7 @@
         ],
         "default": false,
         "price": 75,
-        "category": "2026 Halloween"
+        "category": "halloween"
     },
     "26hw_evilgloob": {
         "name": "Hyperrealistic Evil Gloob",
@@ -294,7 +294,7 @@
         ],
         "default": false,
         "price": 100,
-        "category": "2026 Halloween"
+        "category": "halloween"
     },
     "26hw_rfdburnt": {
         "name": "Sloppy Work",
@@ -304,7 +304,7 @@
         ],
         "default": false,
         "price": 125,
-        "category": "2026 Halloween"
+        "category": "halloween"
     },
     "26hw_marketing": {
         "name": "Genius Marketing Strategy",
@@ -314,7 +314,7 @@
         ],
         "default": false,
         "price": 125,
-        "category": "2026 Halloween"
+        "category": "halloween"
     },
     "26hw_evilson": {
         "name": "Evil Son (Cuz He Red)",
@@ -324,7 +324,7 @@
         ],
         "default": false,
         "price": 150,
-        "category": "2026 Halloween"
+        "category": "halloween"
     },
     "26hw_agnes": {
         "name": "Agnes",
@@ -334,7 +334,7 @@
         ],
         "default": false,
         "price": 175,
-        "category": "2026 Halloween"
+        "category": "halloween"
     },
     "26hw_skelejane": {
         "name": "Jane If She Was Dead",
@@ -344,7 +344,7 @@
         ],
         "default": false,
         "price": 200,
-        "category": "2026 Halloween"
+        "category": "halloween"
     },
     "26hw_uepdog": {
         "name": "Unidentified Dog",
@@ -354,7 +354,7 @@
         ],
         "default": false,
         "price": 200,
-        "category": "2026 Halloween"
+        "category": "halloween"
     }
 
 

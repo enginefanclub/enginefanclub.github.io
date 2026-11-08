@@ -22,14 +22,42 @@ function sethide(id, hide) {
 function getSpritePosition(posx, posy, sizing) {
     return [posx * -sizing, posy * -sizing]
 }
+async function init() {
+    if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length > 1) {
 
-if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length > 1) {
-    axios.get("/assets/jsons/profile/icons.json").then(iconRes => {
-        const badgesResponse = axios.get("/assets/jsons/profile/badges.json")
-        const userCrittersResponse = axios.get("/assets/jsons/critters.json")
-        const userTrophiesResponse = axios.get("/assets/jsons/profile/trophies.json")
-        const iconData = iconRes.data;
+        const iconsResponse = await axios.get("/assets/jsons/profile/icons.json")
+        const badgesResponse = await axios.get("/assets/jsons/profile/badges.json")
+        const crittersResponse = await axios.get("/assets/jsons/critters.json")
+        const trophiesResponse = await axios.get("/assets/jsons/profile/trophies.json")
         const userName = window.location.hash.replace("#", "");
+
+        let organisedIcons = {}
+        let organisedCritters = {}
+
+        Object.keys(iconsResponse.data).forEach(iconkey => {
+            let icon = iconsResponse.data[iconkey]
+            if (!(icon.category in organisedIcons)) {
+                icon.id = iconkey
+                organisedIcons[icon.category] = [icon]
+            } else {
+                icon.id = iconkey
+                organisedIcons[icon.category].push(icon)
+            }
+        })
+        console.log(`sorted icons:`, organisedIcons)
+
+        Object.keys(crittersResponse.data).forEach(critterkey => {
+            let critter = crittersResponse.data[critterkey]
+            if (!(critter.category in organisedCritters)) {
+                critter.id = critterkey
+                organisedCritters[critter.category] = [critter]
+            } else {
+                critter.id = critterkey
+                organisedCritters[critter.category].push(critter)
+            }
+        })
+        console.log(`sorted critters:`, organisedCritters)
+
         let checkingOtherUser = false;
         if (userName.length > 0 && userName != "login" && userName != "register") {
             checkingOtherUser = true;
@@ -44,7 +72,6 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
         }).then(res => {
             userData = res.data;
             try {
-                console.log(userData)
                 if (!checkingOtherUser) {
                     userData.critters = JSON.parse(userData.critters)
                     userData.trophies = JSON.parse(userData.trophies)
@@ -58,126 +85,286 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                 userData.trophies = [];
                 userData.exclusive_icons = [];
             }
+            if (checkingOtherUser) {
+                getel('setting-divider').hidden = true
+                getel("profile-settings").hidden = true;
+            }
+
             document.title = userData.username + " - Engine Fan Club"
             getel("username").innerText = userData.username;
             getel("joined").innerText = moment(userData.joined).format("DD/MM/YYYY");
             getel("lastOnline").innerText = moment(userData.lastOnline).fromNow();
             getel('profile-banner').style.backgroundColor = userData.badgeColor;
-
-            //currencies for fun
             if (userData.candies >= 1) {
                 getel("show-currency").style.display = ""
 
                 getel("currency-container").innerHTML += `<div><img src="/assets/site/seasonal/candy_red.png" alt="">${userData.candies}</div>`
             }
 
-            //trophies
-            userTrophiesResponse.then(trohpiesData => {
-                let trophiesJSON = trohpiesData.data
-                let hasTrophies = 0
-                if (!checkingOtherUser) {
+            //TROPHY SETUP
+            let trophiesJSON = trophiesResponse.data
+            let hasTrophies = 0
+            if (!checkingOtherUser) {
+                getel('trophy-container').style.display = ""
+                Object.keys(trophiesJSON).forEach(trophy => {
+                    let getTrophy = trophiesJSON[trophy]
+                    let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
+                    let trophyDiv = document.createElement("div")
+                    trophyDiv.classList.add("trophy")
+                    trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
+                    if (!userData.trophies.includes(trophy)) trophyDiv.style.filter = "contrast(50%)";
+                    if (userData.trophies.includes(trophy)) hasTrophies++;
+                    trophyDiv.setAttribute("data-after", getTrophy.name)
+                    trophyDiv.setAttribute("data-before", getTrophy.hint)
+                    getel('trophy-grid').appendChild(trophyDiv)
+                })
+                getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see (hover to see hints, sorry mobile)</span>`
+            } else {
+                if (userData.trophies.length >= 1) {
                     getel('trophy-container').style.display = ""
                     Object.keys(trophiesJSON).forEach(trophy => {
-                        let getTrophy = trophiesJSON[trophy]
-                        let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
-                        let trophyDiv = document.createElement("div")
-                        trophyDiv.classList.add("trophy")
-                        trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
-                        if (!userData.trophies.includes(trophy)) trophyDiv.style.filter = "contrast(50%)";
-                        if (userData.trophies.includes(trophy)) hasTrophies++;
-                        trophyDiv.setAttribute("data-after", getTrophy.name)
-                        trophyDiv.setAttribute("data-before", getTrophy.hint)
-                        getel('trophy-grid').appendChild(trophyDiv)
+                        if (userData.trophies.includes(trophy)) {
+                            hasTrophies++
+                            let getTrophy = trophiesJSON[trophy]
+                            let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
+                            let trophyDiv = document.createElement("div")
+                            trophyDiv.classList.add("trophy")
+                            trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
+                            trophyDiv.setAttribute("data-after", getTrophy.name)
+                            trophyDiv.setAttribute("data-before", getTrophy.hint)
+                            getel('trophy-grid').appendChild(trophyDiv)
+                        }
                     })
-                    getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see (hover to see hints, sorry mobile)</span>`
-                } else {
-                    if (userData.trophies.length >= 1) {
-                        getel('trophy-container').style.display = ""
-                        Object.keys(trophiesJSON).forEach(trophy => {
-                            if (userData.trophies.includes(trophy)) {
-                                hasTrophies++
-                                let getTrophy = trophiesJSON[trophy]
-                                let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
-                                let trophyDiv = document.createElement("div")
-                                trophyDiv.classList.add("trophy")
-                                trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
-                                trophyDiv.setAttribute("data-after", getTrophy.name)
-                                trophyDiv.setAttribute("data-before", getTrophy.hint)
-                                getel('trophy-grid').appendChild(trophyDiv)
-                            }
-                        })
-                    }
                 }
-                getel('trophy-count').innerText = `trophies (${hasTrophies}/${Object.keys(trophiesJSON).length})`
-            })
-            //badges
-            badgesResponse.then(badgeres => {
-                if (userData.badges.length >= 1) {
-                    let badgeList = document.createElement("div")
-                    badgeList.classList.add("badges")
-                    userData.badges.forEach(badge => {
-                        let badgeData = badgeres.data[badge]
-                        let badgeEl = document.createElement("div")
-                        badgeEl.classList.add("badge")
-                        let getBadgePos = getSpritePosition(badgeData.pos[0], badgeData.pos[1], 32)
-                        badgeEl.style.backgroundPosition = `${getBadgePos[0]}px ${getBadgePos[1]}px`
-                        badgeEl.title = badgeData.name
-                        badgeList.appendChild(badgeEl)
-                    })
-                    getel("username").appendChild(badgeList)
-                }
-            })
+            }
+            getel('trophy-count').innerText = `trophies (${hasTrophies}/${Object.keys(trophiesJSON).length})`
+            //TROPHY SETUP
 
-            const dataIcon = iconData[userData.icon];
+            //BADGES SETUP
+            if (userData.badges.length >= 1) {
+                let badgeList = document.createElement("div")
+                badgeList.classList.add("badges")
+                userData.badges.forEach(badge => {
+                    let badgeData = badgesResponse.data[badge]
+                    let badgeEl = document.createElement("div")
+                    badgeEl.classList.add("badge")
+                    let getBadgePos = getSpritePosition(badgeData.pos[0], badgeData.pos[1], 32)
+                    badgeEl.style.backgroundPosition = `${getBadgePos[0]}px ${getBadgePos[1]}px`
+                    badgeEl.title = badgeData.name
+                    badgeList.appendChild(badgeEl)
+                })
+                getel("username").appendChild(badgeList)
+            }
+            //BADGES SETUP
+
+            //ICON SETUP
+            const dataIcon = iconsResponse.data[userData.icon];
             if (dataIcon) {
                 getel('profile-icon').style.backgroundImage = `url('/assets/profile/icons/${dataIcon.category}/${userData.icon}.png')`
             }
+            //ICON SETUP
+
             if (checkingOtherUser) {
-                getel('setting-divider').hidden = true
-                getel("profile-settings").hidden = true;
-                sethide("window-profile", false);
-                sethide("window-load", true);
-                return;
+                sethide("window-profile", false)
+                sethide("window-load", true)
+                return console.log("doesnt need any more")
             }
 
-            localStorage.setItem("efc-critter", userData.critter_selected);
-            let checkedcritter
-            userCrittersResponse.then(critterdata => {
-                critterJSON = critterdata.data
-                let dataCritter = userData.critter_selected
-                getel('critter-info').innerText = critterJSON[dataCritter].name
+            let registeredTabs = []
+            const TAB_BTNS = document.querySelectorAll(".tabbtn")
+            TAB_BTNS.forEach(btn => {
+                registeredTabs.push(btn.getAttribute('data-target-tab'))
+            })
 
-                userData.critters.map(critter => { // defaults later
-                    const button = document.createElement("button");
-                    if (!userData.critters.includes(critter) && critterJSON[critter].default != true) return;
-                    button.classList.add("critter");
-                    if (userData.critter_selected == critter) {
-                        getel('critter-preview').style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
-                        button.classList.add("check");
-                        checkedcritter = button
+            TAB_BTNS.forEach(btn => {
+                btn.onclick = function () {
+                    registeredTabs.forEach(tab => {
+                        getel(`${tab}-btn`).classList.remove("sel")
+                        getel(tab).style.display = "none"
+                    })
+                    getel(btn.getAttribute("data-target-tab")).style.display = ""
+                    btn.classList.add("sel")
+                }
+            })
+
+            //INVENTORY ICONS
+            const ICONS_TAB = getel("icons-tab")
+            const ICON_CATEGORIES = getel("icon-categories")
+
+            let getIconCategories = Object.keys(organisedIcons)
+            let getOwnedIconCategories = []
+            getIconCategories.forEach(category => {
+                let getIconCategoryOwnedCount = 0
+                organisedIcons[category].forEach(icon => {
+                    if (userData.exclusive_icons.includes(icon.id) || icon.default == true) {
+                        getIconCategoryOwnedCount++
                     }
-                    button.id = critter;
-                    button.style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
+                })
+                if (getIconCategoryOwnedCount >= 1) {
+                    getOwnedIconCategories.push(category)
+                }
+            })
 
-                    button.onclick = function () {
-                        // if (critter == userData.critter_selected) return;
-                        if (socket != null) {
-                            socket.emit('changesprite', critter);
-                            localStorage.setItem("efc-critter", critter);
-                            checkedcritter.classList.remove("check")
-                            for (const child of getel("critters").children) {
-                                if (child.id == critter) {
-                                    getel('critter-preview').style.backgroundImage = `url('/assets/sprites/critters/${critter}.png')`
-                                    if (critterJSON) getel('critter-info').innerText = critterJSON[critter].name;
-                                    button.classList.add("check")
-                                    checkedcritter = button
-                                }
+            let checkedicon
+            getOwnedIconCategories.forEach(category => {
+
+                let getCategory = organisedIcons[category]
+
+                let categoryButton = document.createElement("button")
+                categoryButton.innerText = category
+                categoryButton.id = `tab-icons-${category}`
+                if (category == "default") categoryButton.classList.add("sel")
+                ICON_CATEGORIES.appendChild(categoryButton)
+
+                categoryButton.onclick = function () {
+                    getOwnedIconCategories.forEach(cat => {
+                        getel(`tab-icons-${cat}`).classList.remove("sel")
+                        getel(`icons-grid-${cat}`).style.display = "none"
+                        getel(`tab-icons-${category}`).classList.add("sel")
+                        getel(`icons-grid-${category}`).style.display = ""
+                    })
+                }
+
+                let grid = document.createElement("div")
+                grid.classList.add("profile-grid")
+                grid.id = `icons-grid-${category}`
+                grid.style.display = "none"
+                if (category == "default") grid.style.display = "";
+
+                getCategory.forEach(icon => {
+                    if (!userData.exclusive_icons.includes(icon.id) && icon.default == false) return;
+                    let iconButton = document.createElement("button")
+                    iconButton.classList.add("icon")
+                    iconButton.id = icon.id
+                    iconButton.style.background = `url('/assets/profile/icons/${icon.category}/${icon.id}.png')`
+                    grid.appendChild(iconButton)
+
+                    if (userData.icon == icon.id) {
+                        iconButton.classList.add("check");
+                        checkedicon = iconButton
+                    }
+
+                    iconButton.onclick = async function () {
+                        //if (iconName == userData.icon) return;
+                        axios({
+                            url: `${apiURL}/settings/icon`,
+                            method: "POST",
+                            headers: {
+                                "authorization": localStorage.getItem("efc-usertoken")
+                            },
+                            data: {
+                                icon: icon.id
+                            },
+                            timeout: 5000
+                        }).then(res => {
+                            checkedicon.classList.remove("check")
+                            iconButton.classList.add("check")
+                            checkedicon = iconButton
+                            getel('profile-icon').style.background = `url('/assets/profile/icons/${category}/${icon.id}.png')`
+                        }).catch(e => {
+                            console.error(e);
+                            if (e.response && e.response.data) {
+                                alert(e.response.data);
+                            } else if (e.response) {
+                                alert(e.response);
                             }
+                        })
+                    }
+                })
+                ICONS_TAB.appendChild(grid)
+            })
+            //INVENTORY ICONS
+
+            //INVENTORY CRITTERS
+            const CRITTERS_TAB = getel("critters-tab")
+            const CRITTER_CATEGORIES = getel("critter-categories")
+
+            const CRITTER_PREVIEW = document.createElement("div")
+            CRITTER_PREVIEW.classList.add("critter-preview")
+            CRITTER_PREVIEW.id = "critter-preview"
+
+            const CRITTER_INFO = document.createElement("div")
+            CRITTER_INFO.id = "critter-info"
+            CRITTER_PREVIEW.appendChild(CRITTER_INFO)
+
+            let getCritterCategories = Object.keys(organisedCritters)
+            let getOwnedCritterCategories = []
+            getCritterCategories.forEach(category => {
+                let getCategoryOwnedCount = 0
+                organisedCritters[category].forEach(critter => {
+                    if (userData.critters.includes(critter.id) || critter.default == true) { // defaulting later when backend is open
+                        getCategoryOwnedCount++
+                    }
+                })
+                if (getCategoryOwnedCount >= 1) {
+                    getOwnedCritterCategories.push(category)
+                }
+            })
+            console.log(getOwnedCritterCategories)
+
+            let checkedcritter
+            getOwnedCritterCategories.forEach(category => {
+
+                let getCategory = organisedCritters[category]
+
+                let categoryButton = document.createElement("button")
+                categoryButton.innerText = category
+                categoryButton.id = `tab-critters-${category}`
+                if (category == "default") categoryButton.classList.add("sel")
+                CRITTER_CATEGORIES.appendChild(categoryButton)
+
+                categoryButton.onclick = function () {
+                    getOwnedCritterCategories.forEach(cat => {
+                        getel(`tab-critters-${cat}`).classList.remove("sel")
+                        getel(`critters-grid-${cat}`).style.display = "none"
+                        getel(`tab-critters-${category}`).classList.add("sel")
+                        getel(`critters-grid-${category}`).style.display = ""
+                    })
+                }
+
+                let grid = document.createElement("div")
+                grid.classList.add("profile-grid")
+                grid.id = `critters-grid-${category}`
+                grid.style.display = "none"
+                if (category == "default") grid.style.display = "";
+
+                getCategory.forEach(critter => {
+                    if (!userData.critters.includes(critter.id)) return;
+                    let critterButton = document.createElement("button")
+                    critterButton.classList.add("icon")
+                    critterButton.id = critter.id
+                    critterButton.style.backgroundImage = `url('/assets/sprites/critters/${critter.id}.png')`
+                    grid.appendChild(critterButton)
+
+                    if (userData.critter_selected == critter.id) {
+                        critterButton.classList.add("check");
+                        checkedcritter = critterButton
+                        CRITTER_PREVIEW.style.backgroundImage = `url('/assets/sprites/critters/${critter.id}.png')`
+                        CRITTER_INFO.innerText = critter.name
+                    }
+
+                    critterButton.onclick = function () {
+                        if (socket != null) {
+                            socket.emit('changesprite', critter.id);
+                            localStorage.setItem("efc-critter", critter.id);
+
+                            checkedcritter.classList.remove("check")
+                            critterButton.classList.add("check")
+                            checkedicon = critterButton
+                            CRITTER_PREVIEW.style.backgroundImage = `url('/assets/sprites/critters/${critter.id}.png')`
+                            CRITTER_INFO.innerText = critter.name
                         }
                     }
-                    getel("critters").appendChild(button);
                 })
+                CRITTERS_TAB.appendChild(grid)
             })
+
+            CRITTERS_TAB.appendChild(CRITTER_PREVIEW)
+            //INVENTORY CRITTERS
+
+            //INVENTORY BANNERS
+            const BANNERS_TAB = document.getElementById("banners-tab")
+
             const bannerColours = [
                 "#000000",
                 "#0000A8",
@@ -197,19 +384,24 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                 "#FCFCFC"
             ]
             let checkedbanner
+            let grid = document.createElement("div")
+            grid.classList.add("profile-grid")
+            grid.id = `banners-grid-default`
+
+            BANNERS_TAB.appendChild(grid)
             bannerColours.forEach(colour => {
-                const button = document.createElement("button");
+                let bannerButton = document.createElement("button")
+                bannerButton.classList.add("icon")
+                bannerButton.id = colour.replace("#", "");
+                bannerButton.style.background = colour
+                grid.appendChild(bannerButton)
 
-                button.classList.add("banner-col");
                 if (userData.badgeColor == colour) {
-                    button.classList.add("check");
-                    checkedbanner = button
+                    bannerButton.classList.add("check");
+                    checkedbanner = bannerButton
                 }
-                button.id = colour.replace("#", "");
-                button.style.backgroundColor = colour;
 
-                button.onclick = async function () {
-                    // if (colour == userData.badgeColor) return;
+                bannerButton.onclick = function () {
                     axios({
                         url: `${apiURL}/settings/colour`,
                         method: "POST",
@@ -222,13 +414,9 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                         timeout: 5000
                     }).then(res => {
                         checkedbanner.classList.remove("check")
-                        for (const child of getel("banner-cols").children) {
-                            if (child.id == colour.replace("#", "")) {
-                                getel('profile-banner').style.backgroundColor = colour;
-                                button.classList.add("check")
-                                checkedbanner = button
-                            }
-                        }
+                        bannerButton.classList.add("check")
+                        checkedbanner = bannerButton
+                        getel('profile-banner').style.backgroundColor = colour;
                     }).catch(e => {
                         console.error(e);
                         if (e.response && e.response.data) {
@@ -238,67 +426,18 @@ if (localStorage.getItem("efc-usertoken") != null || window.location.hash.length
                         }
                     })
                 }
-                getel("banner-cols").appendChild(button);
             })
-            let checkedicon
-            for (const [iconName, data] of Object.entries(iconData)) {
+            //INVENTORY BANNERS
 
-                if (!data.default && !userData.exclusive_icons.includes(iconName)) continue;
-                const button = document.createElement("button");
+            sethide("window-profile", false)
+            sethide("window-load", true)
 
-                button.classList.add("icon");
-                if (userData.icon == iconName) {
-                    button.classList.add("check");
-                    checkedicon = button
-                }
-                button.id = `${iconName}-id`;
-                button.style.background = `url('/assets/profile/icons/${data.category}/${iconName}.png')`
-
-                button.onclick = async function () {
-                    //if (iconName == userData.icon) return;
-                    axios({
-                        url: `${apiURL}/settings/icon`,
-                        method: "POST",
-                        headers: {
-                            "authorization": localStorage.getItem("efc-usertoken")
-                        },
-                        data: {
-                            icon: iconName
-                        },
-                        timeout: 5000
-                    }).then(res => {
-                        checkedicon.classList.remove("check")
-                        for (const child of getel("profile-icons").children) {
-                            if (child.id == `${iconName}-id`) {
-
-                                //setting profile icon
-                                getel('profile-icon').style.background = `url('/assets/profile/icons/${data.category}/${iconName}.png')`
-
-                                button.classList.add("check")
-                                checkedicon = button
-                            }
-                        }
-                    }).catch(e => {
-                        console.error(e);
-                        if (e.response && e.response.data) {
-                            alert(e.response.data);
-                        } else if (e.response) {
-                            alert(e.response);
-                        }
-                    })
-                }
-                getel("profile-icons").appendChild(button);
-            }
-            sethide("window-profile", false);
-            sethide("window-load", true);
-        }).catch(e => {
-            sethide("window-auth", false);
-            sethide("window-load", true);
         })
-    })
-} else {
-    sethide("window-auth", false);
-    sethide("window-load", true);
+
+    } else {
+        sethide("window-auth", false);
+        sethide("window-load", true);
+    }
 }
 
 getel("register").addEventListener("submit", async (e) => {
@@ -414,3 +553,5 @@ window.addEventListener("hashchange", () => {
         location.reload();
     }
 })
+
+init()

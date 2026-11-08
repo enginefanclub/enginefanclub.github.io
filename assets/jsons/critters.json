@@ -1,28 +1,28 @@
 {
     "test": {
         "name": "Test",
-        "category": "default",
+        "category": "exclusive",
         "default": false,
         "idle": [0, 1],
         "walk": [2, 3]
     },
     "original_test": {
         "name": "OG Test",
-        "category": "default",
+        "category": "exclusive",
         "default": false,
         "idle": [0, 1],
         "walk": [2, 3]
     },
     "titan": {
         "name": "Titan",
-        "category": "default",
+        "category": "exclusive",
         "default": false,
         "idle": [0, 0, 0, 0, 0, 0, 0, 0, 1],
         "walk": [2]
     },
     "technet_cat": {
         "name": "Technet Cat",
-        "category": "default",
+        "category": "exclusive",
         "default": false,
         "idle": [0],
         "walk": [1,2],
@@ -34,7 +34,7 @@
     },
     "duck": {
         "name": "Duck",
-        "category": "default",
+        "category": "exclusive",
         "default": false,
         "idle": [0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0],
         "walk": [1, 2, 3, 4, 5, 6]
@@ -79,7 +79,7 @@
     
     "26hw_blackcat": {
         "name": "Black Cat",
-        "category": "2026 Halloween",
+        "category": "halloween",
         "price": 25,
         "default": false,
         "idle": [0],
@@ -92,7 +92,7 @@
     },
     "26hw_ghost": {
         "name": "Ghost",
-        "category": "2026 Halloween",
+        "category": "halloween",
         "price": 25,
         "default": false,
         "idle": [0,1],
@@ -100,7 +100,7 @@
     },
     "26hw_horse": {
         "name": "Horseman",
-        "category": "2026 Halloween",
+        "category": "halloween",
         "price": 50,
         "default": false,
         "idle": [0],
@@ -108,7 +108,7 @@
     },
     "26hw_pumpkin": {
         "name": "Pumpkin",
-        "category": "2026 Halloween",
+        "category": "halloween",
         "price": 75,
         "default": false,
         "idle": [0],
@@ -116,7 +116,7 @@
     },
     "26hw_janewitch": {
         "name": "Witch from SODACORP",
-        "category": "2026 Halloween",
+        "category": "halloween",
         "price": 50,
         "default": false,
         "idle": [0,0,1,1],

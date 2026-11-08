@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User - Engine Fan Club</title>
     <link rel="shortcut icon" href="/assets/efcfanfinalnotext.svg" type="image/x-icon">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css?v=2">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.socket.io/4.8.4/socket.io.min.js"
         integrity="sha384-fBrXvbDtHoeKWJ/hcA6M+YGueiDW+h45I7V6F2kD1S8bOkrF9rZYPLVkCR6BLR/1"
@@ -17,7 +17,7 @@
     <script src="/scripts/btns.js" defer></script>
     <script src="/scripts/navbar.js" defer></script>
     <script src="/scripts/theme.js"></script>
-    <script src="/scripts/user.js" defer></script>
+    <script src="/scripts/user.js?v=2" defer></script>
 </head>
 
 <body>
@@ -120,41 +120,46 @@
                 <h5 id="show-currency" style="display: none;">event currency amassed</h5>
                 <div id="currency-container"></div>
             </section>
+
             <div class="spacer" id="setting-divider"></div>
+
             <section class="settings" id="profile-settings">
-                <button onclick="copyshare()"><i class="fa-solid fa-share-nodes"></i> share profile</button>
-                <h3><u>settings</u></h3>
-                <h4>icon</h4>
 
-                <div class="profile-grid" id="profile-icons">
-                    <!-- <div class="icon check"></div> -->
-                </div>
-                <hr>
-                <h4>banner colour</h4>
-                <div class="profile-grid" id="banner-cols">
-                </div>
-                <hr>
-                <h4>critter</h4>
-                <div class="critters-grid">
-                    <div class="critter-preview" id="critter-preview">
-                        <div id="critter-info">
+                <header class="tab-btns">
+                    <button class="tabbtn sel" data-target-tab="icons-tab" id="icons-tab-btn">icons</button>
+                    <button class="tabbtn" data-target-tab="critters-tab" id="critters-tab-btn">critters</button>
+                    <button class="tabbtn" data-target-tab="banners-tab" id="banners-tab-btn">banners</button>
+                </header>
 
+                <div class="tabs-container">
+
+                    <div id="icons-tab" class="settings-tab">
+                        <div id="icon-categories" class="categories">
                         </div>
                     </div>
-                    <div class="profile-grid" id="critters">
-                        <!-- <button class="critter check" style="background-image: url('/assets/sprites/cat.png');">
-                        </button>
-                        <button class="critter" style="background-image: url('/assets/sprites/duck.png');"></button> -->
+
+                    <div id="critters-tab" class="settings-tab" style="display: none;">
+                        <div id="critter-categories" class="categories">
+                        </div>
                     </div>
+
+                    <div id="banners-tab" class="settings-tab" style="display: none;">
+                        
+                    </div>
+
                 </div>
-                <hr>
-                <h4>account</h4>
+
+            </section>
+            <div class="spacer"></div>
+            <section>
+                <h4>account settings</h4>
                 <button onclick="changeUsername()">change username</button>
                 <button onclick="changePassword()">change password</button>
                 <button onclick="logout()">log out</button>
                 <h5>!!!! DANGER ZONE !!!!</h5>
                 <button class="danger">delete account</button>
             </section>
+
         </div>
 
         <div class="spacer"></div>
