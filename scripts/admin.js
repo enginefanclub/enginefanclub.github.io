@@ -22,6 +22,7 @@ let page = 0;
 let count = 0;
 const user_per_page = 20;
 
+let seenIDs = []
 
 function createPoll(title, desc = "", options = [], expiry) {
     if (!title) return console.warn(`Please provide a title!`);
@@ -50,6 +51,35 @@ function createPoll(title, desc = "", options = [], expiry) {
             alert(e.response);
         }
     })
+}
+
+function pruneUser(id) {
+
+    if (id == undefined) return console.warn("please provide a valid id");
+    if (!seenIDs.includes(id)) return console.warn("please provide an id you can actually see");
+
+    axios({
+        url: `${apiURL}/users/prune`,
+        method: "POST",
+        headers: {
+            "authorization": localStorage.getItem("efc-usertoken")
+        },
+        data: {
+            user_id: id,
+        },
+        timeout: 5000
+    }).then(res => {
+        alert("doned!")
+        window.location.reload()
+    }).catch(e => {
+        console.error(e);
+        if (e.response && e.response.data) {
+            alert(e.response.data);
+        } else if (e.response) {
+            alert(e.response);
+        }
+    })
+
 }
 
 function giveToUser(user_id, key, value) {
@@ -81,6 +111,7 @@ let badgeData = null;
 let critterData = null;
 
 async function refreshPage() {
+    seenIDs = []
     if (iconData == null || badgeData == null || critterData == null) return;
     try {
         const usersRes = await axios.get(`${apiURL}/users?page=${page}`);
@@ -123,6 +154,7 @@ async function refreshPage() {
 
             div.appendChild(userIcon);
             div.appendChild(userDetailDiv);
+            seenIDs.push(user.user_id)
 
             userListDiv.appendChild(div);
         })

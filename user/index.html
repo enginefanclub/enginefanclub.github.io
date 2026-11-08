@@ -17,7 +17,7 @@
     <script src="/scripts/btns.js" defer></script>
     <script src="/scripts/navbar.js" defer></script>
     <script src="/scripts/theme.js"></script>
-    <script src="/scripts/user.js?v=4" defer></script>
+    <script src="/scripts/user.js?v=5" defer></script>
 </head>
 
 <body>
@@ -39,8 +39,9 @@
 
         <div id="window-load" style="width: 100%;height: 100%;">
 
-            <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;">
+            <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;flex-direction: column;">
                 <img src="/assets/site/loading.gif" alt="" style="border:1px solid var(--border-colour);">
+                <button id="forcerelog" style="display: none;" onclick="logout()">force relog (might fix)</button>
             </div>
 
         </div>

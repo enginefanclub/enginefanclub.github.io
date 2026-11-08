@@ -61,6 +61,13 @@ async function init() {
         if (userName.length > 0 && userName != "login" && userName != "register") {
             checkingOtherUser = true;
         }
+
+        if (!checkingOtherUser) {
+            setTimeout(() => {
+                getel('forcerelog').style.display = ""
+            }, 5500);
+        }
+
         axios({
             url: (checkingOtherUser) ? `${apiURL}/users/${userName}` : `${apiURL}/myself`,
             method: "GET",
