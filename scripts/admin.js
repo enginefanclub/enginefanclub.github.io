@@ -1,5 +1,5 @@
 let apiURL = "https://engine.nefarkitti.dev/efc-backend"
-if (["localhost","127.0.0.1"].includes(window.location.hostname)) {
+if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
     apiURL = "http://localhost:3000"
 }
 apiURL = "https://engine.nefarkitti.dev/efc-backend"
@@ -76,7 +76,7 @@ async function refreshPage() {
 
             const userIcon = document.createElement("div");
             userIcon.classList.add("dashboard-user-icon");
-            
+
             const dataIcon = iconData[user.icon];
             let getSpritePos = getIconSpritePosition(dataIcon.pos[0], dataIcon.pos[1])
             userIcon.style.backgroundPosition = `${getSpritePos[0]}px ${getSpritePos[1]}px`
@@ -115,20 +115,17 @@ if (localStorage.getItem("efc-usertoken") != null) {
                 timeout: 5000
             })
             const myselfData = myselfRes.data;
-            if (!JSON.parse(myselfData.badges).includes("admin")) {
+            if (JSON.parse(myselfData.badges).includes("admin") || JSON.parse(myselfData.badges).includes("moderator")) {
+                iconData = iconRes.data;
+                const badgeRes = await axios.get(`/assets/jsons/profile/badges.json`);
+                badgeData = badgeRes.data;
+                const critterRes = await axios.get(`/assets/jsons/critters.json`);
+                critterData = critterRes.data;
+                refreshPage();
+            } else {
                 window.location.href = "/"
                 return;
             }
-            if (!JSON.parse(myselfData.badges).includes("moderator")) {
-                window.location.href = "/"
-                return;
-            }
-            iconData = iconRes.data;
-            const badgeRes = await axios.get(`/assets/jsons/profile/badges.json`);
-            badgeData = badgeRes.data;
-            const critterRes = await axios.get(`/assets/jsons/critters.json`);
-            critterData = critterRes.data;
-            refreshPage();
         } catch (e) {
             console.error(e);
             alert("couldn't load jsons or users")
