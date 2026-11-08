@@ -167,6 +167,7 @@ async function init() {
             if (checkingOtherUser) {
                 sethide("window-profile", false)
                 sethide("window-load", true)
+                sethide("window-account-settings", true)
                 return console.log("doesnt need any more")
             }
 
