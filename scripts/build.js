@@ -9,11 +9,6 @@ const dist = path.join(root, 'dist');
 
 const MAX_BUILT = 5;
 
-let apiURL = "https://engine.nefarkitti.dev/efc-backend"
-if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
-    apiURL = "http://localhost:3000"
-}
-
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 fs.readdirSync('.').filter(x => !['.git', '.gitignore', 'package.json', 'node_modules', 'package-lock.json', 'dist', '.github'].includes(x)).forEach(file => {
