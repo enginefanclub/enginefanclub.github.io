@@ -293,6 +293,36 @@ section header {
     }
 }
 
+section.settings {
+    .tab-btns {
+        padding: 0;
+        gap: 0;
+        margin: 0;
+
+        button {
+            background: rgba(252, 165, 78, 1);
+            border: 1px solid rgb(197, 128, 0);
+            box-shadow: none;
+            border-bottom: none;
+
+            * {
+                color: white;
+            }
+        }
+    }
+
+    .tabs-container {
+        background: #db6e00;
+        background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+        border: 1px solid rgb(197, 128, 0);
+        border-radius: 0px 0px 5px 5px;
+
+        * {
+            color: white;
+        }
+    }
+}
+
 @media screen and (max-width: 775px) {
     .profile .display-name {
         margin-left: 67px;

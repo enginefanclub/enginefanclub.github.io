@@ -114,15 +114,7 @@ nav {
     background: #ecf4f5;
     border-radius: 5px;
     border: 1px solid #eaeded;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
-    mask-size: 100%;
-    mask-repeat: no-repeat;
-    mask-position: top bottom;
     height: fit-content;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
-    -webkit-mask-size: 100%;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: top bottom;
 
     h2 {
         font-size: 16px;
@@ -147,21 +139,34 @@ nav {
     }
 }
 
-section, .right .info {
+section,
+.right .info {
     background: #ecf4f5;
     border-radius: 5px;
     border: 1px solid #eaeded;
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
-    mask-size: 100%;
-    mask-repeat: no-repeat;
-    mask-position: top bottom;
     height: fit-content;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
-    -webkit-mask-size: 100%;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: top bottom;
     box-shadow: none;
-    padding-bottom: 50px;
+}
+
+section.settings {
+    .tabs-container {
+        background: #ecf4f5;
+        border: 1px solid #eaeded;
+        box-shadow: none;
+    }
+    .categories {
+        border: 1px solid #eaeded;
+    }
+    .profile-grid {
+        border: 1px solid #eaeded;
+    }
+    .tab-btns {
+        button {
+            background-color: #ecf4f5;
+            border: 1px solid #eaeded;
+            border-bottom: none;
+        }
+    }
 }
 
 .danger {
@@ -202,6 +207,7 @@ button,
     .banner {
         box-shadow: none !important;
     }
+
     .icon {
         transform: scale(115%);
     }
@@ -211,7 +217,8 @@ i.fa-solid {
     font-weight: 900 !important;
 }
 
-.game-banner, .article-banner {
+.game-banner,
+.article-banner {
     border: 1px solid lightgray;
     box-shadow: 0px 0px 1px black;
 }
@@ -219,13 +226,16 @@ i.fa-solid {
 .list.articles.gallery {
     display: flex;
     width: 100%;
+
     a {
         max-width: 100%;
     }
+
     a:nth-child(n+10) {
         display: none;
     }
 }
+
 .articles-container {
     width: 75%
 }
@@ -233,18 +243,24 @@ i.fa-solid {
 .tabs {
     box-shadow: none;
 }
+
 section header {
     background: none;
     box-shadow: none;
+
     a {
         color: #063b83;
     }
+
     border-bottom: 1px solid #063b83;
 }
 
-input, select {
+input,
+select {
     background: white;
 }
+
+
 
 @media screen and (max-width: 775px) {
 
