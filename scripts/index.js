@@ -66,7 +66,7 @@ axios.get(`${apiURL}/getpolls`).then(res => {
                 tallyName.style.display = "none"
                 if (parseVotes[i].length >= 1) {
                     tallyName.style.display = ""
-                    tallyName.innerText = `${option} (${getPerc}%)`
+                    tallyName.innerText = `${option} (${getPerc.toFixed(2)}%)`
                 }
 
                 const colourBall = document.createElement("div")

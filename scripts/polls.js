@@ -76,7 +76,7 @@ async function init() {
                 tallyName.innerText = option
                 tallyName.classList.add("tally-item")
                 if (parseVotes[i].length >= 1) {
-                    tallyName.innerText = `${option} (${getPerc}%)`
+                    tallyName.innerText = `${option} (${getPerc.toFixed(2)}%)`
                 }
 
                 const colourBall = document.createElement("div")
