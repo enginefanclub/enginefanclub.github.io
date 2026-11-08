@@ -24,6 +24,7 @@
     <script src="/scripts/navbar.js" defer></script>
     <script src="/scripts/theme.js"></script>
     <script src="/scripts/park.js" defer></script>
+    <script src="/scripts/index.js" defer></script>
     <style>
         @font-face {
             font-family: 'Cairopixel';
@@ -87,9 +88,7 @@
                 <div class="wip">
                     <h2>image of the day</h2>
                     <article class="game">
-                        <img style="width: 100%;"
-                            src="/assets/site/iotd/goblin.png"
-                            alt="">
+                        <img style="width: 100%;" src="/assets/site/iotd/goblin.png" alt="">
                         <div class="extra"><a href="/user/#Titan">submitted by Titan</a></div>
                     </article>
                 </div>
@@ -108,10 +107,19 @@
 
                 <div class="spacer"></div> <!--remind me to reorganise this-->
 
-                <p>
-                    * You open the rest of the page. <br>
-                    * There was nothing else!
-                </p>
+                <h2>polls</h2>
+                <div id="active-poll-list">
+                    
+                </div>
+                <h4>past polls</h4>
+                <div class="list articles" id="poll-list">
+                    <!--<a href="">
+                        <div class="article-content">
+                            <span class="article-title">Give 1nning Moderator</span>
+                            <span class="article-timestamp">2 days ago</span>
+                        </div>
+                    </a>-->
+                </div>
 
             </div>
 

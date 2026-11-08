@@ -2,7 +2,6 @@ let apiURL = "https://engine.nefarkitti.dev/efc-backend"
 if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
     apiURL = "http://localhost:3000"
 }
-apiURL = "https://engine.nefarkitti.dev/efc-backend"
 
 function getel(id) {
     return document.getElementById(id)
@@ -22,6 +21,36 @@ function getIconSpritePosition(posx, posy) {
 let page = 0;
 let count = 0;
 const user_per_page = 20;
+
+
+function createPoll(title, desc = "", options = [], expiry) {
+    if (!title) return console.warn(`Please provide a title!`);
+    if (!expiry) return console.warn("Please provide an expiry date!");
+    if (options.length <= 0) return console.warn("please provide options!");
+    axios({
+        url: `${apiURL}/createpoll`,
+        method: "POST",
+        headers: {
+            "authorization": localStorage.getItem("efc-usertoken")
+        },
+        data: {
+            title,
+            desc,
+            options,
+            expiry
+        },
+        timeout: 5000
+    }).then(res => {
+        alert("doned!")
+    }).catch(e => {
+        console.error(e);
+        if (e.response && e.response.data) {
+            alert(e.response.data);
+        } else if (e.response) {
+            alert(e.response);
+        }
+    })
+}
 
 function giveToUser(user_id, key, value) {
     axios({
