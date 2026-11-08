@@ -118,7 +118,7 @@ async function init() {
                     trophyDiv.setAttribute("data-before", getTrophy.hint)
                     getel('trophy-grid').appendChild(trophyDiv)
                 })
-                getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see (hover to see hints, sorry mobile)</span>`
+                getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see</span>`
             } else {
                 if (userData.trophies.length >= 1) {
                     getel('trophy-container').style.display = ""
