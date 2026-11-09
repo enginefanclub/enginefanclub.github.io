@@ -336,7 +336,7 @@ async function init() {
                 if (category == "default") grid.style.display = "";
 
                 getCategory.forEach(critter => {
-                    if (!userData.critters.includes(critter.id)) return;
+                    if (!userData.critters.includes(critter.id) && critter.default == false) return;
                     let critterButton = document.createElement("button")
                     critterButton.classList.add("icon")
                     critterButton.id = critter.id
