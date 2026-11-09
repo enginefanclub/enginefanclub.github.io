@@ -13,16 +13,21 @@ const myParam = urlParams.get('id');
 async function init() {
     try {
 
-        let userData = await axios({
-            url: `${apiURL}/myself`,
-            method: "GET",
-            headers: {
-                "authorization": localStorage.getItem("efc-usertoken")
-            },
-            timeout: 5000
-        })
+        let userData = false
+        try {
+            userData = await axios({
+                url: `${apiURL}/myself`,
+                method: "GET",
+                headers: {
+                    "authorization": localStorage.getItem("efc-usertoken")
+                },
+                timeout: 5000
+            })
 
-        userData = userData.data
+            userData = userData.data
+        } catch (e) {
+            userData = false
+        }
 
         let getIndexParam = parseInt(myParam)
 
@@ -67,7 +72,7 @@ async function init() {
                 fill.style.display = "none"
                 if (parseVotes[i].length >= 1) {
                     fill.style.display = ""
-                    fill.style.width = `${ getPerc}%`
+                    fill.style.width = `${getPerc}%`
                 }
 
                 bar.appendChild(fill)
@@ -89,7 +94,7 @@ async function init() {
                 tallyName.prepend(colourBall)
                 tallyInfoHolder.appendChild(tallyName)
 
-                if (!parseVotes[i].includes(parseInt(userData.user_id))) {
+                if (userData && !parseVotes[i].includes(parseInt(userData.user_id) && Date.now() < poll.expiry)) {
                     const voteButton = document.createElement("button")
                     voteButton.innerText = "VOTE"
 
