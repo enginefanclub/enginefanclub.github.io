@@ -94,36 +94,38 @@ async function init() {
                 tallyName.prepend(colourBall)
                 tallyInfoHolder.appendChild(tallyName)
 
-                if (userData && !parseVotes[i].includes(parseInt(userData.user_id) && Date.now() < poll.expiry)) {
-                    const voteButton = document.createElement("button")
-                    voteButton.innerText = "VOTE"
+                if (Date.now() <= poll.expiry) {
+                    if (userData && !parseVotes[i].includes(parseInt(userData.user_id))) {
+                        const voteButton = document.createElement("button")
+                        voteButton.innerText = "VOTE"
 
-                    voteButton.onclick = function () {
-                        axios({
-                            url: `${apiURL}/vote`,
-                            method: "POST",
-                            headers: {
-                                "authorization": localStorage.getItem("efc-usertoken")
-                            },
-                            data: {
-                                pollid: getIndexParam,
-                                voting: i,
-                            },
-                            timeout: 5000
-                        }).then(res => {
-                            window.location.reload()
-                            console.log(res)
-                        }).catch(e => {
-                            console.error(e);
-                            if (e.response && e.response.data) {
-                                alert(e.response.data);
-                            } else if (e.response) {
-                                alert(e.response);
-                            }
-                        })
+                        voteButton.onclick = function () {
+                            axios({
+                                url: `${apiURL}/vote`,
+                                method: "POST",
+                                headers: {
+                                    "authorization": localStorage.getItem("efc-usertoken")
+                                },
+                                data: {
+                                    pollid: getIndexParam,
+                                    voting: i,
+                                },
+                                timeout: 5000
+                            }).then(res => {
+                                window.location.reload()
+                                console.log(res)
+                            }).catch(e => {
+                                console.error(e);
+                                if (e.response && e.response.data) {
+                                    alert(e.response.data);
+                                } else if (e.response) {
+                                    alert(e.response);
+                                }
+                            })
+                        }
+
+                        tallyInfoHolder.appendChild(voteButton)
                     }
-
-                    tallyInfoHolder.appendChild(voteButton)
                 }
 
                 tallyDiv.appendChild(tallyInfoHolder)
