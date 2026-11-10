@@ -1603,6 +1603,14 @@ section.settings {
     }
 }
 
+#active-poll-list {
+    display: flex;
+    flex-direction: column-reverse;
+}
+#poll-list {
+    flex-direction: column-reverse;
+}
+
 @keyframes reward-shine-spin {
     0% {
         transform: rotate(0deg);
