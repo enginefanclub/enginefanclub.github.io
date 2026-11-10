@@ -1,6 +1,10 @@
 // hi my name is emily
 
-let sprites = []
+const ANNOUNCEMENT_OVERLAY = document.createElement("div")
+ANNOUNCEMENT_OVERLAY.classList.add("announcement-overlay")
+
+let sprites = [];
+let announcementsArray = []
 let spectators = [];
 
 let socket = null;
@@ -33,8 +37,9 @@ function startSocket(withAddSprite) {
     }
     /**/
     if (withAddSprite) {
-        socket.on('reconnect', (getsprites) =>{
+        socket.on('reconnect', (getsprites, announcements) =>{
             console.log(getsprites)
+            announcementsArray = announcements
             getsprites.filter(data => data.id != null).forEach(data => {
                 addSprite(data.id, false, data.ip, data.username)
             })
@@ -81,6 +86,9 @@ function startSocket(withAddSprite) {
     socket.on('youarespectator', () => {
         spectators.push(localStorage.getItem('efc-identifier'))
     })
+    socket.on("announcement", (packet)=>{
+        announcementsArray.push(packet)
+    })
 }
 let e = setInterval(function() {
     if (document.body) { // wont scream if it doesnt exist now
@@ -88,3 +96,45 @@ let e = setInterval(function() {
         clearInterval(e);
     }
 }, 1000)
+
+let setup = false
+function updateAnnouncements() {
+
+    if (!setup && document.body) {
+        document.body.appendChild(ANNOUNCEMENT_OVERLAY)
+        setup = true
+    }
+
+    ANNOUNCEMENT_OVERLAY.innerHTML = ``
+
+    for (let i = 0; i < announcementsArray.length; i++) {
+        const announcement = announcementsArray[i];
+        if (Date.now() > announcement.started + announcement.duration) {
+            console.log(`announcement overstayed its welcome, goodbye!`)
+            announcementsArray.splice(announcementsArray.map(e => e.id).indexOf(announcement.id), 1)
+        }
+    }
+
+    announcementsArray.forEach(announcement=>{
+
+        let newAnnouncement = document.createElement("div")
+        newAnnouncement.classList.add("announcement")
+
+        newAnnouncement.innerHTML = `
+        <span class="extra">-- ANNOUNCEMENT --</span>
+        <span class="author">${announcement.author}</span>
+        <span class="content">${announcement.content}</span>
+        <span class="extra">-- ANNOUNCEMENT --</span>
+        `
+
+        ANNOUNCEMENT_OVERLAY.appendChild(newAnnouncement)
+
+    })
+
+    let er = setInterval(() => {
+        clearInterval(er)
+        return updateAnnouncements()
+    }, 1000);
+}
+
+updateAnnouncements()

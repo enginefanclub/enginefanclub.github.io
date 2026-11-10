@@ -1564,6 +1564,45 @@ section.settings {
     width: 100%;
 }
 
+.announcement-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100dvh;
+    pointer-events: none;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    .announcement {
+        background-color: black;
+        box-sizing: border-box;
+        margin: 5px;
+        border: 1px solid var(--border-colour);
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 2px black;
+        span {
+            display: block;
+        }
+        .author {
+            font-weight: 900;
+        }
+        .content {
+            font-weight: 600;
+        }
+        .extra {
+            font-style: none;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
 @keyframes reward-shine-spin {
     0% {
         transform: rotate(0deg);

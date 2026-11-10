@@ -10,38 +10,60 @@
     <script src="https://cdn.socket.io/4.8.4/socket.io.min.js"
         integrity="sha384-fBrXvbDtHoeKWJ/hcA6M+YGueiDW+h45I7V6F2kD1S8bOkrF9rZYPLVkCR6BLR/1"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="/scripts/parksocket.js"></script>
-    <script src="/scripts/btns.js" defer></script>
-    <script src="/scripts/navbar.js" defer></script>
     <script src="/scripts/admin.js?v=5" defer></script>
-    <link rel="stylesheet" href="/admin.css">
+    <link rel="stylesheet" href="/admin2.css">
 </head>
 
 <body>
 
-    <main>
-
+    <header>
         <div class="logobar">
             <img class="logo" src="/assets/efclogov2.svg" alt="">
             <h1>Engine Fan Club</h1>
         </div>
-        <h1>Admin Dashboard</h1>
-        <div class="dashboard-user-list" id="user-list">
+    </header>
+
+    <main>
+        <aside>
+            <nav>
+                <button onclick="window.location.href = '/'">homepage</button>
+                <button onclick="window.location.href = '/admin/dashboard/'">users</button>
+                <button>poll</button>
+                <button disabled>announce</button>
+                <button disabled>requests</button>
+                <button disabled>logs</button>
+            </nav>
+        </aside>
+
+        <div class="page-content loading" id="page">
+
+            <div id="user-tab">
+            </div>
+            <div id="users-tab">
+                <h5>users</h5>
+                <table id="user-table">
+                    <tr class="head">
+                        <th>id</th>
+                        <th>username</th>
+                    </tr>
+                </table>
+
+                <div class="pagination" id="pagination">
+                    <button onclick="prevPage()">last page</button>
+                    <select name="" id="dashboard-user-pages" onchange="goToPage(this.value)">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    <button onclick="nextPage()">next page</button>
+                </div>
+            </div>
 
         </div>
-        <div class="pagination" id="pagination">
-            <button onclick="prevPage()">last page</button>
-            <select name="" id="dashboard-user-pages" onchange="goToPage(this.value)">
-                <option value="1">1</option>
-                <option value="2">2</option>
-            </select>
-            <button onclick="nextPage()">next page</button>
-        </div>
-
-
     </main>
 
-    <div class="display-profile">
+    <!--<div class="display-profile" style="display: none;">
 
         <div class="user-details">
 
@@ -50,7 +72,7 @@
             </div>
 
             <div class="user-info">
-                
+
                 <h1>1nning</h1>
                 <span>ID: 1</span>
                 <span>Joined: 20/10/2026</span>
@@ -62,7 +84,7 @@
 
         </div>
 
-    </div>
+    </div>-->
 
 </body>
 

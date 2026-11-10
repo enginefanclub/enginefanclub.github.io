@@ -3,6 +3,13 @@ if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
     apiURL = "http://localhost:3000"
 }
 
+const urlParams = new URLSearchParams(window.location.search);
+const userParam = urlParams.get('user');
+
+let iconsJSON
+let badgesJSON
+let crittersJSON
+
 function getel(id) {
     return document.getElementById(id)
 }
@@ -17,6 +24,8 @@ function sethide(id, hide) {
 function getIconSpritePosition(posx, posy) {
     return [posx * -100, posy * -100]
 }
+
+const PAGE = document.getElementById("page")
 
 let page = 0;
 let count = 0;
@@ -106,13 +115,9 @@ function giveToUser(user_id, key, value) {
     })
 }
 
-let iconData = null;
-let badgeData = null;
-let critterData = null;
-
 async function refreshPage() {
+    PAGE.classList.add("loading")
     seenIDs = []
-    if (iconData == null || badgeData == null || critterData == null) return;
     try {
         const usersRes = await axios.get(`${apiURL}/users?page=${page}`);
         const users = usersRes.data.users;
@@ -128,44 +133,41 @@ async function refreshPage() {
             }
             pageOption.value = page;
         }
-        const userListDiv = getel('user-list');
-        userListDiv.innerHTML = "";
+        const userTable = getel('user-table');
         users.forEach(user => {
-            const div = document.createElement("div");
-            div.classList.add("dashboard-user");
+            const row = document.createElement("tr");
+            row.classList.add("user");
 
-            const userIcon = document.createElement("div");
-            userIcon.classList.add("dashboard-user-icon");
+            const id = document.createElement("td")
+            id.innerText = user.user_id
 
-            const dataIcon = iconData[user.icon];
-            let getSpritePos = getIconSpritePosition(dataIcon.pos[0], dataIcon.pos[1])
-            userIcon.style.backgroundPosition = `${getSpritePos[0]}px ${getSpritePos[1]}px`
+            const username = document.createElement("td")
+            username.innerText = user.username
 
-            const userDetailDiv = document.createElement("div");
-            userDetailDiv.classList.add("dashboard-user-details");
+            row.onclick = function () {
+                window.location.href = `/admin/dashboard/?user=${user.username}`
+            }
 
-            const h4Username = document.createElement("h4");
-            h4Username.textContent = `${user.username} (${user.user_id})`
-            const buttonDiv = document.createElement("div");
-            buttonDiv.classList.add("dashboard-user-buttons");
+            row.appendChild(id)
+            row.appendChild(username)
 
-            userDetailDiv.appendChild(h4Username);
-            userDetailDiv.appendChild(buttonDiv);
-
-            div.appendChild(userIcon);
-            div.appendChild(userDetailDiv);
-            seenIDs.push(user.user_id)
-
-            userListDiv.appendChild(div);
+            userTable.appendChild(row);
         })
+        PAGE.classList.remove("loading")
     } catch (e) {
         console.error(e);
         alert("couldn't load users")
     }
 }
 
-if (localStorage.getItem("efc-usertoken") != null) {
-    axios.get("/assets/jsons/profile/icons.json").then(async iconRes => {
+async function init(params) {
+    if (localStorage.getItem("efc-usertoken") != null) {
+        iconsJSON = await axios.get("/assets/jsons/profile/icons.json")
+        badgesJSON = await axios.get(`/assets/jsons/profile/badges.json`)
+        crittersJSON = await axios.get(`/assets/jsons/critters.json`)
+        iconsJSON = iconsJSON.data
+        badgesJSON = badgesJSON.data
+        crittersJSON = crittersJSON.data
         try {
             const myselfRes = await axios({
                 url: `${apiURL}/myself`,
@@ -177,11 +179,6 @@ if (localStorage.getItem("efc-usertoken") != null) {
             })
             const myselfData = myselfRes.data;
             if (JSON.parse(myselfData.badges).includes("admin") || JSON.parse(myselfData.badges).includes("moderator")) {
-                iconData = iconRes.data;
-                const badgeRes = await axios.get(`/assets/jsons/profile/badges.json`);
-                badgeData = badgeRes.data;
-                const critterRes = await axios.get(`/assets/jsons/critters.json`);
-                critterData = critterRes.data;
                 refreshPage();
             } else {
                 window.location.href = "/"
@@ -191,12 +188,109 @@ if (localStorage.getItem("efc-usertoken") != null) {
             console.error(e);
             alert("couldn't load jsons or users")
         }
-    })
-} else {
-    if (Math.floor(Math.random() * 50) < 25) {
-        window.location.href = "/"
     } else {
-        window.close()
+        if (Math.floor(Math.random() * 50) < 25) {
+            window.location.href = "/"
+        } else {
+            window.close()
+        }
+    }
+    //
+    if (typeof userParam == "string" && userParam.length >= 1) {
+
+        getel("users-tab").style.display = "none"
+        getel("user-tab").style.display = ""
+
+        axios({
+            url: `${apiURL}/users/${userParam}`,
+            method: "GET",
+            headers: {
+                "authorization": localStorage.getItem("efc-usertoken")
+            },
+            timeout: 5000
+        }).then(res => {
+
+            const usertab = document.getElementById("user-tab")
+
+            const userData = res.data
+            let getIconJs = iconsJSON[userData.icon]
+
+            const userName = document.createElement("h3")
+            userName.innerText = userData.username
+            userName.style.fontWeight = "900"
+
+            const userId = document.createElement("div")
+            userId.innerText = `id: ` + userData.user_id
+
+            const userIconName = document.createElement("div")
+            userIconName.innerText = `icon: ` + userData.icon
+
+            const userCritterName = document.createElement("div")
+            userCritterName.innerText = `critter: ` + userData.critter_selected
+
+            const userTrophies = document.createElement("div")
+            userTrophies.innerText = `trophies: ` + userData.trophies
+
+            const userBadges = document.createElement("div")
+            userBadges.innerText = `badges: ` + userData.badges
+
+            const userJoinDate = document.createElement("div")
+            userJoinDate.innerText = `joined: ` + moment(userData.joined).format('LLL');
+
+            const userCandies = document.createElement("div")
+            userCandies.innerText = `candies: ` + userData.candies
+
+            const flexrow = document.createElement("div")
+            flexrow.classList.add("flex-row")
+
+            const userIcon = document.createElement("img")
+            userIcon.classList.add("user-icon")
+            userIcon.style.backgroundImage = `url('/assets/profile/icons/${getIconJs.category}/${userData.icon}.png')`
+
+            const flexcolumn = document.createElement("div")
+            flexcolumn.classList.add("flex-column")
+            flexcolumn.classList.add("details")
+
+            const actionsDiv = document.createElement("div")
+            actionsDiv.classList.add("actions")
+
+            // can
+            // prune, give
+
+            const giveBtn = document.createElement("button")
+            giveBtn.innerText = `GIVE`
+
+            const pruneBtn = document.createElement("button")
+            pruneBtn.innerText = `PRUNE`
+
+            flexcolumn.appendChild(userName)
+            flexcolumn.appendChild(userId)
+            flexcolumn.appendChild(userIconName)
+            flexcolumn.appendChild(userCritterName)
+            flexcolumn.appendChild(userTrophies)
+            flexcolumn.appendChild(userBadges)
+            flexcolumn.appendChild(userJoinDate)
+            flexcolumn.appendChild(userCandies)
+
+            flexrow.appendChild(userIcon)
+            flexrow.appendChild(flexcolumn)
+
+            usertab.appendChild(flexrow)
+
+            usertab.appendChild(document.createElement("hr"))
+
+            actionsDiv.appendChild(giveBtn)
+            actionsDiv.appendChild(pruneBtn)
+
+            usertab.appendChild(actionsDiv)
+
+            console.log(userData)
+
+        }).catch(e => {
+            console.error(e)
+            //window.location.href = `/admin/dashboard/`
+        })
+
     }
 }
 
@@ -216,3 +310,5 @@ function prevPage() {
     getel("dashboard-user-pages").value = page.toString();
     refreshPage();
 }
+
+init()
