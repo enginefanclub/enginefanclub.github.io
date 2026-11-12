@@ -9,6 +9,7 @@ const userParam = urlParams.get('user');
 let iconsJSON
 let badgesJSON
 let crittersJSON
+let myselfData
 
 function getel(id) {
     return document.getElementById(id)
@@ -32,6 +33,30 @@ let count = 0;
 const user_per_page = 20;
 
 let seenIDs = []
+
+function announce(content, time) {
+    axios({
+        url: `${apiURL}/announcement`,
+        method: "POST",
+        headers: {
+            "authorization": localStorage.getItem("efc-usertoken")
+        },
+        data: {
+            content: content,
+            duration: time
+        },
+        timeout: 5000
+    }).then(res => {
+        alert("doned!")
+    }).catch(e => {
+        console.error(e);
+        if (e.response && e.response.data) {
+            alert(e.response.data);
+        } else if (e.response) {
+            alert(e.response);
+        }
+    })
+}
 
 function createPoll(title, desc = "", options = [], expiry) {
     if (!title) return console.warn(`Please provide a title!`);
@@ -177,7 +202,7 @@ async function init(params) {
                 },
                 timeout: 5000
             })
-            const myselfData = myselfRes.data;
+            myselfData = myselfRes.data;
             if (JSON.parse(myselfData.badges).includes("admin") || JSON.parse(myselfData.badges).includes("moderator")) {
                 refreshPage();
             } else {
