@@ -9,7 +9,6 @@ const userParam = urlParams.get('user');
 let iconsJSON
 let badgesJSON
 let crittersJSON
-let myselfData
 
 function getel(id) {
     return document.getElementById(id)
@@ -202,7 +201,7 @@ async function init(params) {
                 },
                 timeout: 5000
             })
-            myselfData = myselfRes.data;
+            const myselfData = myselfRes.data;
             if (JSON.parse(myselfData.badges).includes("admin") || JSON.parse(myselfData.badges).includes("moderator")) {
                 refreshPage();
             } else {
