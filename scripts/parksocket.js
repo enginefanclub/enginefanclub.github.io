@@ -44,6 +44,9 @@ function startSocket(withAddSprite) {
             })
             socket.emit('addsprite')
         }
+        if (announcementsArray && announcementsArray.length >= 1) {
+            updateAnnouncements()
+        }
         spectators = getsprites.filter(data => data.id == null).map(x => {
             return x.ip
         })
@@ -137,5 +140,3 @@ function updateAnnouncements() {
         return updateAnnouncements()
     }, 1000);
 }
-
-updateAnnouncements()
