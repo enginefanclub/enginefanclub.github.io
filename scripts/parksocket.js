@@ -11,7 +11,7 @@ let socket = null;
 
 function startSocket(withAddSprite) {
     if (localStorage.getItem("efc-identifier") == null) localStorage.setItem("efc-identifier", Date.now().toString())
-    if (["localhost","127.0.0.1"].includes(window.location.hostname)) {
+    if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
         socket = io.connect("http://localhost:3000", {
             reconnect: true,
             reconnectionDelay: 1000,
@@ -36,29 +36,30 @@ function startSocket(withAddSprite) {
         });
     }
     /**/
-    if (withAddSprite) {
-        socket.on('reconnect', (getsprites, announcements) =>{
-            console.log(getsprites)
-            announcementsArray = announcements
+    socket.on('reconnect', (getsprites, announcements) => {
+        announcementsArray = announcements
+        if (withAddSprite) {
             getsprites.filter(data => data.id != null).forEach(data => {
                 addSprite(data.id, false, data.ip, data.username)
             })
-            spectators = getsprites.filter(data => data.id == null).map(x => {
-                return x.ip
-            })
             socket.emit('addsprite')
+        }
+        spectators = getsprites.filter(data => data.id == null).map(x => {
+            return x.ip
         })
+    })
+    if (withAddSprite) {
 
-        socket.on('addsprite', (ip, id, username)=>{
+        socket.on('addsprite', (ip, id, username) => {
             console.log(id)
             addSprite(id, false, ip, username)
         })
 
-        socket.on('delsprite', (ip) =>{
+        socket.on('delsprite', (ip) => {
             removeSprite(ip)
         })
 
-        socket.on('changesprite', (ip, newid, oldid, username)=>{
+        socket.on('changesprite', (ip, newid, oldid, username) => {
             removeSprite(ip)
             addSprite(newid, false, ip, username)
         })
@@ -73,11 +74,11 @@ function startSocket(withAddSprite) {
             addSprite(localStorage.getItem("efc-critter"), true)
         }
     } else {
-        socket.on('reconnect', (sprites) =>{
+        socket.on('reconnect', (sprites) => {
             socket.emit('addsprite')
         })
     }
-    socket.on('addspectator', (ip)=>{
+    socket.on('addspectator', (ip) => {
         spectators.push(ip)
     })
     socket.on('delspectator', (ip) => {
@@ -86,11 +87,11 @@ function startSocket(withAddSprite) {
     socket.on('youarespectator', () => {
         spectators.push(localStorage.getItem('efc-identifier'))
     })
-    socket.on("announcement", (packet)=>{
+    socket.on("announcement", (packet) => {
         announcementsArray.push(packet)
     })
 }
-let e = setInterval(function() {
+let e = setInterval(function () {
     if (document.body) { // wont scream if it doesnt exist now
         startSocket(typeof addSprite == "function")
         clearInterval(e);
@@ -115,7 +116,7 @@ function updateAnnouncements() {
         }
     }
 
-    announcementsArray.forEach(announcement=>{
+    announcementsArray.forEach(announcement => {
 
         let newAnnouncement = document.createElement("div")
         newAnnouncement.classList.add("announcement")
