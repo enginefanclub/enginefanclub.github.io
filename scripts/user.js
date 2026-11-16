@@ -27,7 +27,7 @@ async function init() {
         const iconsResponse = await axios.get("/assets/jsons/profile/icons.json?v=2")
         const badgesResponse = await axios.get("/assets/jsons/profile/badges.json?v=2")
         const crittersResponse = await axios.get("/assets/jsons/critters.json?v=2")
-        const trophiesResponse = await axios.get("/assets/jsons/profile/trophies.json?v=2")
+        const trophiesResponse = await axios.get("/assets/jsons/profile/trophies.json?v=9")
         const userName = window.location.hash.replace("#", "");
 
         let organisedIcons = {}
@@ -114,6 +114,7 @@ async function init() {
             let hasTrophies = 0
             if (!checkingOtherUser) {
                 getel('trophy-container').style.display = ""
+                getel('egg-container').style.display = ""
                 Object.keys(trophiesJSON).forEach(trophy => {
                     let getTrophy = trophiesJSON[trophy]
                     let getTrophyPos = getSpritePosition(getTrophy.pos[0], getTrophy.pos[1], 32)
@@ -124,12 +125,17 @@ async function init() {
                     if (userData.trophies.includes(trophy)) hasTrophies++;
                     trophyDiv.setAttribute("data-after", getTrophy.name)
                     trophyDiv.setAttribute("data-before", getTrophy.hint)
-                    getel('trophy-grid').appendChild(trophyDiv)
+                    
+                    if (getTrophy.egg) {
+                        getel('egg-grid').appendChild(trophyDiv)
+                    } else {
+                        getel('trophy-grid').appendChild(trophyDiv)
+                    }
                 })
-                getel('trophy-container').innerHTML += `<span class="extra">only obtained trophies will be displayed for others to see</span>`
             } else {
                 if (userData.trophies.length >= 1) {
                     getel('trophy-container').style.display = ""
+                    getel('egg-container').style.display = ""
                     Object.keys(trophiesJSON).forEach(trophy => {
                         if (userData.trophies.includes(trophy)) {
                             hasTrophies++
@@ -145,7 +151,7 @@ async function init() {
                     })
                 }
             }
-            getel('trophy-count').innerText = `trophies (${hasTrophies}/${Object.keys(trophiesJSON).length})`
+            //getel('trophy-count').innerText = `trophies (${hasTrophies}/${Object.keys(trophiesJSON).length})`
             //TROPHY SETUP
 
             //BADGES SETUP
@@ -350,6 +356,7 @@ async function init() {
                         checkedcritter = critterButton
                         CRITTER_PREVIEW.style.backgroundImage = `url('/assets/sprites/critters/${critter.id}.png')`
                         CRITTER_INFO.innerText = critter.name
+                        localStorage.setItem("efc-critter", critter.id)
                     }
 
                     critterButton.onclick = function () {
@@ -370,7 +377,7 @@ async function init() {
                 CRITTERS_TAB.appendChild(grid)
             })
 
-            CRITTERS_TAB.appendChild(CRITTER_PREVIEW)
+            //CRITTERS_TAB.appendChild(CRITTER_PREVIEW)
             //INVENTORY CRITTERS
 
             //INVENTORY BANNERS

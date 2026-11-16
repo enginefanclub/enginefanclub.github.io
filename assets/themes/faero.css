@@ -1,5 +1,9 @@
+* {
+    image-rendering: optimizeSpeed;
+}
+
 body {
-    background: url('https://frutigeraeroarchive.org/images/wallpapers/windows_vista/windows_vista_50.jpg');
+    background: url('/assets/site/bg/windows_vista_50.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

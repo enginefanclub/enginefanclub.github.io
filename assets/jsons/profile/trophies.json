@@ -1,5 +1,6 @@
 {
     "letter": {
+        "egg":true,
         "name": "Letter",
         "desc": "Find the letter to Agnes.",
         "hint": "There's a letter somewhere here,",
@@ -17,6 +18,7 @@
         }
     },
     "thinker": {
+        "egg":true,
         "name": "The Philosopher",
         "desc": "Hmmmmm",
         "hint": "I really am an elosofer... No that's not right, ilosopher, no, Philosopher!",
@@ -34,6 +36,7 @@
         }
     },
     "mustardtext": {
+        "egg":true,
         "name": "Conversation",
         "desc": "Find the conversation between two people.",
         "hint": "Another project of mine. The files are all covered in mustard, though.",
@@ -51,6 +54,7 @@
         }
     },
     "arcanahopium": {
+        "egg":true,
         "name": "Humanity's Salvation",
         "desc": "Happen upon the company that will save us all.",
         "hint": "Another project of mine. ARCANA will save us all.",
@@ -68,6 +72,7 @@
         }
     },
     "duck": {
+        "egg":true,
         "name": "Duck",
         "desc": "Quack",
         "hint": "There's a duck in the root!",
@@ -85,6 +90,7 @@
         }
     },
     "engine404": {
+        "egg":true,
         "name": "Found Engine",
         "desc": "Well, he's clearly right there!",
         "hint": "Find a page that cannot be found. And hope he reveals himself.",
@@ -102,6 +108,7 @@
         }
     },
     "clickneffi": {
+        "egg":true,
         "name": "Ow!",
         "desc": "Why'd you do that??",
         "hint": "I'm usually online. Usually.",
@@ -114,6 +121,7 @@
         }
     },
     "enajrant": {
+        "egg":true,
         "name": "?orbdamu",
         "desc": "She's easily irritable, it's okay.",
         "hint": ".hguoht ,dratsum ni derevoc lla era selif ehT .enim fo tcejorp rehtonA",
@@ -131,6 +139,7 @@
         }
     },
     "2026hw": {
+        "egg":false,
         "name": "Knock Knock Master (2026)",
         "desc": "Get all the rewards during 2026 Halloween Event",
         "hint": "Get all rewards during the 2026 Halloween Event",
