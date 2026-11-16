@@ -125,7 +125,7 @@ async function init() {
                     if (userData.trophies.includes(trophy)) hasTrophies++;
                     trophyDiv.setAttribute("data-after", getTrophy.name)
                     trophyDiv.setAttribute("data-before", getTrophy.hint)
-                    
+
                     if (getTrophy.egg) {
                         getel('egg-grid').appendChild(trophyDiv)
                     } else {
@@ -146,7 +146,11 @@ async function init() {
                             trophyDiv.style.backgroundPosition = `${getTrophyPos[0]}px ${getTrophyPos[1]}px`
                             trophyDiv.setAttribute("data-after", getTrophy.name)
                             trophyDiv.setAttribute("data-before", getTrophy.hint)
-                            getel('trophy-grid').appendChild(trophyDiv)
+                            if (getTrophy.egg) {
+                                getel('egg-grid').appendChild(trophyDiv)
+                            } else {
+                                getel('trophy-grid').appendChild(trophyDiv)
+                            }
                         }
                     })
                 }
