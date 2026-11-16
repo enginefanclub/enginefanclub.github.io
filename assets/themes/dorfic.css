@@ -89,11 +89,11 @@ main>*:nth-child(n+2):not(.spacer) {
     background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
     border: 1px solid lightgrey;
     box-shadow: inset 0px 0px 2px black;
-    margin: 0px 10px;
     overflow: hidden;
     border-radius: 5px;
     padding: 5px !important;
     gap: 2px;
+    box-sizing: border-box;
 
     * {
         color: black;
@@ -321,6 +321,62 @@ section.settings {
             color: white;
         }
     }
+}
+
+.polls-container {
+    box-sizing: border-box;
+
+    #active-poll-list,
+    #poll-list {
+        margin: 5px 10px;
+        box-sizing: border-box;
+    }
+
+    .poll {
+        box-sizing: border-box;
+        padding: 5px;
+        background: #db6e00;
+        background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+        border: 1px solid rgb(197, 128, 0);
+        box-shadow: inset 0px 0px 1px black;
+        border-radius: 5px;
+
+        .colourball {
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .bar {
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    }
+
+}
+
+.asidelist {
+
+    .wip {
+        border: none;
+        box-sizing: border-box;
+        padding: 0px;
+        article.game {
+            padding: 5px;
+            background: #db6e00;
+            background: linear-gradient(0deg, rgba(219, 110, 0, 1) 0%, rgba(255, 128, 0, 1) 56%, rgba(252, 165, 78, 1) 100%);
+            border: 1px solid rgb(197, 128, 0);
+            box-shadow: inset 0px 0px 1px black;
+            border-radius: 5px;
+            box-sizing: border-box;
+            * {
+                color: black;
+            }
+        }
+        h2 {
+            margin-bottom: 4px;
+        }
+    }
+
 }
 
 @media screen and (max-width: 775px) {

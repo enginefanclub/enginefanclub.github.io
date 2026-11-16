@@ -260,7 +260,9 @@ select {
     background: white;
 }
 
-
+body::after {
+    all: unset !important;
+}
 
 @media screen and (max-width: 775px) {
 

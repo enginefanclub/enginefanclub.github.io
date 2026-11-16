@@ -83,19 +83,43 @@ axios.get(`${apiURL}/getpolls`).then(res => {
 
             pollDiv.appendChild(tallyDiv)
 
-            pollDiv.innerHTML += `<div class="spacer"></div>`
-
             activePoll.appendChild(pollDiv)
 
             ACTIVE_POLL_LIST.appendChild(activePoll)
 
         } else {
+
+            let winning = []
+            let winningi
+
+            let parseOptions = JSON.parse(poll.options)
+            let parseVotes = JSON.parse(poll.votes)
+            let getTotalVotes = 0
+            parseVotes.forEach(option => {
+                getTotalVotes += option.length
+            });
+
+            for (let i = 0; i < parseVotes.length; i++) {
+                const votes = parseVotes[i];
+                if (votes.length >= winning.length) {
+                    winning = votes
+                    winningi = i
+                }
+            }
+
+            const colourBall = document.createElement("div")
+            colourBall.classList.add("colourball")
+            colourBall.classList.add(POLL_CLASSES[winningi])
+
             POLL_LIST.innerHTML += `<a href="/poll/?id=${poll.id}">
                         <div class="article-content">
                             <span class="article-title">${poll.title}</span>
-                            <span class="article-timestamp">${moment(poll.expiry).fromNow()}</span>
+                            <span class="article-timestamp" id="poll-result" style="display:flex;align-items:center;"></span>
                         </div>
                     </a>`
+
+            document.getElementById("poll-result").appendChild(colourBall)
+            document.getElementById("poll-result").innerHTML += `<b>${parseOptions[winningi]} (${parseVotes[winningi].length})</b>`
         }
 
     });

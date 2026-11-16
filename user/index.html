@@ -18,6 +18,7 @@
     <script src="/scripts/navbar.js" defer></script>
     <script src="/scripts/theme.js"></script>
     <script src="/scripts/user.js?v=6" defer></script>
+    <script src="/scripts/park-mini.js" defer></script>
 </head>
 
 <body>
@@ -39,7 +40,8 @@
 
         <div id="window-load" style="width: 100%;height: 100%;">
 
-            <div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;flex-direction: column;">
+            <div
+                style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;flex-direction: column;">
                 <img src="/assets/site/loading.gif" alt="" style="border:1px solid var(--border-colour);">
                 <button id="forcerelog" style="display: none;" onclick="logout()">force relog (might fix)</button>
             </div>
@@ -100,26 +102,34 @@
 
             </div>
 
-            <section style="margin-top: 4px;">
-                <table class="profile-stats">
-                    <tr>
-                        <th>joined</th>
-                        <th>last online</th>
-                    </tr>
-                    <tr>
-                        <td id="joined">17/10/2026</td>
-                        <td id="lastOnline">5 hours ago</td>
-                    </tr>
-                </table>
-                <div id="trophy-container" style="display: none;">
-                    <hr>
-                    <h4 id="trophy-count">trophies (0 / 10)</h4>
-                    <div class="profile-grid" id="trophy-grid">
-                        <!--<div class="trophy"></div>-->
+            <section class="user-details">
+                <div class="main">
+                    <table class="profile-stats">
+                        <tr>
+                            <th>joined</th>
+                            <th>last online</th>
+                        </tr>
+                        <tr>
+                            <td id="joined">17/10/2026</td>
+                            <td id="lastOnline">5 hours ago</td>
+                        </tr>
+                    </table>
+                    <div id="trophy-container" style="display: none;">
+                        <hr>
+                        <h4 id="trophy-count">trophies (0 / 10)</h4>
+                        <div class="profile-grid" id="trophy-grid">
+                            <!--<div class="trophy"></div>-->
+                        </div>
+                    </div>
+                    <h5 id="show-currency" style="display: none;">event currency amassed</h5>
+                    <div id="currency-container"></div>
+                </div>
+                <div class="critter-display">
+                    <h4>critter</h4>
+                    <div class="critter-box">
+                        <canvas id="park" width="100" height="100"></canvas>
                     </div>
                 </div>
-                <h5 id="show-currency" style="display: none;">event currency amassed</h5>
-                <div id="currency-container"></div>
             </section>
 
             <div class="spacer" id="setting-divider"></div>
@@ -145,7 +155,7 @@
                     </div>
 
                     <div id="banners-tab" class="settings-tab" style="display: none;">
-                        
+
                     </div>
 
                 </div>

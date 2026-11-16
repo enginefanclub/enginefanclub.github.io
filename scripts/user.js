@@ -66,6 +66,7 @@ async function init() {
             setTimeout(() => {
                 getel('forcerelog').style.display = ""
             }, 5500);
+            renderSpriteThing(localStorage.getItem("efc-critter"))
         }
 
         axios({
@@ -94,6 +95,7 @@ async function init() {
             if (checkingOtherUser) {
                 getel('setting-divider').hidden = true
                 getel("profile-settings").hidden = true;
+                renderSpriteThing(userData.critter_selected)
             }
 
             document.title = userData.username + " - Engine Fan Club"
@@ -354,10 +356,12 @@ async function init() {
                         if (socket != null) {
                             socket.emit('changesprite', critter.id);
                             localStorage.setItem("efc-critter", critter.id);
+                            clearSpritesArray()
+                            renderSpriteThing(critter.id)
 
                             checkedcritter.classList.remove("check")
                             critterButton.classList.add("check")
-                            checkedicon = critterButton
+                            checkedcritter = critterButton
                             CRITTER_PREVIEW.style.backgroundImage = `url('/assets/sprites/critters/${critter.id}.png')`
                             CRITTER_INFO.innerText = critter.name
                         }

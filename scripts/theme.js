@@ -45,8 +45,21 @@ function applyTheme(theme, type = null) {
 }
 
 try {
-    applyTheme(JSON.parse(localStorage.getItem("efc-settings")).theme)
-    applyTheme(JSON.parse(localStorage.getItem("efc-settings")).accessibility.font, "font")
+    let getParsedSettings = JSON.parse(localStorage.getItem("efc-settings"))
+    applyTheme(getParsedSettings.theme)
+    applyTheme(getParsedSettings.accessibility.font, "font")
+
+    if (getParsedSettings.accessibility.font_mod != 0) {
+        let style = document.createElement('style')
+        style.innerHTML = `
+        :root {
+            --font-scale: ${getParsedSettings.accessibility.font_mod * -1}px
+        }
+        `
+        document.head.appendChild(style)
+    }
+
 } catch (error) {
     applyTheme(null)
 }
+

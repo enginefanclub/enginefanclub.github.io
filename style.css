@@ -40,6 +40,7 @@
 * {
     color: var(--font-colour);
     font-family: var(--font);
+    image-rendering: optimizeSpeed;
 }
 
 body {
@@ -1504,44 +1505,18 @@ section.settings {
         }
     }
 
-    .a {
-        background: #5454FC;
-    }
-
-    .b {
-        background: #FC5454;
-    }
-
-    .c {
-        background: #34a734;
-    }
-
-    .d {
-        background: #FCFC54
-    }
-
-    .e {
-        background: #ff9718
-    }
-
-    .f {
-        background: #8622ff
-    }
-
-    .g {
-        background: #f64ff3
-    }
-
     h3 {
         text-decoration: underline;
     }
 
     .tally {
         margin-top: 4px;
+
         >div {
             display: flex;
             align-items: center;
         }
+
         .colourball {
             width: 10px;
             height: 10px;
@@ -1549,14 +1524,44 @@ section.settings {
             border-radius: 100%;
             margin-right: 4px;
         }
+
         * {
             font-weight: 500;
         }
+
         .tally-item {
             display: flex;
             align-items: center;
         }
     }
+}
+
+.a {
+    background: #5454FC;
+}
+
+.b {
+    background: #FC5454;
+}
+
+.c {
+    background: #34a734;
+}
+
+.d {
+    background: #FCFC54
+}
+
+.e {
+    background: #ff9718
+}
+
+.f {
+    background: #8622ff
+}
+
+.g {
+    background: #f64ff3
 }
 
 .article-results {
@@ -1577,6 +1582,7 @@ section.settings {
     flex-direction: column;
     gap: 5px;
     z-index: 99999999;
+
     .announcement {
         background-color: black;
         box-sizing: border-box;
@@ -1586,15 +1592,19 @@ section.settings {
         display: flex;
         flex-direction: column;
         box-shadow: 0px 0px 2px black;
+
         span {
             display: block;
         }
+
         .author {
             font-weight: 900;
         }
+
         .content {
             font-weight: 600;
         }
+
         .extra {
             font-style: none;
             font-size: 14px;
@@ -1608,8 +1618,46 @@ section.settings {
     display: flex;
     flex-direction: column-reverse;
 }
+
 #poll-list {
     flex-direction: column-reverse;
+}
+
+.user-details {
+    margin-top: 4px;
+    display: flex;
+
+    .critter-display {
+        width: fit-content;
+        text-align: center;
+
+        .critter-box {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            box-sizing: border-box;
+            border: 1px solid black;
+
+            canvas {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .main {
+        flex-grow: 1;
+    }
+}
+
+#poll-result {
+    .colourball {
+        width: 10px;
+        height: 10px;
+        aspect-ratio: 1/1;
+        border-radius: 100%;
+        margin-right: 4px;
+    }
 }
 
 @keyframes reward-shine-spin {

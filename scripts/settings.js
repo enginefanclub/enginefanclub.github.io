@@ -1,5 +1,7 @@
 const THEME_SELECT = document.getElementById("theme-select")
 const FONT_SELECT = document.getElementById("font-select")
+const FONT_SIZE_RANGE = document.getElementById("font-size-range")
+const FONT_SIZE_DISPLAY = document.getElementById("font-size-display")
 
 let def = { // default settings
     theme: "",
@@ -10,6 +12,8 @@ let def = { // default settings
 }
 
 let user_settings
+
+FONT_SIZE_DISPLAY.innerText = `${FONT_SIZE_RANGE.value}px`
 
 try {
 
@@ -40,6 +44,12 @@ THEME_SELECT.addEventListener("change", (e) => {
 })
 FONT_SELECT.addEventListener("change", (e) => {
     user_settings.accessibility.font = FONT_SELECT.value
+    localStorage.setItem("efc-settings", JSON.stringify(user_settings))
+    location.reload()
+})
+FONT_SIZE_RANGE.addEventListener("change", (e)=>{
+    FONT_SIZE_DISPLAY.innerText = `${FONT_SIZE_RANGE.value}px`
+    user_settings.accessibility.font_mod = parseInt(FONT_SIZE_RANGE.value)
     localStorage.setItem("efc-settings", JSON.stringify(user_settings))
     location.reload()
 })
