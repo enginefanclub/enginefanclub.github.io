@@ -20,6 +20,7 @@ try {
     user_settings = JSON.parse(localStorage.getItem("efc-settings"))
     THEME_SELECT.value = user_settings.theme
     FONT_SELECT.value = user_settings.accessibility.font
+    FONT_SIZE_RANGE.value = user_settings.accessibility.font_mod
 
     Object.keys(def).forEach(key => { // parity
         console.log("HELP")
