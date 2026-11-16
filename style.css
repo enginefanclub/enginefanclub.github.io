@@ -1782,6 +1782,14 @@ section.settings {
         max-width: 100% !important;
     }
 
+    .asidelist {
+        flex-direction: column;
+        .wip {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
 }
 
 @media screen and (max-width:460px) {
